@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="card-Aclubs.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="-53.589892 : 517.60966 : 1"
+       inkscape:vp_y="7.0616468e-14 : 1000 : 0"
+       inkscape:vp_z="804.56871 : 517.60966 : 1"
+       inkscape:persp3d-origin="375.48941 : 342.21596 : 1"
+       id="perspective10" />
+    <filter
+       inkscape:collect="always"
+       id="filter3254">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="7.7965407"
+         id="feGaussianBlur3256" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4966">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.4809308"
+         id="feGaussianBlur4968" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter4970">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.4809308"
+         id="feGaussianBlur4972" />
+    </filter>
+    <filter
+       inkscape:collect="always"
+       id="filter6411">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="1.6819006"
+         id="feGaussianBlur6413" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.3"
+     inkscape:cx="-585.14437"
+     inkscape:cy="552.90829"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1152"
+     inkscape:window-height="775"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     showguides="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <rect
+       rx="60.60915"
+       ry="63.63961"
+       y="26.047195"
+       x="24.243658"
+       height="1006.1119"
+       width="709.12708"
+       id="rect3208"
+       style="opacity:0.91666667;fill:#000000;filter:url(#filter3254)" />
+    <rect
+       style="fill:#ffffff"
+       id="rect3206"
+       width="709.12708"
+       height="1006.1119"
+       x="10.101523"
+       y="7.8644519"
+       ry="63.63961"
+       rx="60.60915" />
+    <text
+       xml:space="preserve"
+       style="font-size:225.65773009999998067px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli;filter:url(#filter4970)"
+       x="47.257381"
+       y="188.40356"
+       id="text3475"
+       transform="scale(1.0234483,0.9770889)"><tspan
+         sodipodi:role="line"
+         id="tspan3477"
+         x="47.257381"
+         y="188.40356">A</tspan></text>
+    <text
+       transform="scale(1.0234483,0.9770889)"
+       id="text3487"
+       y="980.57336"
+       x="537.01221"
+       style="font-size:225.65773009999998067px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli;filter:url(#filter4966)"
+       xml:space="preserve"><tspan
+         y="980.57336"
+         x="537.01221"
+         id="tspan3489"
+         sodipodi:role="line">A</tspan></text>
+    <path
+       id="path3329"
+       style="opacity:1;fill:#000000;display:inline;filter:url(#filter6411)"
+       d="M 364.922,293.67181 C 360.07707,293.66902 355.18258,293.95439 350.24466,294.59452 C 295.2069,301.72926 255.11106,348.61023 255.15895,402.4538 C 250.48753,402.47333 245.77493,402.75985 241.01799,403.3765 C 181.23531,411.12636 139.02748,465.73894 146.81,525.27061 C 154.59251,584.80228 209.4197,626.84495 269.20239,619.09508 C 279.61832,617.74482 289.47735,614.90962 298.65458,610.93643 L 255.11018,697.71922 L 473.56352,697.71922 L 430.01914,610.93643 C 447.5607,618.55927 467.30756,621.7329 487.65569,619.09508 C 547.43838,611.34524 589.64621,556.73265 581.86369,497.20097 L 577.3776,477.38712 C 562.3372,431.62722 520.60724,402.21631 473.51476,402.4538 C 473.51064,397.81183 473.25473,393.14397 472.63704,388.41898 L 468.15094,368.60512 C 453.17764,323.04936 411.75617,293.69872 364.922,293.67181 z M 366.01476,410.31865 C 366.00783,462.13635 364.72878,504.00558 363.15974,503.77675 C 361.59068,503.54793 360.32287,461.30727 360.32981,409.48958 C 360.33673,357.67187 361.61579,315.80265 363.18483,316.03147 C 364.69591,316.25184 365.92972,355.04123 366.0107,404.8733 M 243.74332,513.3773 C 257.14804,563.43114 266.74912,604.20476 265.17432,604.38983 C 263.59951,604.5749 251.44221,564.1017 238.03749,514.04785 C 224.63278,463.994 215.0317,423.22041 216.6065,423.03533 C 218.12314,422.85709 229.35433,460.00543 242.33004,508.11856 M 485.37437,515.46503 C 471.95627,565.51528 459.88425,605.62681 458.42791,604.99967 C 456.97154,604.37256 466.67962,563.24309 480.09771,513.19283 C 493.51581,463.14256 505.58783,423.03104 507.04419,423.65816 C 508.44674,424.26212 499.59907,462.04914 486.77981,510.20417" />
+  </g>
+</svg>
