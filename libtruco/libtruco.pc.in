@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+datadir=@datadir@/@PACKAGE@
+libdir=@libdir@
+includedir=@includedir@
+libtruco_includedir=@libtruco_includedir@
+
+Name: libtruco
+Description: A small library to make truco games
+Version: @VERSION@
+Libs: -L${libdir} -llibtruco
+Libs.private: -lm
+Cflags: -I${libtruco_includedir}

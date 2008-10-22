@@ -1,0 +1,146 @@
+\documentclass[]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[brazil]{babel}
+
+\title{Ferramentas de mantenedor}
+\author{Diogo Dutra}
+\date{22 de Outubro de 2008}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introdução}
+Iremos utilizar ferramentas para o auxílio a manutenção do código do ETruco, as ferramentas a serem utilizadas serão as GNU autotools, tais quais autoconf, automake e libtool, o pkg-config e por último o autogen.sh.
+
+\section{autoconf}
+O GNU autoconf é uma ferramenta de auxílio para criar um ambiente portável de configurações e compilação envolta de um software.
+Ele quem é o encarregado de criar todos os arquivos para configuração de compilação do software, verificar o que precisa para compilação, dependências, parâmetros, etc.
+
+Basicamente o autoconf lê o arquivo configure.ac e aplica as regras contidas dentro dele.
+O arquivo configure.ac é um shell script, pode-se usar as macros pré-estabelecidas pelo autoconf, serão citadas aqui apenas algumas de muita utilidade.
+\begin{verbatim}
+# Inicia o autoconf
+AC_INIT(NOME, VERSAO, BUGS REPORT)
+
+# Iniciar o automake
+AM_INIT_AUTOMAKE
+
+# Verifica se PROGRAMA existe,
+# normalmente usa-se LIBTOOL, CC ou CXX
+AC_PROG_PROGRAMA
+
+# Exporta variáveis para dentro das configurações,
+# pode ser usado também pelo automake
+AC_SUBST(VARIAVEIS)
+
+# Chama o pkg-config para checar essas dependências
+PKG_CHECK_MODULES(NOME MODULO,[MODULOS A SEREM CHECADOS])
+
+# Os headers criados pelo autoconf,
+# normalmente só usa-se o config.h
+AC_CONFIG_HEADERS(config.h)
+
+# Os arquivos que serão gerados pelo configure
+# Os arquivos em ARQUIVOS podem ser arquivos .in
+# para serem pré-processados pelo autoconf
+AC_CONFIG_FILES(ARQUIVOS)
+
+# Chama a criação dos arquivos
+AC_CONFIG_OUTPUT
+\end{verbatim}
+
+\section{automake}
+O automake é uma ferramenta para se criar Makefiles automáticos seguindo um padrão específico.
+Para utilizar o automake corretamente é necessário se ter um arquivo Makefile.am em cada diretório q se deseja utilizar na compilação.
+Abaixo são citadas algumas das importantes variáveis q o automake entende.
+\begin{verbatim}
+# Indica quais são os subdiretórios
+# que serão usados, isto é obrigatório caso
+# haja um subdiretório que será usado na compilação
+SUBDIRS
+
+
+# ONDE é onde os programas
+# executáveis EXECS serão instalados,
+# ONDE podem ser diretórios padrões
+# bin, lib, etc, ou o pode ser qualquer,
+# onde o valor de qualquer será o valor
+# da variável qualquerdir
+ONDE_PROGRAMS EXECS
+
+# O mesmo de PROGRAMS vale para esse,
+# mas aqui serão colocadas as bibliotecas
+ONDE_LIBRARIES LIBS
+
+# Segue a mesma métrica de ONDE_PROGRAMS para os demais
+# Bibliotecas da libtool
+ONDE_LTLIBRARIES
+
+# Cabeçalhos a serem instalados (.h)
+ONDE_HEADERS
+
+# Scripts extras
+ONDE_SCRIPTS
+
+# Os dados q a aplicação usará
+# Caso queira se criar algum arquivo destes citados 
+# anteriormente para uso dentro do projeto,
+# mas não na instalação usa-se noinst em ONDE
+ONDE_DATA
+
+
+# Os fontes necessários para compilar COISA,
+# COISA é um parâmetro passado para 
+# ONDE_PROGRAMS e todos anteriormente citados
+# Caso um desses parâmetros contenha caracteres
+# não-alpha-numéricos deve ser colocado um _ no lugar
+COISA_SOURCES
+
+# Flags adicionais para C
+COISA_CFLAGS
+
+# Flags adicionais para C++
+COISA_CPPFLAGS
+
+# Linkagem de objetos para o caso de COISA ser um executavel
+COISA_LDADD
+
+# Linkagem de objetos para o caso de COISA ser uma biblioteca
+COISA_LIBADD
+
+# Flags adicionais para o linker
+COISA_LDFLAGS
+
+# Arquivos adicionais q deseja ser empacotados
+EXTRA_DIST
+\end{verbatim}
+
+\section{libtool}
+Abstrai todo processo de criação de bibliotecas, sempre criará um arquivo .la, que será compilado posteriormente de acordo com a plataforma q se está utilizando.
+Seu uso é bem simples.
+Basta habilitar a opção AC\_PROG\_LIBTOOL no autoconf e utilizar sempre o LTLIBRARIES no automake.
+Em regras como LDADD e LIBADD sempre apontar para os arquivos .la. Pronto, a libtool já vai fazer todo o processo de criação de bibliotecas.
+
+\section{pkg-config}
+Ferramenta utilizada para fazer checagem de dependências, ele utiliza arquivos SEU\_PROGRAMA.pc, o conteúdo deste arquivo tem informações sobre o programa.
+Deve conter:
+\begin{verbatim}
+Name: Nome do programa
+Description: Breve descrição do programa
+Version: Versão do programa
+Libs: -Llocal_das_libs -lqual_lib
+Libs.private: Dependências básicas dessa lib
+Cflags: -Ilocal_dos_cabeçalhos OUTRAS_FLAGS
+\end{verbatim}
+
+\section{autogen.sh}
+O autoconf possui uma ferramenta chamada autoreconf, que é encarregada de chamar o autoconf, automake e a libtool.
+Mas o autoreconf tem algumas limitações, por isso foi criado o autogen.sh, e ele será utilizado no lugar do autoreconf.
+
+Sua utilização é bem simples, o script autogen.sh se encontra no próprio diretório do projeto, e basta executá-lo para fazer as configurações.
+
+\section{Referências}
+
+\end{document}
