@@ -22,10 +22,30 @@ Truco::Truco( int num_players, int num_teams=2 )
 {
 	int num_team_players = num_players / num_teams;
 	
-	
 	for( int i = 0; i < num_players; i++ )
-	{
 		players.push_back( new Player() );
+	
+	// Cria as equipes e adiciona os jogadores a elas
+	for( int i = 0; i < num_teams; i++ )
+	{
+		vector <Player*> aux;
+		// insere todos os jogadores da mesma equipe de uma vez
+		for( int j = 0; j < num_team_players; j++ )
+			aux.push_back( players[(i+(num_team_players*j)] );
+		teams.push_back( new Team(aux) );
 	}
 			
+}
+
+Truco::~Truco()
+{
+	int size = players.size();
+	
+	for( int i = 0; i < size; i++ )
+		delete players[i];
+		
+	size = teams.size();
+	
+	for( int i = 0; i < size; i++ )
+		delete teams[i];
 }

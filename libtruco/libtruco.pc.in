@@ -4,6 +4,7 @@ datadir=@datadir@/@PACKAGE@
 libdir=@libdir@
 includedir=@includedir@
 libtruco_includedir=@libtruco_includedir@
+datarootdir=@datarootdir@
 
 Name: libtruco
 Description: A small library to make truco games

@@ -11,7 +11,8 @@ EXTRA_DIST = AUTHORS \
 	ChangeLog \
 	Doxyfile \
 	libtruco.c.in \
-	libtruco.pc.in
+	libtruco.pc.in \
+	doc/
 
 MAINTAINERCLEANFILES = aclocal.m4 autom4te.cache/ config.guess config.h config.h.in \
 		config.log config.status config.sub depcomp install-sh libtool \
