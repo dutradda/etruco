@@ -15,7 +15,3 @@ libtruco_include_HEADERS= \
 	Truco.h           \
 	Deck.h           \
 	Deck_Baralho_Sujo.h
-
-#bin_PROGRAMS=hello
-#hello_SOURCES=main.cpp
-#hello_LDADD=libhello.la

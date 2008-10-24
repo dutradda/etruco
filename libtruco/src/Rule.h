@@ -22,6 +22,8 @@
 #define RULE_H
 
 #include <string>
+#include <vector>
+#include <map>
 using namespace std;
 
 /**
@@ -37,51 +39,51 @@ class Rule
 			string _truco_type,
 			string _description,
 			string _where_apply,
-			vector <string> _conflits,
+			vector <string> _conflicts,
 			vector <string> _depends,
 			string _cb_name,
 			int ( *_callback )( vector <void*> ),
-			map <string, void*> state );
+			map <string, void*> _state );
 		
 		/**
 		 * Return the rule's name
 		 */
-		inline string get_name() { return name };
+		inline string get_name() { return name; };
 		
 		/**
 		 * Return the rule's truco type
 		 */
-		inline string get_truco_type() { return truco_type };
+		inline string get_truco_type() { return truco_type; };
 		
 		/**
 		 * Return the rule's description
 		 */
-		inline string get_description() { return description };
+		inline string get_description() { return description; };
 		
 		/**
 		 * Return where the rule applies
 		 */
-		inline string get_where_apply() { return where_apply };
+		inline string get_where_apply() { return where_apply; };
 		
 		/**
 		 * Return the rule's conflicts
 		 */
-		inline vector <string> get_conflicts() { return conflicts };
+		inline vector <string> get_conflicts() { return conflicts; };
 		
 		/**
 		 * Return the rule's dependencies
 		 */
-		inline string get_depends() { return depends };
+		inline vector <string> get_depends() { return depends; };
 		
 		/**
 		 * Return the rule's callback name
 		 */
-		inline string get_cb_name() { return cb_name };
+		inline string get_cb_name() { return cb_name; };
 		
 		/**
 		 * Return the rule's callback state
 		 */
-		inline map <string, void*> get_state()  { return state };
+		inline map <string, void*> get_state()  { return state; };
 		
 		int ( *callback )( vector <void*> ); /**< The function callback to the rule */
 	
@@ -90,8 +92,8 @@ class Rule
 		string truco_type; /**< The rule's truco type */
 		string description; /**< The rule's description */
 		string where_apply; /**< Which game part this rule is appliable */
-		string conflits; /**< Which rules this rule conflits */
-		string depends; /**< Which rules this rule depends */
+		vector <string> conflicts; /**< Which rules this rule conflits */
+		vector <string> depends; /**< Which rules this rule depends */
 		string cb_name; /**< The callback's name */
 		map <string, void*> state; /**< The variables defines the rule's state */
 };

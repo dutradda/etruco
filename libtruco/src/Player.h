@@ -64,7 +64,7 @@ class Player
 		 *  0 if the player dont have the card.
 		 *  -1 if the player dont have any card.
 		 */
-		int plays_card( const Card& _card );
+		int plays_card( Card& _card );
 		
 		/**
 		 * Receive new cards.

@@ -23,6 +23,9 @@
 
 #include "Card.h"
 
+#include <vector>
+using namespace std;
+
 /**
  * The deck class.
  */
@@ -40,12 +43,12 @@ class Deck
 		/**
 		 * Destructor.
 		 */
-		Deck();
+		~Deck();
 		
 		/**
 		 * Shuffle the deck.
 		 */
-		void Shuffle();
+		void shuffle();
 		
 		/**
 		 * Gets three cards from deck.
@@ -56,6 +59,8 @@ class Deck
 		vector <Card*> cards; /**< The deck's cards */
 		
 	private:
-		char get_cards_count = 0; /**< Counts the number of cards geted */
+		char get_cards_count; /**< Counts the number of cards geted */
 	
-}
+};
+
+#endif

@@ -48,9 +48,37 @@ class Card
 		 */
 		inline int get_suit() { return suit; };
 		
+		/**
+		 * The = operator
+		 */
+		inline Card operator=( Card& _card );
+		
+		/**
+		 * The = operator
+		 */
+		inline bool operator==( Card& _card ) const;
+		
 	private:
 		int value; /**< The card's value */
 		int suit; /**< The card's suit */		
 };
+
+inline
+Card Card::operator=( Card& _card )
+{
+this->value = _card.get_value();
+this->suit = _card.get_suit();
+
+return *this;
+}
+
+inline
+bool Card::operator==( Card& _card ) const
+{
+if( this->value == _card.get_value() && this->suit == _card.get_suit() )
+	return true;
+else
+	return false;
+}
 
 #endif

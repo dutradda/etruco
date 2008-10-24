@@ -24,6 +24,8 @@
  
 Deck::Deck(int _size)
 {
+	get_cards_count = 0;
+	
 	for( int i = 0; i < _size; i++ )
 		for( int j = 0; j < 4; j++ )
 			cards.push_back(new Card(i, j));

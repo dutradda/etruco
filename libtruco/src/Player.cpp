@@ -30,7 +30,7 @@ vector <Card> Player::get_cards()
 	return _cards;
 }
 
-int Player::plays_card( const Card& _card )
+int Player::plays_card( Card& _card )
 {
 	if( cards.empty() )
 		return -1;
@@ -38,11 +38,13 @@ int Player::plays_card( const Card& _card )
 	vector<Card*>::iterator i;
 	
 	for( i = cards.begin(); i != cards.end(); i++)
-		if( *(*i) == _card )
+	{
+		if( _card == *(*i) )
 		{
 			cards.erase(i);
 			return 1;
 		}
+	}
 	
 	return 0;
 }
