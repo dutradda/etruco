@@ -40,8 +40,18 @@ class Truco
 	public:
 		/**
 		 * Default Constructor
+		 * 
+		 * @param num_players
+		 * 	The number of players.
+		 * @param num_teams
+		 * 	The number of teams, the default is two.
 		 */
-		Truco();
+		Truco(int num_players, int num_teams );
+		
+		/**
+		 * Destructor
+		 */
+		~Truco();
 		
 		/**
 		 * Start a new hand in the game.

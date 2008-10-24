@@ -1,0 +1,28 @@
+/** 
+@brief
+Libtruco, a Truco game API.
+*/
+
+/**
+
+@mainpage Libtruco
+
+
+@author Diogo Dutra <diogo.comp\@gmail.com>
+@date 2008
+
+@section libtruco How Libtruco works
+
+This library was created to makes easy creation of an Truco game.
+
+Libtruco reads a xml file containing the rules to be used in the game.
+This rules are associated with a function, that implements how the rule works.
+
+@section deps Depends
+
+libxml2 - For reads the xml file with the rules.
+
+glib - Libtruco uses only the gmodule part of the glib.
+Libtruco uses gmodule to load libraries in runtime, to map the rules with your functions.
+
+*/
