@@ -39,11 +39,10 @@ class Rule
 			string _truco_type,
 			string _description,
 			string _where_apply,
-			vector <string> _conflicts,
-			vector <string> _depends,
 			string _cb_name,
-			int ( *_callback )( vector <void*> ),
-			map <string, void*> _state );
+			vector <string> _conflicts,
+			vector <string> _dependencies,
+			string _file);
 		
 		/**
 		 * Return the rule's name
@@ -73,7 +72,7 @@ class Rule
 		/**
 		 * Return the rule's dependencies
 		 */
-		inline vector <string> get_depends() { return depends; };
+		inline vector <string> get_dependencies() { return dependencies; };
 		
 		/**
 		 * Return the rule's callback name
@@ -92,9 +91,10 @@ class Rule
 		string truco_type; /**< The rule's truco type */
 		string description; /**< The rule's description */
 		string where_apply; /**< Which game part this rule is appliable */
-		vector <string> conflicts; /**< Which rules this rule conflits */
-		vector <string> depends; /**< Which rules this rule depends */
 		string cb_name; /**< The callback's name */
+		vector <string> conflicts; /**< Which rules this rule conflits */
+		vector <string> dependencies; /**< Which rules this rule depends */
+		string file; /**< The library file contain the callback */
 		map <string, void*> state; /**< The variables defines the rule's state */
 };
 

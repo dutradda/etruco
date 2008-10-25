@@ -35,7 +35,7 @@ class Player
 		/**
 		 * Default Constructor
 		 */
-		Player();
+		Player() {};
 	
 		/**
 		 * Constructor

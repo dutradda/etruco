@@ -24,19 +24,17 @@ Rule::Rule( string _name,
 			string _truco_type,
 			string _description,
 			string _where_apply,
-			vector <string> _conflicts,
-			vector <string> _depends,
 			string _cb_name,
-			int ( *_callback )( vector <void*> ),
-			map <string, void*> _state )
+			vector <string> _conflicts,
+			vector <string> _dependencies,
+			string _file = "" )
 {
 	name = _name;
 	truco_type = _truco_type;
 	description = _description;
 	where_apply = _where_apply;
 	conflicts = _conflicts;
-	depends = _depends;
+	dependencies = _dependencies;
 	cb_name = _cb_name;
-	callback = _callback;
-	state = _state;
+	file = _file;
 }

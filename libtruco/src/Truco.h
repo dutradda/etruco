@@ -27,10 +27,13 @@
 #include "Rule.h"
 #include "Card.h"
 
+#include <gmodule.h>
 #include <string>
 #include <vector>
 #include <map>
 using namespace std;
+
+extern "C"
 
 /**
  * The main class for the game Truco.
@@ -159,13 +162,16 @@ class Truco
 		 *
 		 * @param _truco_type
 		 *  The truco type of the rule.
+		 * 
+		 * @param _file
+		 *  The xml file. Is optional.
 		 *
 		 * @return
 		 *  1 if the rule was loaded with sucess.
 		 *  0 if this rule dont exist.
 		 *  -1 if the rule havent this truco type.
 		 */
-		int load_rule( const string& _rule, const string& _truco_type );
+		int load_rule( const string& _rule, const string& _truco_type, const string& _file );
 		 
 		/**
 		 * Loads a set of rules.
@@ -183,9 +189,12 @@ class Truco
 		vector <Player*> players; /**< The players of the game */
 		vector <Team*> teams; /**< The teams of the game */
 		Deck* deck; /**< The game's deck */
+		
 	
 	private:
 		vector <Rule> rules; /**< The rules loaded in the game */
+		vector <GModule*> modules;
+		
 };
 
 #endif
