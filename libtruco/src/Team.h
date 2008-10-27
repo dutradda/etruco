@@ -38,12 +38,10 @@ class Team
 		Team( vector <Player*> _players ) : players( _players ) { };
 		
 		/**
-		 * Get the player's cards.
+		 * Return the players.
 		 *
-		 * @return
-		 *  A copy of the cards.
 		 */
-		vector <Player> get_players();
+		inline vector <Player*> get_players() { return players; };
 	
 	private:
 		vector <Player*> players; /**< The team's players */

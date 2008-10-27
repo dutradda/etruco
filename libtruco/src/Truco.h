@@ -247,6 +247,10 @@ class Truco
 		
 		vector <Rule> get_rules_where_apply( const string& _where );
 		
+		vector <Rule> get_rules_dependencies( const vector <string>& _dependencies );
+		
+		int apply_rule(Rule& _rule);
+		
 };
 
 #endif

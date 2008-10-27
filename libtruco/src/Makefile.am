@@ -6,7 +6,6 @@ libtruco_la_LIBADD = @LIBXML_LIBS@ @GMODULE_LIBS@
 
 lib_LTLIBRARIES = liblibtruco.la
 liblibtruco_la_SOURCES = \
-	Team.cpp	\
 	Player.cpp	\
 	Deck.cpp
 liblibtruco_la_LDFLAGS = -version-info 0:0:0

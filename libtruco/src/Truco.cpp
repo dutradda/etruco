@@ -25,7 +25,7 @@
 #include <iostream>
 using namespace std;
 
-Truco::Truco( int num_players, int num_teams=2 )
+Truco::Truco( int num_players = 4, int num_teams = 2 )
 {
 	int num_team_players = num_players / num_teams;
 	
@@ -64,11 +64,12 @@ Truco::~Truco()
 
 int Truco::check_rule_conflicts( Rule& _rule )
 {
-	vector <string> conflicts = _rule.get_conflicts();
+	vector <conflict> conflicts = _rule.get_conflicts();
 	
 	for( int i = 0; i < rules.size(); i++ )
 		for( int j = 0; j < conflicts.size(); j++ )
-			if( rules[i].get_name() == conflicts[j] )
+			if( rules[i].get_name() == conflicts[j].name &&
+				rules[i].get_truco_type() == conflicts[j].truco_type )
 				return 0;
 	return 1;
 }
@@ -81,7 +82,8 @@ int Truco::check_rule_dependencies( Rule& _rule )
 	for( int i = 0; i < dependencies.size(); i++ )
 	{
 		for( int j = 0; j < rules.size(); j++ )
-			if( dependencies[i] == rules[j].get_name() )
+			if( dependencies[i] == rules[j].get_name() &&
+				_rule.get_truco_type() == rules[j].get_truco_type() )
 				depends = 1;
 
 		if( !depends )
@@ -105,10 +107,18 @@ vector <Rule> Truco::get_rules_dependencies( const vector <string>& _dependencie
 	vector <Rule> _rules;
 	for( int i = 0; i < rules.size(); i++ )
 		for( int j = 0; j < _dependencies.size(); j++ )
-			if( rules[i].get_name() == _where[j] )
+			if( rules[i].get_name() == _dependencies[j] )
 				_rules.push_back( rules[i] );
 			
 	return _rules;
+}
+
+int Truco::apply_rule(Rule& _rule)
+{
+	int ( *callback )( vector <Team*>, vector <Rule> ) = 
+		( int (*)( vector <Team*>, vector <Rule> ) ) _rule.get_callback();
+	
+	callback(teams, get_rules_dependencies( _rule.get_dependencies() ) );
 }
 
 int Truco::start_hand()
@@ -131,7 +141,7 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 	int ret; // Retorno da funcao, pode ser -5, -4, -3, -2, -1, 0 e 1
 	xmlTextReaderPtr reader;
 	vector <Rule> new_rules;
-	int ( *_callback )( vector <void*> );
+	int ( *_callback )( vector <Team*>, vector <Rule> );
 	
 	if( _file != "" )
 		reader = xmlReaderForFile( _file.c_str(), NULL, 0 );
@@ -143,7 +153,8 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 	while( file_nfinished == 1 )
 	{
 		vector <string> attributes;
-		vector <string> conflicts;
+		conflict _conflict;
+		vector <conflict> conflicts;
 		vector <string> dependencies;
 		string node;
 		
@@ -193,7 +204,11 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 			
 			// Pega os conflitos e dependencias da regra	
 			if( node == "conflict" )
-				conflicts.push_back( (char*) xmlTextReaderGetAttribute(reader, (xmlChar*) "name") );
+			{
+				_conflict.name = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "truco_type" );
+				_conflict.truco_type = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "name" );
+				conflicts.push_back( _conflict );
+			}
 			else if( node == "dependence" )
 				dependencies.push_back( (char*) xmlTextReaderGetAttribute(reader, (xmlChar*) "name") );
 				
@@ -258,7 +273,7 @@ Truco::load_rules( const string& _truco_type,
 	multimap <int, string> rule_errors;
 	xmlTextReaderPtr reader;
 	int is_rule_loaded = 0;
-	int ( *_callback )( vector <void*> );
+	int ( *_callback )( vector <Team*>, vector <Rule> );
 	
 	if( _file != "" )
 		reader = xmlReaderForFile( _file.c_str(), NULL, 0 );
@@ -270,7 +285,8 @@ Truco::load_rules( const string& _truco_type,
 	while( file_nfinished == 1 )
 	{
 		vector <string> attributes;
-		vector <string> conflicts;
+		vector <conflict> conflicts;
+		conflict _conflict;
 		vector <string> dependencies;
 		string node;
 		
@@ -312,7 +328,11 @@ Truco::load_rules( const string& _truco_type,
 			
 			// Pega os conflitos e dependencias da regra	
 			if( node == "conflict" )
-				conflicts.push_back( (char*) xmlTextReaderGetAttribute(reader, (xmlChar*) "name") );
+			{
+				_conflict.name = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "truco_type" );
+				_conflict.truco_type = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "name" );
+				conflicts.push_back( _conflict );
+			}
 			else if( node == "dependence" )
 				dependencies.push_back( (char*) xmlTextReaderGetAttribute(reader, (xmlChar*) "name") );
 				

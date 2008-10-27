@@ -26,6 +26,12 @@
 #include <map>
 using namespace std;
 
+struct conflict
+{
+	string name;
+	string truco_type;
+};
+
 /**
  * The truco's rule
  */
@@ -40,10 +46,10 @@ class Rule
 			const string& _description,
 			const string& _where_apply,
 			const string& _cb_name,
-			const vector <string>& _conflicts,
+			const vector <conflict>& _conflicts,
 			const vector <string>& _dependencies,
 			const string& _file,
-			int ( *_callback )( vector <void*> ) );
+			int ( *_callback )( vector <Team*>, vector <Rule> ) );
 		
 		/**
 		 * Return the rule's name
@@ -68,7 +74,7 @@ class Rule
 		/**
 		 * Return the rule's conflicts
 		 */
-		inline vector <string> get_conflicts() { return conflicts; };
+		inline vector <conflict> get_conflicts() { return conflicts; };
 		
 		/**
 		 * Return the rule's dependencies
@@ -93,11 +99,11 @@ class Rule
 		string description; /**< The rule's description */
 		string where_apply; /**< Which game part this rule is appliable */
 		string cb_name; /**< The callback's name */
-		vector <string> conflicts; /**< Which rules this rule conflits */
+		vector <conflict> conflicts; /**< Which rules this rule conflits */
 		vector <string> dependencies; /**< Which rules this rule depends */
 		string file; /**< The library file containing the callback */
 		map <string, void*> state; /**< The variables defines the rule's state */
-		int ( *callback )( vector <void*> ); /**< The function callback to the rule */
+		int ( *callback )( vector <Team*>, vector <Rule> ); /**< The function callback to the rule */
 };
 
 inline Rule::Rule( const string& _name,
@@ -105,10 +111,10 @@ inline Rule::Rule( const string& _name,
 			const string& _description,
 			const string& _where_apply,
 			const string& _cb_name,
-			const vector <string>& _conflicts,
+			const vector <conflict>& _conflicts,
 			const vector <string>& _dependencies,
 			const string& _file = "",
-			int ( *_callback )( vector <void*> ) = NULL )
+			int ( *_callback )( vector <Team*>, vector <Rule> ) = NULL )
 {
 	name = _name;
 	truco_type = _truco_type;
