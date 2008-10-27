@@ -170,20 +170,46 @@ class Truco
 		 *  1 if the rule was loaded with sucess.
 		 *  0 if this rule dont exist.
 		 *  -1 if the rule havent this truco type.
+		 *  -2 if the module of the rule function dont exist.
+		 *  -3 if the rule function dont exist in the module.
+		 *  -4 if the dependencies dont match.
+		 *  -5 if the conflicts match.
 		 */
 		int load_rule( const string& _rule, const string& _truco_type, const string& _file );
 		 
 		/**
 		 * Loads a set of rules.
 		 *
+		 * @param _rule
+		 *	 The rule's name.
+		 * 
 		 * @param _truco_type
 		 *  The truco type of the rules.
+		 * 
+		 * @param _file
+		 *  The xml file where the rule is. Is a optional param.
+		 * 
+		 * @param _rule_errors
+		 *  The vector with the errors and rules.
+		 *  The errors are:
+		 *  -4 if the dependencies dont match.
+		 *  -5 if the conflicts match.
 		 *
 		 * @return
 		 *  1 if the set of rules was loaded with sucess.
-		 *  0 if this truco type dont exist.
+		 *  -1 if nothing rule was loaded.
+		 *  -2 if the module of a rule function dont exist.
+		 *  -3 if a rule function dont exist in the module.
 		 */
-		int load_rules( const string& _truco_type );
+		int
+		load_rules( const string& _truco_type,
+						const string& _file,
+						multimap <int, string>& _rule_errors );
+		
+		/**
+		 * Return the rules
+		 */		
+		inline vector <Rule> get_rules() { return rules; };
 	
 	protected:
 		vector <Player*> players; /**< The players of the game */
@@ -193,7 +219,33 @@ class Truco
 	
 	private:
 		vector <Rule> rules; /**< The rules loaded in the game */
-		vector <GModule*> modules;
+		vector <GModule*> modules; /**< The modules where the rules functions are in. */
+		
+		/**
+		 * Checks for conflicts with the rules already loaded.
+		 * 
+		 * @param _rule
+		 *  The rule for check conflicts.
+		 * 
+		 * @return
+		 *	 1 if there is no conflicts.
+		 *  0 if have conflicts.
+		 */
+		int check_rule_conflicts( Rule& _rule );
+		
+		/**
+		 * Checks for dependencies with the rules already loaded.
+		 * 
+		 * @param _rule
+		 *  The rule for check dependencies.
+		 * 
+		 * @return
+		 *  1 if all dependencies are satisfied.
+		 *  2 if are missing dependencies.
+		 */
+		int check_rule_dependencies( Rule& _rule );
+		
+		vector <Rule> get_rules_where_apply( const string& _where );
 		
 };
 

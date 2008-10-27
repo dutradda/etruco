@@ -35,14 +35,15 @@ class Rule
 		/**
 		 * Constructor
 		 */
-		Rule( string _name,
-			string _truco_type,
-			string _description,
-			string _where_apply,
-			string _cb_name,
-			vector <string> _conflicts,
-			vector <string> _dependencies,
-			string _file);
+		inline Rule( const string& _name,
+			const string& _truco_type,
+			const string& _description,
+			const string& _where_apply,
+			const string& _cb_name,
+			const vector <string>& _conflicts,
+			const vector <string>& _dependencies,
+			const string& _file,
+			int ( *_callback )( vector <void*> ) );
 		
 		/**
 		 * Return the rule's name
@@ -84,7 +85,7 @@ class Rule
 		 */
 		inline map <string, void*> get_state()  { return state; };
 		
-		int ( *callback )( vector <void*> ); /**< The function callback to the rule */
+		inline void* get_callback() { return (void*) callback; };
 	
 	private:
 		string name; /**< The rule's name */
@@ -94,8 +95,30 @@ class Rule
 		string cb_name; /**< The callback's name */
 		vector <string> conflicts; /**< Which rules this rule conflits */
 		vector <string> dependencies; /**< Which rules this rule depends */
-		string file; /**< The library file contain the callback */
+		string file; /**< The library file containing the callback */
 		map <string, void*> state; /**< The variables defines the rule's state */
+		int ( *callback )( vector <void*> ); /**< The function callback to the rule */
 };
+
+inline Rule::Rule( const string& _name,
+			const string& _truco_type,
+			const string& _description,
+			const string& _where_apply,
+			const string& _cb_name,
+			const vector <string>& _conflicts,
+			const vector <string>& _dependencies,
+			const string& _file = "",
+			int ( *_callback )( vector <void*> ) = NULL )
+{
+	name = _name;
+	truco_type = _truco_type;
+	description = _description;
+	where_apply = _where_apply;
+	conflicts = _conflicts;
+	dependencies = _dependencies;
+	cb_name = _cb_name;
+	file = _file;
+	callback = _callback;
+}
 
 #endif
