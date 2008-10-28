@@ -213,9 +213,53 @@ class Truco
 						multimap <int, string>& _rule_errors );
 		
 		/**
+		 * Apply a rule.
+		 * 
+		 * @param _rule
+		 *  The rule to be applied.
+		 * 
+		 * @param _params
+		 *  The params taken by the rule.
+		 * 
+		 * @param _return
+		 *  The return of the rule applied.
+		 * 
+		 * @return
+		 *  1 if the rule was applied sucessful. 0 if the rule cant be aplied.
+		 */
+		int apply_rule( Rule _rule, vector <void*> _params, vector <void*>& _return);
+		
+		/**
+		 * Apply rules by where_apply.
+		 * 
+		 * @param _where_apply
+		 *  The group choosen to select rules.
+		 * 
+		 * @param _params
+		 *  The params taken by the rules.
+		 * 
+		 * @param _returns
+		 *  The returns of the rules applied.
+		 * 
+		 * @return
+		 *  1 if all rules were applied sucessful. 0 if a rule cant be aplied.
+		 */
+		int apply_rules( const string& where_apply, vector <void*> _params, vector <void*>& _returns);
+		
+		/**
 		 * Return the rules
 		 */		
 		inline vector <Rule> get_rules() { return rules; };
+		
+		/**
+		 * Return the teams
+		 */		
+		inline vector <Team*> get_teams() { return teams; };
+		
+		/**
+		 * Return the deck
+		 */		
+		inline Deck* get_deck() { return deck; };
 	
 	protected:
 		vector <Player*> players; /**< The players of the game */
@@ -251,15 +295,32 @@ class Truco
 		 */
 		int check_rule_dependencies( Rule& _rule );
 		
+		/**
+		 * Get rules by where they are appliable.
+		 * 
+		 * @param _where
+		 *  Where the rules are appliable.
+		 * 
+		 * @return
+		 *  The founded rules.
+		 */
 		vector <Rule> get_rules_where_apply( const string& _where );
 		
+		/**
+		 * Get the rules of the dependencies given.
+		 * 
+		 * @param _dependencies
+		 *  The rules wanted.
+		 * 
+		 * @param _truco_type
+		 *  The truco type of the dependencies.
+		 * 
+		 * @return
+		 *  The founded rules.
+		 */
 		vector <Rule>
 		get_rules_dependencies( const vector <string>& _dependencies,
 										const string& _truco_type );
-		
-		int apply_rules( const string& where_apply, vector <void*> _params, vector <void*>& _returns);
-		
-		int apply_rule( Rule _rule, vector <void*> _params, vector <void*>& _returns);
 };
 
 #endif

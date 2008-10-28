@@ -119,14 +119,13 @@ Truco::get_rules_dependencies( const vector <string>& _dependencies,
 int
 Truco::apply_rule( Rule _rule,
 							 vector <void*> _params,
-							 vector <void*>& _returns)
+							 vector <void*>& _return)
 {
 	int ( *callback )( vector <Rule>, vector <void*>, vector <void*>& ) =
 		( int (*)( vector <Rule>, vector <void*>, vector <void*>& ) ) _rule.get_callback();
 		
 	if( !callback( get_rules_dependencies( _rule.get_dependencies(), _rule.get_truco_type() ),
-						_params,
-						_returns ) )
+					_params, _return ) )
 		return 0;
 	else
 		return 1;
