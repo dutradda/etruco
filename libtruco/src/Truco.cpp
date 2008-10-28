@@ -102,36 +102,48 @@ vector <Rule> Truco::get_rules_where_apply( const string& _where )
 	return _rules;
 }
 
-vector <Rule> Truco::get_rules_dependencies( const vector <string>& _dependencies )
+vector <Rule>
+Truco::get_rules_dependencies( const vector <string>& _dependencies,
+										const string& _truco_type )
 {
 	vector <Rule> _rules;
 	for( int i = 0; i < rules.size(); i++ )
 		for( int j = 0; j < _dependencies.size(); j++ )
-			if( rules[i].get_name() == _dependencies[j] )
+			if( rules[i].get_name() == _dependencies[j] &&
+				rules[i].get_truco_type() == _truco_type )
 				_rules.push_back( rules[i] );
 			
 	return _rules;
 }
 
-int Truco::apply_rule(Rule& _rule)
+int
+Truco::apply_rule( Rule _rule,
+							 vector <void*> _params,
+							 vector <void*>& _returns)
 {
-	int ( *callback )( vector <Team*>, vector <Rule> ) = 
-		( int (*)( vector <Team*>, vector <Rule> ) ) _rule.get_callback();
-	
-	callback(teams, get_rules_dependencies( _rule.get_dependencies() ) );
+	int ( *callback )( vector <Rule>, vector <void*>, vector <void*>& ) =
+		( int (*)( vector <Rule>, vector <void*>, vector <void*>& ) ) _rule.get_callback();
+		
+	if( !callback( get_rules_dependencies( _rule.get_dependencies(), _rule.get_truco_type() ),
+						_params,
+						_returns ) )
+		return 0;
+	else
+		return 1;
 }
 
-int Truco::start_hand()
+int
+Truco::apply_rules( const string& where_apply,
+								vector <void*> _params,
+								vector <void*>& _returns )
 {
-	vector <Rule> _rules = get_rules_where_apply( "hand_starts" );
-	vector <Rule> rule_dependencies;
+	vector <Rule> _rules = get_rules_where_apply( where_apply );
 	
-	
-	/*for( int i = 0; i < _rules.size(); i++ )
-	{
-		rule_dependencies = get_rules_dependencies( _rules[i].get_dependencies() );
-		_rules[i].callback
-	}*/
+	for( int i = 0; i < _rules.size(); i++ )
+		if ( !apply_rule( _rules[i], _params, _returns ) )
+			return 0;
+			
+	return 1;
 }
 
 int Truco::load_rule( const string& _rule, const string& _truco_type, const string& _file = "" )
@@ -141,7 +153,7 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 	int ret; // Retorno da funcao, pode ser -5, -4, -3, -2, -1, 0 e 1
 	xmlTextReaderPtr reader;
 	vector <Rule> new_rules;
-	int ( *_callback )( vector <Team*>, vector <Rule> );
+	int ( *_callback )( vector <Rule>, vector <void*>, vector <void*>& );
 	
 	if( _file != "" )
 		reader = xmlReaderForFile( _file.c_str(), NULL, 0 );
@@ -273,7 +285,7 @@ Truco::load_rules( const string& _truco_type,
 	multimap <int, string> rule_errors;
 	xmlTextReaderPtr reader;
 	int is_rule_loaded = 0;
-	int ( *_callback )( vector <Team*>, vector <Rule> );
+	int ( *_callback )( vector <Rule>, vector <void*>, vector <void*>& );
 	
 	if( _file != "" )
 		reader = xmlReaderForFile( _file.c_str(), NULL, 0 );

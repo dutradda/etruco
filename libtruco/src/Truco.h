@@ -58,21 +58,27 @@ class Truco
 		
 		/**
 		 * Start a new hand in the game.
+		 * 
+		 * @param _returns
+		 *  The return of all rules executed.
 		 *
 		 * @return
 		 *  1 if start a new hand with sucess.	 
 		 *  0 if isnt time to start a new hand.
 		 */
-		int start_hand();
+		int start_hand( map <string, int>& _returns );
 	
 		/**
 		 * Start a new round in a hand.
+		 * 
+		 * @param _returns
+		 *  The return of all rules executed.
 		 *
 		 * @return
 		 *  1 if start a new round with sucess.	 
 		 *  0 if isnt time to start a new round.
 		 */
-		int start_round();
+		int start_round( map <string, int>& _returns );
 	
 		/**
 		 * Finish the round and determines the winner.
@@ -247,10 +253,13 @@ class Truco
 		
 		vector <Rule> get_rules_where_apply( const string& _where );
 		
-		vector <Rule> get_rules_dependencies( const vector <string>& _dependencies );
+		vector <Rule>
+		get_rules_dependencies( const vector <string>& _dependencies,
+										const string& _truco_type );
 		
-		int apply_rule(Rule& _rule);
+		int apply_rules( const string& where_apply, vector <void*> _params, vector <void*>& _returns);
 		
+		int apply_rule( Rule _rule, vector <void*> _params, vector <void*>& _returns);
 };
 
 #endif

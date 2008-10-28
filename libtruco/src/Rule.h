@@ -49,7 +49,7 @@ class Rule
 			const vector <conflict>& _conflicts,
 			const vector <string>& _dependencies,
 			const string& _file,
-			int ( *_callback )( vector <Team*>, vector <Rule> ) );
+			int ( *_callback )( vector <Rule>, vector <void*>, vector <void*>& ) );
 		
 		/**
 		 * Return the rule's name
@@ -103,7 +103,7 @@ class Rule
 		vector <string> dependencies; /**< Which rules this rule depends */
 		string file; /**< The library file containing the callback */
 		map <string, void*> state; /**< The variables defines the rule's state */
-		int ( *callback )( vector <Team*>, vector <Rule> ); /**< The function callback to the rule */
+		int ( *callback )( vector <Rule>, vector <void*>, vector <void*>& ); /**< The function callback to the rule */
 };
 
 inline Rule::Rule( const string& _name,
@@ -114,7 +114,7 @@ inline Rule::Rule( const string& _name,
 			const vector <conflict>& _conflicts,
 			const vector <string>& _dependencies,
 			const string& _file = "",
-			int ( *_callback )( vector <Team*>, vector <Rule> ) = NULL )
+			int ( *_callback )( vector <Rule>, vector <void*>, vector <void*>& ) = NULL )
 {
 	name = _name;
 	truco_type = _truco_type;
