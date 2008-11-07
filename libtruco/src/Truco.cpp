@@ -62,29 +62,32 @@ Truco::~Truco()
 		g_module_close(modules[i]);
 }
 
-int Truco::check_rule_conflicts( Rule& _rule )
+int Truco::check_rule_conflicts( vector <conflict> _conflicts )
 {
-	vector <conflict> conflicts = _rule.get_conflicts();
-	
 	for( int i = 0; i < rules.size(); i++ )
-		for( int j = 0; j < conflicts.size(); j++ )
-			if( rules[i].get_name() == conflicts[j].name &&
-				rules[i].get_truco_type() == conflicts[j].truco_type )
+		for( int j = 0; j < _conflicts.size(); j++ )
+			if( rules[i]->get_name() == _conflicts[j].name &&
+				rules[i]->get_truco_type() == _conflicts[j].truco_type )
 				return 0;
 	return 1;
 }
 
-int Truco::check_rule_dependencies( Rule& _rule )
+int
+Truco::check_rule_dependencies( string _truco_type,
+										vector <string> _dependencies,
+										vector <Rule*>& _rules_deps )
 {
-	vector <string> dependencies = _rule.get_dependencies();
 	int depends = 0;
 	
-	for( int i = 0; i < dependencies.size(); i++ )
+	for( int i = 0; i < _dependencies.size(); i++ )
 	{
 		for( int j = 0; j < rules.size(); j++ )
-			if( dependencies[i] == rules[j].get_name() &&
-				_rule.get_truco_type() == rules[j].get_truco_type() )
+			if( _dependencies[i] == rules[j]->get_name() &&
+				_truco_type == rules[j]->get_truco_type() )
+			{
 				depends = 1;
+				_rules_deps.push_back( rules[j] );
+			}
 
 		if( !depends )
 			return 0;
@@ -92,40 +95,22 @@ int Truco::check_rule_dependencies( Rule& _rule )
 	return 1;
 }
 
-vector <Rule> Truco::get_rules_where_apply( const string& _where )
+vector <Rule*> Truco::get_rules_where_apply( const string& _where )
 {
-	vector <Rule> _rules;
+	vector <Rule*> _rules;
 	for( int i = 0; i < rules.size(); i++ )
-		if( rules[i].get_where_apply() == _where )
+		if( rules[i]->get_where_apply() == _where )
 			_rules.push_back( rules[i] );
 			
 	return _rules;
 }
 
-vector <Rule>
-Truco::get_rules_dependencies( const vector <string>& _dependencies,
-										const string& _truco_type )
+int Truco::apply_rule( Rule _rule, vector <void*> _params )
 {
-	vector <Rule> _rules;
-	for( int i = 0; i < rules.size(); i++ )
-		for( int j = 0; j < _dependencies.size(); j++ )
-			if( rules[i].get_name() == _dependencies[j] &&
-				rules[i].get_truco_type() == _truco_type )
-				_rules.push_back( rules[i] );
-			
-	return _rules;
-}
-
-int
-Truco::apply_rule( Rule _rule,
-							 vector <void*> _params,
-							 vector <void*>& _return)
-{
-	int ( *callback )( vector <Rule>, vector <void*>, vector <void*>& ) =
-		( int (*)( vector <Rule>, vector <void*>, vector <void*>& ) ) _rule.get_callback();
+	int ( *callback )( Rule, Truco, vector<void*> ) =
+		( int (*)( Rule, Truco, vector<void*> ) ) _rule.get_callback();
 		
-	if( !callback( get_rules_dependencies( _rule.get_dependencies(), _rule.get_truco_type() ),
-					_params, _return ) )
+	if( !callback(_rule, *this, _params) )
 		return 0;
 	else
 		return 1;
@@ -133,13 +118,12 @@ Truco::apply_rule( Rule _rule,
 
 int
 Truco::apply_rules( const string& where_apply,
-								vector <void*> _params,
-								vector <void*>& _returns )
+								vector <void*> _params )
 {
-	vector <Rule> _rules = get_rules_where_apply( where_apply );
+	vector <Rule*> _rules = get_rules_where_apply( where_apply );
 	
 	for( int i = 0; i < _rules.size(); i++ )
-		if ( !apply_rule( _rules[i], _params, _returns ) )
+		if ( !apply_rule( *_rules[i], _params ) )
 			return 0;
 			
 	return 1;
@@ -151,8 +135,8 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 	
 	int ret; // Retorno da funcao, pode ser -5, -4, -3, -2, -1, 0 e 1
 	xmlTextReaderPtr reader;
-	vector <Rule> new_rules;
-	int ( *_callback )( vector <Rule>, vector <void*>, vector <void*>& );
+	Rule* rule = NULL;
+	int ( *_callback )( Rule, Truco, vector <void*> );
 	
 	if( _file != "" )
 		reader = xmlReaderForFile( _file.c_str(), NULL, 0 );
@@ -169,7 +153,7 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 		vector <string> dependencies;
 		string node;
 		
-		// Le ate achar a abertura da regra
+		// Le ate achar a abertura de uma regra
 		int i = 0;
 		do
 		{
@@ -179,7 +163,7 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 			node = (char*) xmlTextReaderConstName( reader );
 			
 		} while( node != "rule" && reader != NULL );
-		// Fim da leitura ate achar uma abertura para regra
+		// Fim da leitura ate achar uma abertura para uma regra
 		
 		if( file_nfinished == 0 )
 			break;
@@ -216,8 +200,8 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 			// Pega os conflitos e dependencias da regra	
 			if( node == "conflict" )
 			{
-				_conflict.name = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "truco_type" );
-				_conflict.truco_type = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "name" );
+				_conflict.name = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "name" );
+				_conflict.truco_type = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "truco_type" );
 				conflicts.push_back( _conflict );
 			}
 			else if( node == "dependence" )
@@ -226,49 +210,50 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 		} while( node != "rule" && reader != NULL );
 		// Fim da leitura ate o fechamento da regra
 		
-		// Adiciona a funcao callback na regra
-		if( attributes[5] != "" )		
-			modules.push_back( g_module_open( attributes[5].c_str(), G_MODULE_BIND_LAZY ) );
-		else
-			modules.push_back( g_module_open( PACKAGE_DATA_DIR"/rules/default.so", G_MODULE_BIND_LAZY ) );
+		vector <Rule*> rules_deps; // vetor de dependencias da regra
 		
-		if( modules.back() == NULL)
-			return -2;
-		
-		if( !g_module_symbol( modules.back(), attributes[4].c_str(), (gpointer*)& _callback ) )
-			return -3;
-			
-		Rule rule( attributes[0],
+		if( check_rule_conflicts(conflicts) )
+			if( check_rule_dependencies(attributes[1], dependencies, rules_deps) )
+			{
+				// Adiciona a funcao callback na regra
+				if( attributes[5] != "" )		
+					modules.push_back( g_module_open( attributes[5].c_str(), G_MODULE_BIND_LAZY ) );
+				else
+					modules.push_back( g_module_open( PACKAGE_DATA_DIR"/rules/default.so", G_MODULE_BIND_LAZY ) );
+				
+				if( modules.back() == NULL)
+					return -2;
+				
+				if( !g_module_symbol( modules.back(), attributes[4].c_str(), (gpointer*)& _callback ) )
+					return -3;	
+	
+				rule = new Rule( attributes[0],
 					attributes[1],
 					attributes[2],
 					attributes[3],
 					attributes[4],
 					conflicts,
-					dependencies,
+					rules_deps,
 					attributes[5],
-					_callback );
-		
-		if( check_rule_conflicts(rule) )
-			if( check_rule_dependencies(rule) )
-				new_rules.push_back( rule );
+					( int (*)() ) _callback );
+				
+				break;
+			}
 			else
 				return -4;
 		else
 			return -5;
-		
-		break;
 	}
 	
 	// Termina a libxml
 	xmlCleanupParser();
 	xmlMemoryDump();
 	
-	if( new_rules.empty() )
+	if( rule == NULL )
 		return ret;
 	else
 	{
-		for( int i = 0; i < new_rules.size(); i++)
-			rules.push_back(new_rules[i]);
+		rules.push_back(rule);
 		return 1;
 	}
 
@@ -283,8 +268,9 @@ Truco::load_rules( const string& _truco_type,
 
 	multimap <int, string> rule_errors;
 	xmlTextReaderPtr reader;
+	Rule* rule = NULL;
 	int is_rule_loaded = 0;
-	int ( *_callback )( vector <Rule>, vector <void*>, vector <void*>& );
+	int ( *_callback )( Rule, Truco, vector <void*> );
 	
 	if( _file != "" )
 		reader = xmlReaderForFile( _file.c_str(), NULL, 0 );
@@ -340,8 +326,8 @@ Truco::load_rules( const string& _truco_type,
 			// Pega os conflitos e dependencias da regra	
 			if( node == "conflict" )
 			{
-				_conflict.name = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "truco_type" );
-				_conflict.truco_type = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "name" );
+				_conflict.name = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "name" );
+				_conflict.truco_type = (char*) xmlTextReaderGetAttribute( reader, (xmlChar*) "truco_type" );
 				conflicts.push_back( _conflict );
 			}
 			else if( node == "dependence" )
@@ -351,44 +337,46 @@ Truco::load_rules( const string& _truco_type,
 		while( node != "rule" && reader != NULL );
 		// Fim da leitura ate o fechamento da regra
 		
-		// Adiciona a funcao callback na regra
-		if( attributes[5] != "" )		
-			modules.push_back( g_module_open( attributes[5].c_str(), G_MODULE_BIND_LAZY ) );
-		else
-			modules.push_back( g_module_open( PACKAGE_DATA_DIR"/rules/default.so", G_MODULE_BIND_LAZY ) );
+		vector <Rule*> rules_deps; // vetor de dependencias da regra
 		
-		if( modules.back() == NULL)
-		{
-			rule_errors.insert( pair <int,string>(-2,attributes[0]) );
-			continue;
-		}
-		
-		if( !g_module_symbol( modules.back(), attributes[4].c_str(), (gpointer*)& _callback ) )
-		{
-			rule_errors.insert( pair <int,string>(-3,attributes[0]) );
-			continue;
-		}
-		
-		Rule rule( attributes[0],
-					attributes[1],
-					attributes[2],
-					attributes[3],
-					attributes[4],
-					conflicts,
-					dependencies,
-					attributes[5],
-					_callback );
-		
-		if( check_rule_conflicts(rule) )
-			if( check_rule_dependencies(rule) )
+		if( check_rule_conflicts(conflicts) )
+			if( check_rule_dependencies(attributes[1], dependencies, rules_deps) )
 			{
+				// Adiciona a funcao callback na regra
+				if( attributes[5] != "" )		
+					modules.push_back( g_module_open( attributes[5].c_str(), G_MODULE_BIND_LAZY ) );
+				else
+					modules.push_back( g_module_open( PACKAGE_DATA_DIR"/rules/default.so", G_MODULE_BIND_LAZY ) );
+				
+				if( modules.back() == NULL)
+				{
+					rule_errors.insert( pair <int,string>(-2,attributes[0]) );
+					continue;
+				}
+				
+				if( !g_module_symbol( modules.back(), attributes[4].c_str(), (gpointer*)& _callback ) )
+				{
+					rule_errors.insert( pair <int,string>(-3,attributes[0]) );
+					continue;
+				}
+				
+				rule = new Rule( attributes[0],
+							attributes[1],
+							attributes[2],
+							attributes[3],
+							attributes[4],
+							conflicts,
+							rules_deps,
+							attributes[5],
+							( int (*)() ) _callback );
 				rules.push_back( rule );
+				
 				is_rule_loaded = 1;
 			}
 			else
 				rule_errors.insert( pair <int,string>(-4,attributes[0]) );
 		else
-			rule_errors.insert( pair <int,string>(-5,attributes[0]) );
+			rule_errors.insert( pair <int,string>(-5,attributes[0]) );	
 	}
 	
 	// Termina a libxml

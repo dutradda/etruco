@@ -33,7 +33,7 @@
 #include <map>
 using namespace std;
 
-extern "C"
+//extern "C"
 
 /**
  * The main class for the game Truco.
@@ -221,13 +221,10 @@ class Truco
 		 * @param _params
 		 *  The params taken by the rule.
 		 * 
-		 * @param _return
-		 *  The return of the rule applied.
-		 * 
 		 * @return
 		 *  1 if the rule was applied sucessful. 0 if the rule cant be aplied.
 		 */
-		int apply_rule( Rule _rule, vector <void*> _params, vector <void*>& _return);
+		int apply_rule( Rule _rule, vector <void*> _params );
 		
 		/**
 		 * Apply rules by where_apply.
@@ -244,12 +241,17 @@ class Truco
 		 * @return
 		 *  1 if all rules were applied sucessful. 0 if a rule cant be aplied.
 		 */
-		int apply_rules( const string& where_apply, vector <void*> _params, vector <void*>& _returns);
+		int apply_rules( const string& where_apply, vector <void*> _params );
 		
 		/**
 		 * Return the rules
 		 */		
-		inline vector <Rule> get_rules() { return rules; };
+		inline vector <Rule*> get_rules() { return rules; };
+		
+		/**
+		 * Return the players
+		 */		
+		inline vector <Player*> get_players() { return players; };
 		
 		/**
 		 * Return the teams
@@ -268,32 +270,40 @@ class Truco
 		
 	
 	private:
-		vector <Rule> rules; /**< The rules loaded in the game */
+		vector <Rule*> rules; /**< The rules loaded in the game */
 		vector <GModule*> modules; /**< The modules where the rules functions are in. */
 		
 		/**
 		 * Checks for conflicts with the rules already loaded.
 		 * 
-		 * @param _rule
-		 *  The rule for check conflicts.
+		 * @param _conflicts
+		 *  The conflicts to check for.
 		 * 
 		 * @return
 		 *	 1 if there is no conflicts.
 		 *  0 if have conflicts.
 		 */
-		int check_rule_conflicts( Rule& _rule );
+		int check_rule_conflicts( vector <conflict> _conflicts );
 		
 		/**
 		 * Checks for dependencies with the rules already loaded.
 		 * 
-		 * @param _rule
-		 *  The rule for check dependencies.
+		 * @param _truco_type
+		 *  The truco type of the rules.
+		 * 
+		 * @param _dependencies
+		 *  The dependencies to check for.
+		 * 
+		 * @param _rules_deps
+		 *  The rules dependencies.
 		 * 
 		 * @return
 		 *  1 if all dependencies are satisfied.
 		 *  2 if are missing dependencies.
 		 */
-		int check_rule_dependencies( Rule& _rule );
+		int check_rule_dependencies( string _truco_type,
+											vector <string> _dependencies,
+											vector <Rule*>& _rules_deps );
 		
 		/**
 		 * Get rules by where they are appliable.
@@ -304,7 +314,7 @@ class Truco
 		 * @return
 		 *  The founded rules.
 		 */
-		vector <Rule> get_rules_where_apply( const string& _where );
+		vector <Rule*> get_rules_where_apply( const string& _where );
 		
 		/**
 		 * Get the rules of the dependencies given.

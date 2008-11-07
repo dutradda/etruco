@@ -34,18 +34,38 @@ Deck::Deck(int _size)
 Deck::~Deck()
 {
 	int size = cards.size();
-	for( int i = size-1; i >= 0; i--)
+	for( int i = size-1; i >= 0; i-- )
 	{
 		delete cards[i];
 		cards.pop_back();
+	}
+	
+	size = cards_removed.size();
+	for( int i = size-1; i >= 0; i-- )
+	{
+		delete cards_removed[i];
+		cards_removed.pop_back();
 	}
 }
 
 void Deck::shuffle()
 {
+	int size;
+	
+	// Inicia a contagem de cartas dadas
+	get_cards_count = 0;
+	
+	// Recoloca as cartas retiradas do baralho
+	size = cards_removed.size();
+	for( int i = size-1; i >= 0; i-- )
+	{
+		cards.push_back( cards_removed[i] );
+		cards_removed.pop_back();
+	}
+	
 	srand( time( NULL ) );
 	
-	int size = cards.size();
+	size = cards.size();
 	int random;
 	Card* aux;
 	
@@ -63,12 +83,19 @@ vector <Card*> Deck::get_3cards()
 {
 	vector <Card*> _cards;
 	
-	if( get_cards_count <= 6 )
-	{
+	for(int i = get_cards_count; i < 3+get_cards_count; i++ )
+		_cards.push_back(cards[i]);
+	get_cards_count+=3;
 	
-		for(int i = get_cards_count; i < 3+get_cards_count; i++ )
-			_cards.push_back(cards[i]);
-		get_cards_count+=3;
-	}
 	return _cards;
+}
+
+Card* Deck::get_card()
+{
+	Card* card = cards.back();
+	cards.pop_back();
+	
+	cards_removed.push_back(card);
+	
+	return card;
 }

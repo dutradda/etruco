@@ -17,9 +17,11 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
- 
+
 #ifndef RULE_H
 #define RULE_H
+ 
+#include "Truco.h"
 
 #include <string>
 #include <vector>
@@ -47,9 +49,14 @@ class Rule
 			const string& _where_apply,
 			const string& _cb_name,
 			const vector <conflict>& _conflicts,
-			const vector <string>& _dependencies,
+			vector <Rule*> _dependencies,
 			const string& _file,
-			int ( *_callback )( vector <Rule>, vector <void*>, vector <void*>& ) );
+			int ( *_callback )() );
+			
+		/**
+		 * Sets rule's callback state
+		 */
+		inline void set_state( string _name, void* _value )  { state[_name.c_str()] = _value; };
 		
 		/**
 		 * Return the rule's name
@@ -79,7 +86,7 @@ class Rule
 		/**
 		 * Return the rule's dependencies
 		 */
-		inline vector <string> get_dependencies() { return dependencies; };
+		inline vector <Rule*> get_dependencies() { return dependencies; };
 		
 		/**
 		 * Return the rule's callback name
@@ -100,10 +107,10 @@ class Rule
 		string where_apply; /**< Which game part this rule is appliable */
 		string cb_name; /**< The callback's name */
 		vector <conflict> conflicts; /**< Which rules this rule conflits */
-		vector <string> dependencies; /**< Which rules this rule depends */
+		vector <Rule*> dependencies; /**< Which rules this rule depends */
 		string file; /**< The library file containing the callback */
 		map <string, void*> state; /**< The variables defines the rule's state */
-		int ( *callback )( vector <Rule>, vector <void*>, vector <void*>& ); /**< The function callback to the rule */
+		int ( *callback )(); /**< The function callback to the rule */
 };
 
 inline Rule::Rule( const string& _name,
@@ -112,9 +119,9 @@ inline Rule::Rule( const string& _name,
 			const string& _where_apply,
 			const string& _cb_name,
 			const vector <conflict>& _conflicts,
-			const vector <string>& _dependencies,
+			vector <Rule*> _dependencies,
 			const string& _file = "",
-			int ( *_callback )( vector <Rule>, vector <void*>, vector <void*>& ) = NULL )
+			int ( *_callback )() = NULL )
 {
 	name = _name;
 	truco_type = _truco_type;

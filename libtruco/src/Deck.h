@@ -54,12 +54,18 @@ class Deck
 		 * Gets three cards from deck.
 		 */
 		vector <Card*> get_3cards();
+		
+		/**
+		 * Get a card from deck's back.
+		 */
+		Card* get_card();
 	
 	protected:
 		vector <Card*> cards; /**< The deck's cards */
 		
 	private:
 		char get_cards_count; /**< Counts the number of cards geted */
+		vector <Card*> cards_removed; /**< The cards removed by the get_card method */
 	
 };
 
