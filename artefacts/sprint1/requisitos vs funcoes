@@ -1,0 +1,26 @@
+Possibilitar a chamada de um começo de um jogo – give_cards() + pick_vira() //ok
+Possibilitar a chamada de uma nova mão no jogo  – give_cards() + pick_vira() //ok
+Possibilitar a chamada de uma nova rodada – round_winner() //+-
+Chamada para determinar o ganhador da rodada – round_winner() //+-
+Possibilitar a chamada de término de rodada – round_winner() //+-
+Possibilitar a chamada de término de uma mão – mao_winner() //-+
+Chamada para determinar o ganhador da mão  - mao_winner() //-+
+Possibilitar a chamada de término do jogo – game_winner() //0
+Chamada para determinar o ganhador do jogo – game_winner() //0
+
+Aplicar as regras de empate para a primeira rodada – mao_winner() //-+
+Aplicar as regras de empate para a segunda rodada – mao_winner()  //-+
+Aplicar as regras de empate para a terceira rodada – mao_winner()  //-+
+Aplicar as regras de empate para a todas as rodadas – mao_winner() //-+
+
+Dar suporte a jogar cartas - play_cards() //ok
+Dar suporte a um pedido de truco – ask_truco() //0
+Dar suporte a um pedido de aumento de aposta (seis, nove e doze) – ask_truco() //0
+Dar suporte a uma fuja (não aceitar o truco ou aumento de aposta) – ask_truco() //0
+
+Dar suporte à regra de mão de onze – mao_winner()//0
+Dar suporte à regra mão de ferro – mao_winner() //0
+
+Possuir a manilha no vira - pick+vira() //ok
+Possuir baralho sujo //ok
+
