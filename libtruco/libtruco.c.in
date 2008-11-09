@@ -22,7 +22,7 @@ This rules are associated with a function, that implements how the rule works.
 
 libxml2 - For reads the xml file with the rules.
 
-glib - Libtruco uses only the gmodule part of the glib.
-Libtruco uses gmodule to load libraries in runtime, to map the rules with your functions.
+eina - Libtruco uses only the Eina_Module part of the eina.
+Libtruco uses eina_module to load libraries in runtime, to map the rules with your functions.
 
 */

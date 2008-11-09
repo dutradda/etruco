@@ -27,13 +27,11 @@
 #include "Rule.h"
 #include "Card.h"
 
-#include <gmodule.h>
+#include <Eina.h>
 #include <string>
 #include <vector>
 #include <map>
 using namespace std;
-
-//extern "C"
 
 /**
  * The main class for the game Truco.
@@ -56,110 +54,6 @@ class Truco
 		 */
 		~Truco();
 		
-		/**
-		 * Start a new hand in the game.
-		 * 
-		 * @param _returns
-		 *  The return of all rules executed.
-		 *
-		 * @return
-		 *  1 if start a new hand with sucess.	 
-		 *  0 if isnt time to start a new hand.
-		 */
-		int start_hand( map <string, int>& _returns );
-	
-		/**
-		 * Start a new round in a hand.
-		 * 
-		 * @param _returns
-		 *  The return of all rules executed.
-		 *
-		 * @return
-		 *  1 if start a new round with sucess.	 
-		 *  0 if isnt time to start a new round.
-		 */
-		int start_round( map <string, int>& _returns );
-	
-		/**
-		 * Finish the round and determines the winner.
-		 *
-		 * @param _player
-		 *  The winner player.
-		 *
-		 * @return
-		 *  1 if finish the round with sucess.
-		 *  0 if all the players havent played yet.
-		 *  -1 if has a draw round.
-		 *  -n where n is a rule return.
-		 */
-		int finish_round( Player& _player );
-		 
-		/**
-		 * Finish the hand and determines the winner.
-		 *
-		 * @param _team
-		 *  The winner team.
-		 *
-		 * @return
-		 *  1 if finish the hand with sucess.
-		 *  0 if have rounds to be played.
-		 *  -1 if has a draw hand.
-		 *  -n where n is a rule return.
-		 */
-		int finish_hand( Team& _team );
-		 
-		/**
-		 * Finish the game and determines the winner.
-		 *
-		 * @param _team
-		 *  The winner team.
-		 *
-		 * @return
-		 *  1 if finish the game with sucess.
-		 *  0 if isnt time to finish the game.
-		 */
-		int finish_game( Team& _team );
-	
-		/**
-		 * Receive a card played by a player.
-		 *
-		 * @param _card
-		 *  The card played.
-		 *
-		 * @param _player
-		 *  The player who played the card.
-		 *
-		 * @return
-		 *  1 if the card was played with sucess.
-		 *  0 if isnt time of this player to play the card.
-		 *  -1 if the card dont belongs the player.
-		 */
-		int card_played( const Card& _card, const Player& _player );
-		 
-		/**
-		 * Increases the bet.
-		 *
-		 * @param _team
-		 *  The team who accepted the increase.
-		 *
-		 * @return
-		 *  1 if the bet was increased with sucess.
-		 *  0 if isnt time of this team to increase the bet.
-		 */
-		int betting_increase( const Team& _team );
-		 
-		/**
-		 * Finish the hand by a betting increase rejected.
-		 *
-		 * @param _team
-		 *  The team who rejected the increase.
-		 *
-		 * @return
-		 *  1 if the betting increase was rejected with sucess.
-		 *  0 if was nothing betting increase to reject.
-		 */
-		int betting_increase_reject( const Team& _team );
-		 
 		/**
 		 * Loads a rule in the Truco to be processed.
 		 *
@@ -224,7 +118,7 @@ class Truco
 		 * @return
 		 *  1 if the rule was applied sucessful. 0 if the rule cant be aplied.
 		 */
-		int apply_rule( Rule _rule, vector <void*> _params );
+		int apply_rule( Rule* _rule, vector <void*> _params );
 		
 		/**
 		 * Apply rules by where_apply.
@@ -271,7 +165,7 @@ class Truco
 	
 	private:
 		vector <Rule*> rules; /**< The rules loaded in the game */
-		vector <GModule*> modules; /**< The modules where the rules functions are in. */
+		vector <Eina_Module*> modules; /**< The modules where the rules functions are in. */
 		
 		/**
 		 * Checks for conflicts with the rules already loaded.
@@ -316,21 +210,6 @@ class Truco
 		 */
 		vector <Rule*> get_rules_where_apply( const string& _where );
 		
-		/**
-		 * Get the rules of the dependencies given.
-		 * 
-		 * @param _dependencies
-		 *  The rules wanted.
-		 * 
-		 * @param _truco_type
-		 *  The truco type of the dependencies.
-		 * 
-		 * @return
-		 *  The founded rules.
-		 */
-		vector <Rule>
-		get_rules_dependencies( const vector <string>& _dependencies,
-										const string& _truco_type );
 };
 
 #endif

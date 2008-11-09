@@ -41,7 +41,9 @@ Truco::Truco( int num_players = 4, int num_teams = 2 )
 			aux.push_back( players[i+(num_team_players*j)] );
 		teams.push_back( new Team(aux) );
 	}
-			
+	
+	eina_module_init();
+	
 }
 
 Truco::~Truco()
@@ -59,7 +61,9 @@ Truco::~Truco()
 	size = modules.size();
 	
 	for( int i = 0; i < size; i++)
-		g_module_close(modules[i]);
+		eina_module_delete(modules[i]);
+	
+	eina_module_shutdown();
 }
 
 int Truco::check_rule_conflicts( vector <conflict> _conflicts )
@@ -105,12 +109,12 @@ vector <Rule*> Truco::get_rules_where_apply( const string& _where )
 	return _rules;
 }
 
-int Truco::apply_rule( Rule _rule, vector <void*> _params )
+int Truco::apply_rule( Rule* _rule, vector <void*> _params )
 {
-	int ( *callback )( Rule, Truco, vector<void*> ) =
-		( int (*)( Rule, Truco, vector<void*> ) ) _rule.get_callback();
+	int ( *callback )( Rule*, Truco*, vector<void*> ) =
+		( int (*)( Rule*, Truco*, vector<void*> ) ) _rule->get_callback();
 		
-	if( !callback(_rule, *this, _params) )
+	if( !callback(_rule, this, _params) )
 		return 0;
 	else
 		return 1;
@@ -123,7 +127,7 @@ Truco::apply_rules( const string& where_apply,
 	vector <Rule*> _rules = get_rules_where_apply( where_apply );
 	
 	for( int i = 0; i < _rules.size(); i++ )
-		if ( !apply_rule( *_rules[i], _params ) )
+		if ( !apply_rule( _rules[i], _params ) )
 			return 0;
 			
 	return 1;
@@ -136,7 +140,7 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 	int ret; // Retorno da funcao, pode ser -5, -4, -3, -2, -1, 0 e 1
 	xmlTextReaderPtr reader;
 	Rule* rule = NULL;
-	int ( *_callback )( Rule, Truco, vector <void*> );
+	void* callback = NULL;
 	
 	if( _file != "" )
 		reader = xmlReaderForFile( _file.c_str(), NULL, 0 );
@@ -217,15 +221,19 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 			{
 				// Adiciona a funcao callback na regra
 				if( attributes[5] != "" )		
-					modules.push_back( g_module_open( attributes[5].c_str(), G_MODULE_BIND_LAZY ) );
+					modules.push_back( eina_module_new(attributes[5].c_str()) );
 				else
-					modules.push_back( g_module_open( PACKAGE_DATA_DIR"/rules/default.so", G_MODULE_BIND_LAZY ) );
+					modules.push_back( eina_module_new(PACKAGE_DATA_DIR"/rules/default.so") );
 				
 				if( modules.back() == NULL)
 					return -2;
 				
-				if( !g_module_symbol( modules.back(), attributes[4].c_str(), (gpointer*)& _callback ) )
-					return -3;	
+				eina_module_load( modules.back() );
+				
+				callback = eina_module_symbol_get( modules.back(), attributes[4].c_str() );
+								
+				if( callback == NULL)
+					return -3;
 	
 				rule = new Rule( attributes[0],
 					attributes[1],
@@ -235,7 +243,7 @@ int Truco::load_rule( const string& _rule, const string& _truco_type, const stri
 					conflicts,
 					rules_deps,
 					attributes[5],
-					( int (*)() ) _callback );
+					callback );
 				
 				break;
 			}
@@ -270,7 +278,7 @@ Truco::load_rules( const string& _truco_type,
 	xmlTextReaderPtr reader;
 	Rule* rule = NULL;
 	int is_rule_loaded = 0;
-	int ( *_callback )( Rule, Truco, vector <void*> );
+	void* callback = NULL;
 	
 	if( _file != "" )
 		reader = xmlReaderForFile( _file.c_str(), NULL, 0 );
@@ -344,22 +352,26 @@ Truco::load_rules( const string& _truco_type,
 			{
 				// Adiciona a funcao callback na regra
 				if( attributes[5] != "" )		
-					modules.push_back( g_module_open( attributes[5].c_str(), G_MODULE_BIND_LAZY ) );
+					modules.push_back( eina_module_new(attributes[5].c_str()) );
 				else
-					modules.push_back( g_module_open( PACKAGE_DATA_DIR"/rules/default.so", G_MODULE_BIND_LAZY ) );
-				
+					modules.push_back( eina_module_new(PACKAGE_DATA_DIR"/rules/default.so") );
+					
 				if( modules.back() == NULL)
 				{
 					rule_errors.insert( pair <int,string>(-2,attributes[0]) );
 					continue;
 				}
 				
-				if( !g_module_symbol( modules.back(), attributes[4].c_str(), (gpointer*)& _callback ) )
+				eina_module_load( modules.back() );
+				
+				callback = eina_module_symbol_get( modules.back(), attributes[4].c_str() );
+								
+				if( callback == NULL)
 				{
 					rule_errors.insert( pair <int,string>(-3,attributes[0]) );
 					continue;
 				}
-				
+						
 				rule = new Rule( attributes[0],
 							attributes[1],
 							attributes[2],
@@ -368,7 +380,7 @@ Truco::load_rules( const string& _truco_type,
 							conflicts,
 							rules_deps,
 							attributes[5],
-							( int (*)() ) _callback );
+							callback );
 				rules.push_back( rule );
 				
 				is_rule_loaded = 1;
