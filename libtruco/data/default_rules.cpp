@@ -71,9 +71,9 @@ void round_winner( Rule& rule, Truco truco, vector< void * > params )	//states: 
 	void* last_player = rule.get_dependencies()["play_card"]->get_state("last_player");
 	int* draw = rule.get_dependencies()["play_card"]->get_state("draw");
 	
-	rule.set_state( "draw", 0);
-	if( state["round"] == 0 or state["winner"] != 0 ) //inicialização de estados
+	if( state["round"] == 0 or state["winner"] != 0 )
 	{	
+		rule.set_state( "draw", 0);
 		rule.set_state( "round", 5 );
 		rule.set_state( "winner", 0 ) ;
 		rule.set_state( "team1_points", 0 );
@@ -84,12 +84,14 @@ void round_winner( Rule& rule, Truco truco, vector< void * > params )	//states: 
 
 	rule.set_state( "round", state["round"]-1 );
 	
+	//last_player é um jogador, não um time!
 	if( state["team1"] == 0 )
 		rule.set_state( "team1", last_player );
 	else if( state["team1"] != last_player )
 		rule.set_state( "team2", last_player );
 		
-	if( draw ) //informa vencedor e pontuação (fictícia) pela rodada
+	//informa vencedor e pontuação (fictícia) pela rodada
+	if( draw )
 	{
 		rule.set_state( "winner", 0 );
 		rule.set_state( "draw", 1 );
@@ -140,13 +142,14 @@ void truco_accepted( Rule& rule, Truco truco, vector< void * > params ) //states
 			rule.set_state( "valor_mao", 3*asks );
 
 	rule.set_state( "valor_mao", 1 );
-	rule.set_state( "asks", state["asks"]+1 );
+	rule.set_state( "asks", state["asks"] + 1 );
 }
 
 //suporte ao caso de rejeite de truco
 void truco_rejected( Rule& rule, Truco truco, vector< void * > params )
 {
 	map <string, void*> state = rule.get_state();
+
 }
 
 //define ganhador da mão de acordo com as pontuações por rodada (fictícias) e atribui pontuação aos times.
@@ -157,7 +160,8 @@ void mao_winner( Rule& rule, Truco truco, vector< void * > params ) //states: wi
 	map <string, void*> truco_accepted_state = rule.get_dependencies()["truco_accepted"]->get_state();
 	map <string, void*> teams_points_state = rule.get_dependencies()["teams_points"]->get_state(); //diferente das demais por teams_poinsts não ser função
 	
-	if( round_winner_state["round"] == 3 ) //define se há vencedor e quem é no caso de apenas 2 rodadas
+	//define se há vencedor e quem é 
+	if( round_winner_state["round"] == 3 ) //para 2 rodadas
 	{
 		if( round_winner_state["team1_points"] == 7 )
 			rule.set_state( "winner", round_winner_state["team1"] );
@@ -167,7 +171,7 @@ void mao_winner( Rule& rule, Truco truco, vector< void * > params ) //states: wi
 	}
 	else if( round_winner_state["team1_points"] == 0 and round_winner_state["team2_points"] == 0 ) //para 3 rodadas
 			rule.set_state( "draw", 1);
-	else if( round_winner_state["team1_points"] > round_winner_state["team2_points"])
+	else if( round_winner_state["team1_points"] > round_winner_state["team2_points"] )
 			rule.set_state( "winner", round_winner_state["team1"] );
 		 else
 		 	rule.set_state( "winner", round_winner_state["team2"] );
