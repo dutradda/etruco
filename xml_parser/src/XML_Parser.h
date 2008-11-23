@@ -27,19 +27,36 @@
 #include <map>
 using namespace std;
 
-struct node
+struct Node
 {
 	string name;
 	map <string, string> attributes;
-	vector <node*> children;
+	vector <Node*> children;
 };
 
-vector <node*> get_children_nodes( const string& _xml_file, const string& _name );
-	
-vector <node*>
-get_children_nodes_by_attribute( const string& _xml_file,
-											const string& _name,
-											const string& _attribute,
-											const string& _attribute_value);
+class XML_Parser
+{
+	public:
+		XML_Parser( const string& _xml_file_name );
+		~XML_Parser();
+		void free_nodes( vector <Node*> nodes );
+		vector <Node*>
+		get_children_nodes( const string& _name,
+								const string& _attribute_name = "",
+								const string& _attribute_value = "" );
+		
+	private:
+		string xml_file_name;
+		xmlDocPtr xml_document;
+		bool search_child( vector<Node*> _nodes, const string& _name );
+		void
+		get_nodes_recurvise( xmlNodePtr _current_node,
+								vector <Node*>& nodes_found,
+								const string& _name,
+								const string& _attribute_name = "",
+								const string& _attribute_value = "" );
+		
+		
+};
 	
 #endif

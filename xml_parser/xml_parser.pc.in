@@ -1,0 +1,14 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+datarootdir=@datarootdir@
+datadir=@datadir@/@PACKAGE@
+libdir=@libdir@
+includedir=@includedir@
+libtruco_includedir=@libtruco_includedir@
+
+Name: XML_Parser
+Description: A little small C++ wrapper for the libxml2.
+Version: @VERSION@
+Requires: libxml-2.0
+Libs: -L${libdir} -lxml_parser
+Cflags: @LIBXML_CFLAGS@
