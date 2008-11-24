@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<truco>
+	<rule name="rule2" type="etruco2" description="rules test">
+		<callback name="testando" module_file_name="./testando.so" />
+	</rule>
+	<rule name="rule10" type="etruco" description="rules test">
+		<callback name="testando" module_file_name="./testando.so" />
+	</rule>
+	<rule name="rule6" type="etruco" description="rules test">
+		<callback name="testando" module_file_name="./testando.so" />
+		<conflict name="rule2" type="etruco2"/>
+	</rule>
+	<rule name="rule9" type="etruco" description="rules test">
+		<callback name="testando" module_file_name="./testando.so" />
+		<dependence name="rule10" />
+		<dependence name="rule6" />
+	</rule>
+	<rule name="rule4" type="etruco" description="rules test">
+		<callback name="testando" module_file_name="./testando.so" />
+	</rule>
+	<rule name="rule7" type="etruco" description="rules test">
+		<callback name="testando" module_file_name="./testando.so" />
+		<conflict name="rule3" type="etruco2"/>
+		<dependence name="rule4" />
+		<dependence name="rule9" />
+	</rule>
+</truco>

@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="yes"?>
+<messages>
+	<message name="message1" type="send" id="1">
+		<callback name="testando" module_file_name="./testando.so" />
+	</message>
+	<message name="message2" type="receive" id="2">
+		<callback name="testando" module_file_name="./testando.so" />
+	</message>
+	<message name="message3" type="send" id="3">
+		<callback name="testando" module_file_name="./testando.so" />
+	</message>
+	<message name="message4" type="send" id="4">
+		<callback name="testando" module_file_name="./testando.so" />
+	</message>
+	<message name="message5" type="receive" id="5">
+		<callback name="testando" module_file_name="./testando.so" />
+	</message>
+</messages>
