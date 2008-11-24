@@ -1,0 +1,14 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+datarootdir=@datarootdir@
+datadir=@datadir@/@PACKAGE@
+libdir=@libdir@
+includedir=@includedir@
+ipcpp_includedir=@ipcpp_includedir@
+
+Name: Inter Process Communication Plus Plus
+Description: A small wrapper for Ecore_Ipc
+Version: @VERSION@
+Requires: xml_parser, eina-0, ecore-ipc
+Libs: -L${libdir} -lipcpp
+Cflags: -I${ipcpp_includedir}
