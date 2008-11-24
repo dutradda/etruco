@@ -1,0 +1,14 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+datarootdir=@datarootdir@
+datadir=@datadir@/@PACKAGE@
+libdir=@libdir@
+includedir=@includedir@
+libcardgame_includedir=@libcardgame_includedir@
+
+Name: libcardgame
+Description: A small library to make card games
+Version: @VERSION@
+Requires: xml_parser, eina-0
+Libs: -L${libdir} -lcardgame
+Cflags: -I${libcardgame_includedir}
