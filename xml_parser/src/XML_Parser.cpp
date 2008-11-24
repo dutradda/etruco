@@ -22,31 +22,18 @@
 
 using namespace std;
 
-XML_Parser::XML_Parser( const string& _xml_file_name )
+bool XML_Parser::search_child( const vector<Node*>& _nodes, const string& _name )
 {
-	xml_document = xmlParseFile( _xml_file_name.c_str() );
-}
-
-XML_Parser::~XML_Parser()
-{
-	xmlFreeDoc( xml_document );
-	xmlCleanupParser();
-	xmlMemoryDump();
-
-}
-
-bool XML_Parser::search_child( vector<Node*> _nodes, const string& _name )
-{
-	for( int i = 0; i < _nodes.size(); i++ )
-		if( _nodes[i]->name == _name )
+	for( vector<Node*>::const_iterator i = _nodes.begin(); i != _nodes.end(); i++ )
+		if( (*i)->name == _name )
 			return true;
 
 	return false;
 }
 
 void
-XML_Parser::get_nodes_recurvise( xmlNodePtr _current_node,
-											vector <Node*>& nodes_found,
+XML_Parser::get_nodes_recurvise( vector <Node*>& nodes_found,
+											const xmlNodePtr& _current_node,
 											const string& _name,
 											const string& _attribute_name,
 											const string& _attribute_value)
@@ -86,38 +73,79 @@ XML_Parser::get_nodes_recurvise( xmlNodePtr _current_node,
 					// Quando eh feita uma busca por um filho, jah se adiciona todos os filhos daquele tipo
 					if( current_node_child->type != XML_TEXT_NODE &&
 					!search_child( new_node_found->children, (const char*) current_node_child->name ) )
-						get_nodes_recurvise( current_node,
-													new_node_found->children,
+						get_nodes_recurvise( new_node_found->children,
+													current_node,
 													(const char*) current_node_child->name );
 					current_node_child = current_node_child->next;
 				}
 				nodes_found.push_back( new_node_found );
 			}
 			else
-				get_nodes_recurvise( current_node, nodes_found, _name, _attribute_name, _attribute_value );
+				get_nodes_recurvise( nodes_found, current_node, _name, _attribute_name, _attribute_value );
 		current_node = current_node->next;
+	}
+}
+
+void
+XML_Parser::get_nodes_recurvise( vector <Node*>& nodes_found,
+											const Node* _current_node,
+											const string& _name,
+											const string& _attribute_name,
+											const string& _attribute_value)
+{
+	vector <Node*> children = _current_node->children;
+	
+	for( vector <Node*>::iterator i = children.begin(); i != children.end(); i++ )
+	{
+		/* Busca pelo noh recursivamente.
+		 * Se o noh for o corrente e tem o atributo e o valor dele nao foi setado ou
+		 * tem o atributo e tem o valor ou
+		 * nem o atributo nem o valor foi setado, entao ele entra na condicao */
+		if( ((*i)->name == _name) &&
+				((_attribute_name != "" && (*i)->attributes.find(_attribute_name) != (*i)->attributes.end() &&
+				_attribute_value == "") ||
+				(_attribute_name != "" && (*i)->attributes.find(_attribute_name) != (*i)->attributes.end() &&
+				_attribute_value != "" && (*i)->attributes[_attribute_name] == _attribute_value) ||
+				((_attribute_name == "") && (_attribute_value == ""))) )
+			nodes_found.push_back( *(i) );
+		else
+			get_nodes_recurvise( nodes_found, *i, _name, _attribute_name, _attribute_value );
 	}
 }
 
 vector <Node*>
 XML_Parser::get_children_nodes( const string& _name,
+											const string& _xml_file_name,
 											const string& _attribute_name,
 											const string& _attribute_value)
 {
+	xmlDocPtr xml_document = xmlParseFile( _xml_file_name.c_str() );
 	xmlNodePtr root_node = xmlDocGetRootElement( xml_document );
 	vector <Node*> nodes;
 	
-	if( _attribute_name == "" && _attribute_value == "" )
-		get_nodes_recurvise( root_node, nodes, _name );
-	else if( _attribute_value == "" )
-		get_nodes_recurvise( root_node, nodes, _name, _attribute_name );
-	else
-		get_nodes_recurvise( root_node, nodes, _name, _attribute_name, _attribute_value );
+	get_nodes_recurvise( nodes, root_node, _name, _attribute_name, _attribute_value );
+
+	xmlFreeDoc( xml_document );
+	xmlCleanupParser();
+	xmlMemoryDump();
 
 	return nodes;
 }
 
-void XML_Parser::free_nodes( vector <Node*> nodes )
+vector <Node*>
+XML_Parser::get_children_nodes( const Node* _node,
+											const string& _name,
+											const string& _attribute_name,
+											const string& _attribute_value)
+{
+	vector <Node*> new_nodes;
+	
+	get_nodes_recurvise( new_nodes, _node, _name, _attribute_name, _attribute_value );
+
+	return new_nodes;
+}
+
+void XML_Parser::free_nodes( vector <Node*>& nodes )
 {
 	vector <Node*>::iterator i;
 	for( i = nodes.begin(); i != nodes.end(); i++ )

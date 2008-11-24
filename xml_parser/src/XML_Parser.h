@@ -37,21 +37,35 @@ struct Node
 class XML_Parser
 {
 	public:
-		XML_Parser( const string& _xml_file_name );
-		~XML_Parser();
-		void free_nodes( vector <Node*> nodes );
+		void free_nodes( vector <Node*>& nodes );
+		
 		vector <Node*>
 		get_children_nodes( const string& _name,
+								const string& _xml_file_name,
+								const string& _attribute_name = "",
+								const string& _attribute_value = "" );
+								
+		vector <Node*>
+		get_children_nodes( const Node* _node,
+								const string& _name,
 								const string& _attribute_name = "",
 								const string& _attribute_value = "" );
 		
 	private:
-		string xml_file_name;
-		xmlDocPtr xml_document;
-		bool search_child( vector<Node*> _nodes, const string& _name );
+		//vector <vector <Node*> > nodes_created;
+		
+		bool search_child( const vector<Node*>& _nodes, const string& _name );
+		
 		void
-		get_nodes_recurvise( xmlNodePtr _current_node,
-								vector <Node*>& nodes_found,
+		get_nodes_recurvise( vector <Node*>& nodes_found,
+								const xmlNodePtr& _current_node,
+								const string& _name,
+								const string& _attribute_name = "",
+								const string& _attribute_value = "" );
+								
+		void
+		get_nodes_recurvise( vector <Node*>& nodes_found,
+								const Node* _current_node,
 								const string& _name,
 								const string& _attribute_name = "",
 								const string& _attribute_value = "" );
