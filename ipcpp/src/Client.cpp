@@ -18,9 +18,9 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
 
-#include "Client.h"
+#include "Client.h";
 
-Client::Client( const int& port, const string& _xml_file_name ) : Messages_Handler( _xml_file_name )
+ipcpp::Client::Client( const int& port, const string& _xml_file_name ) : Messages_Handler( _xml_file_name )
 {
 	ecore_init();
 	ecore_ipc_init();
@@ -37,7 +37,7 @@ Client::Client( const int& port, const string& _xml_file_name ) : Messages_Handl
    								handle_messages_client_received, this );
 }
 
-Client::~Client()
+ipcpp::Client::~Client()
 {
 	ecore_ipc_server_del( server );
 	
@@ -45,7 +45,7 @@ Client::~Client()
 	ecore_shutdown();
 }
 
-int Client::send_message( const int& _msg_id, void* _data )
+int ipcpp::Client::send_message( const int& _msg_id, void* _data )
 {
 	int data_size = run_message( messages_to_send, _msg_id, _data );
 	if( data_size )
@@ -57,7 +57,7 @@ int Client::send_message( const int& _msg_id, void* _data )
 		
 }
 
-int handle_server_connect( void* _client, int _event_type, void* _server )
+int ipcpp::handle_server_connect( void* _client, int _event_type, void* _server )
 {
 	Client* client = (Client*) _client;
 	Ecore_Ipc_Event_Server_Add* e_server = (Ecore_Ipc_Event_Server_Add*) _server;
@@ -68,7 +68,7 @@ int handle_server_connect( void* _client, int _event_type, void* _server )
 	return 1;
 }
 
-int handle_server_disconnect( void* _client, int _event_type, void* _server )
+int ipcpp::handle_server_disconnect( void* _client, int _event_type, void* _server )
 {
 	Client* client = (Client*) _client;
 	Ecore_Ipc_Event_Server_Del* e_server = (Ecore_Ipc_Event_Server_Del*) _server;
@@ -78,7 +78,7 @@ int handle_server_disconnect( void* _client, int _event_type, void* _server )
 	return 1;
 }
 
-int handle_messages_client_received( void* _client, int _event_type, void* _full_message )
+int ipcpp::handle_messages_client_received( void* _client, int _event_type, void* _full_message )
 {
 	Client* client = (Client*) _client;
 	Ecore_Ipc_Event_Server_Data *full_message = (Ecore_Ipc_Event_Server_Data*) _full_message;

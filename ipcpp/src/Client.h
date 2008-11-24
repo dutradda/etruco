@@ -18,34 +18,37 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
  
-#ifndef LIBTRUCONET_CLIENT_H
-#define LIBTRUCONET_CLIENT_H
+#ifndef IPCPP_CLIENT_H
+#define IPCPP_CLIENT_H
 
-#include <Messages_Handler.h>
+#include "Messages_Handler.h"
+
 #include <Ecore.h>
 #include <Ecore_Ipc.h>
 
-int handle_server_connect( void* _server, int _event_type, void* _client );
-int handle_server_disconnect( void* _server, int _event_type, void* _client );
-int handle_messages_client_received( void* _server, int _event_type, void* _full_message );
-
-class Client : public Messages_Handler
+namespace ipcpp
 {
-	public:
-		Client( const int& _port, const string& _xml_file_name );
-		
-		~Client();
-		
-		int send_message( const int& _msg_id, void* _data );
-		
-	private:
-		Ecore_Ipc_Server* server;
-		
-		friend int handle_server_connect( void* _client, int _event_type, void* _full_message );
-		
-		friend int handle_server_disconnect( void* _client, int _event_type, void* _full_message );
-		
-		friend int handle_messages_client_received( void* _data, int _event_type, void* _full_message );
-};
+	int handle_server_connect( void* _server, int _event_type, void* _client );
+	int handle_server_disconnect( void* _server, int _event_type, void* _client );
+	int handle_messages_client_received( void* _server, int _event_type, void* _full_message );
 
+	class Client : public Messages_Handler
+	{
+		public:
+			Client( const int& _port, const string& _xml_file_name );
+			
+			~Client();
+			
+			int send_message( const int& _msg_id, void* _data );
+			
+		private:
+			Ecore_Ipc_Server* server;
+			
+			friend int handle_server_connect( void* _client, int _event_type, void* _full_message );
+			
+			friend int handle_server_disconnect( void* _client, int _event_type, void* _full_message );
+			
+			friend int handle_messages_client_received( void* _data, int _event_type, void* _full_message );
+	};
+};
 #endif

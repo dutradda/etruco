@@ -18,76 +18,76 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
  
-#ifndef MESSAGES_HANDLER_H
-#define MESSAGES_HANDLER_H
-
-//#include "Message.h"
+#ifndef IPCPP_MESSAGES_HANDLER_H
+#define IPCPP_MESSAGES_HANDLER_H
 
 #include <XML_Parser.h>
 #include <Eina.h>
 
-struct Callback
+namespace ipcpp
 {
-	string name;
-	string module_file_name;
-	void* func;
-};
+	struct Callback
+	{
+		string name;
+		string module_file_name;
+		void* func;
+	};
 
-struct Message
-{
-	int id;
-	string name;
-	void* callback;
-};
+	struct Message
+	{
+		int id;
+		string name;
+		void* callback;
+	};
 
-class Messages_Handler
-{
-	public:
-		/**
-		 * Constructor.
-		 *
-		 * @param _xml_file_name
-		 *  The xml file that contain a list of messages.
-		 */
-		Messages_Handler( const string& _xml_file_name );
-		
-		/**
-		 * Destructor.
-		 */
-		virtual ~Messages_Handler();
-		
-		/*int run_message_rcv( const int& _msg_id, void* _data );
-		
-		int run_message_send( const int& _msg_id, void* _data );*/
-		
-	protected:
-		vector <Message> messages_to_receive;
-		vector <Message> messages_to_send;
-		
-		int run_message( const vector <Message>& _messages, const int& _msg_id, void*& _data );
-		
-		int run_message( const vector <Message>& _messages, const string& _msg_name, void*& _data );
-		
-		Message get_message_by_id( const int& _msg_id );
-		
-	private:
-		XML_Parser xml_parser;
-		string xml_file_name;
-		vector <Eina_Module*> modules; // The modules where the rules functions are in
-		
-		/*
-		 * Register all messages to be handled.
-		 * 
-		 * @return
-		 *  The multimap with the errors and messages.
-		 *  The errors are:
-		 *  -1 if the module of a rule function dont exist.
-		 *  -2 if a rule function dont exist in the module.
-		 */
-		multimap <int, string> register_messages();
-		
-		multimap <int, string>
-		register_messages( vector <Message>& _messages, const string& _msg_type );
+	class Messages_Handler
+	{
+		public:
+			/**
+			 * Constructor.
+			 *
+			 * @param _xml_file_name
+			 *  The xml file that contain a list of messages.
+			 */
+			Messages_Handler( const string& _xml_file_name );
+			
+			/**
+			 * Destructor.
+			 */
+			virtual ~Messages_Handler();
+			
+			/*int run_message_rcv( const int& _msg_id, void* _data );
+			
+			int run_message_send( const int& _msg_id, void* _data );*/
+			
+		protected:
+			vector <Message> messages_to_receive;
+			vector <Message> messages_to_send;
+			
+			int run_message( const vector <Message>& _messages, const int& _msg_id, void*& _data );
+			
+			int run_message( const vector <Message>& _messages, const string& _msg_name, void*& _data );
+			
+			Message get_message_by_id( const int& _msg_id );
+			
+		private:
+			XML_Parser xml_parser;
+			string xml_file_name;
+			vector <Eina_Module*> modules; // The modules where the rules functions are in
+			
+			/*
+			 * Register all messages to be handled.
+			 * 
+			 * @return
+			 *  The multimap with the errors and messages.
+			 *  The errors are:
+			 *  -1 if the module of a rule function dont exist.
+			 *  -2 if a rule function dont exist in the module.
+			 */
+			multimap <int, string> register_messages();
+			
+			multimap <int, string>
+			register_messages( vector <Message>& _messages, const string& _msg_type );
+	};
 };
-
 #endif

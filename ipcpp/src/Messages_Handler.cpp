@@ -21,21 +21,15 @@
 #include "Messages_Handler.h"
 
 
-Messages_Handler::Messages_Handler( const string& _xml_file_name )
+ipcpp::Messages_Handler::Messages_Handler( const string& _xml_file_name )
 {
 	xml_file_name = _xml_file_name;
 	eina_module_init();
 	register_messages();
 }
 
-Messages_Handler::~Messages_Handler()
+ipcpp::Messages_Handler::~Messages_Handler()
 {
-	/*for( vector <Message>::iterator i = messages_to_send.begin(); i != messages_to_send.end(); i++ )
-		delete *i;
-		
-	for( vector <Message>::iterator i = messages_to_receive.begin(); i != messages_to_receive.end(); i++ )
-		delete *i;*/
-	
 	for( vector <Eina_Module*>::iterator i = modules.begin(); i != modules.end(); i++ )
 	{
 		eina_module_unload(*i);
@@ -45,7 +39,7 @@ Messages_Handler::~Messages_Handler()
 	eina_module_shutdown();
 }
 
-multimap <int, string> Messages_Handler::register_messages()
+multimap <int, string> ipcpp::Messages_Handler::register_messages()
 {
 	multimap <int, string> messages_errors = register_messages( messages_to_receive, "receive" );
 	multimap <int, string> messages_errors2 = register_messages( messages_to_send, "send" );
@@ -57,7 +51,7 @@ multimap <int, string> Messages_Handler::register_messages()
 }
 
 multimap <int, string>
-Messages_Handler::register_messages( vector <Message>& _messages,
+ipcpp::Messages_Handler::register_messages( vector <Message>& _messages,
 												const string& _msg_type )
 {
 	vector <Node*> nodes = xml_parser.get_children_nodes( "message", xml_file_name, "type", _msg_type );
@@ -128,7 +122,7 @@ int Messages_Handler::run_message_send( const int& _msg_id, void* _data )
 	return run_message( messages_to_send, _msg_id, _data );
 }*/
 
-int Messages_Handler::run_message( const vector <Message>& _messages, const int& _msg_id, void*& _data )
+int ipcpp::Messages_Handler::run_message( const vector <Message>& _messages, const int& _msg_id, void*& _data )
 {
 	for( vector<Message>::const_iterator i = _messages.begin(); i != _messages.end(); i++ )
 		if( (*i).id == _msg_id )
@@ -138,7 +132,7 @@ int Messages_Handler::run_message( const vector <Message>& _messages, const int&
 		}
 }
 
-int Messages_Handler::run_message( const vector <Message>& _messages, const string& _msg_name, void*& _data )
+int ipcpp::Messages_Handler::run_message( const vector <Message>& _messages, const string& _msg_name, void*& _data )
 {
 	for( vector<Message>::const_iterator i = _messages.begin(); i != _messages.end(); i++ )
 		if( (*i).name == _msg_name )
