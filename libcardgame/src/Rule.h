@@ -24,14 +24,19 @@
 #include <string>
 #include <vector>
 #include <map>
-using namespace std;
+
 
 namespace libcardgame
 {
-	struct Conflict
+	class Conflict
 	{
-		string name;
-		string type;
+		friend class Card_Game;
+		public:
+			inline std::string get_name() { return name; }
+			inline std::string get_type() { return type; }
+		private:
+			std::string name;
+			std::string type;
 	};
 
 	/**
@@ -39,92 +44,93 @@ namespace libcardgame
 	 */
 	class Rule
 	{
+		friend class Card_Game;
+		
 		public:
 			/**
 			 * Constructor
 			 */
-			inline Rule( const string& _name,
-				const string& _type,
-				const string& _description,
-				const vector <Conflict>& _conflicts,
-				vector <Rule*> _dependencies,
-				void* _callback );
+			inline Rule( const std::string& _name,
+				const std::string& _type,
+				const std::string& _description,
+				const std::vector <Conflict>& _conflicts,
+				std::vector <Rule*> _dependencies );
 				
 			/**
 			 * Sets rule's callback state
 			 */
-			inline void set_state( string _name, void* _value )  { state[_name.c_str()] = _value; };
+			inline void set_state( std::string _name, void* _value )  { state[_name.c_str()] = _value; };
 			
 			/**
 			 * Return the rule's name
 			 */
-			inline string get_name() { return name; };
+			inline std::string get_name() { return name; };
 			
 			/**
 			 * Return the rule's type
 			 */
-			inline string get_type() { return type; };
+			inline std::string get_type() { return type; };
 			
 			/**
 			 * Return the rule's description
 			 */
-			inline string get_description() { return description; };
+			inline std::string get_description() { return description; };
 			
 			/**
 			 * Return the rule's conflicts
 			 */
-			inline vector <Conflict> get_conflicts() { return conflicts; };
+			inline std::vector <Conflict> get_conflicts() { return conflicts; };
 			
 			/**
 			 * Return the rule's dependencies
 			 */
-			inline vector <Rule*> get_dependencies() { return dependencies; };
+			inline std::vector <Rule*> get_dependencies() { return dependencies; };
 			
 			/**
-			 * Return the a map of rule's dependencies
+			 * Return the a std::map of rule's dependencies
 			 */
-			inline map <string, Rule*> get_dependencies_map();
+			inline std::map <std::string, Rule*> get_dependencies_map();
 			
 			/**
 			 * Return the rule's callback
 			 */
-			inline void* get_callback() { return callback; };
+			virtual int execute();
+			//inline void* get_callback() { return callback; };
 			
 			/**
 			 * Return the rule's callback state
 			 */
-			inline map <string, void*> get_state()  { return state; };
+			inline std::map <std::string, void*> get_state()  { return state; };
 		
 		private:
-			string name; /**< The rule's name */
-			string type; /**< The rule's type */
-			string description; /**< The rule's description */
-			vector <Conflict> conflicts; /**< Which rules this rule conflits */
-			vector <Rule*> dependencies; /**< Which rules this rule depends */
-			void* callback; /**< The function callback to the rule */
-			map <string, void*> state; /**< The variables defines the rule's state */
+			std::string name; /**< The rule's name */
+			std::string type; /**< The rule's type */
+			std::string description; /**< The rule's description */
+			std::vector <Conflict> conflicts; /**< Which rules this rule conflits */
+			std::vector <Rule*> dependencies; /**< Which rules this rule depends */
+			//void* callback; /**< The function callback to the rule */
+			std::map <std::string, void*> state; /**< The variables defines the rule's state */
 	};
 };
-inline Rule::Rule( const string& _name,
-			const string& _type,
-			const string& _description,
-			const vector <Conflict>& _conflicts,
-			vector <Rule*> _dependencies,
-			void* _callback )
+inline libcardgame::Rule::Rule( const std::string& _name,
+			const std::string& _type,
+			const std::string& _description,
+			const std::vector <libcardgame::Conflict>& _conflicts,
+			std::vector <libcardgame::Rule*> _dependencies )
 {
 	name = _name;
 	type = _type;
 	description = _description;
 	conflicts = _conflicts;
 	dependencies = _dependencies;
-	callback = _callback;
+	//callback = _callback;
 }
 
-inline map <string, Rule*> Rule::get_dependencies_map()
+inline std::map <std::string, libcardgame::Rule*> libcardgame::Rule::get_dependencies_map()
 {
-	map <string, Rule*> _return;
+	std::map <std::string, libcardgame::Rule*> _return;
 	
-	for( vector<Rule*>::iterator i = dependencies.begin(); i != dependencies.end(); i++ )
+	for( std::vector<libcardgame::Rule*>::iterator i = dependencies.begin(); i != dependencies.end(); i++ )
 		_return[(*i)->get_name()] = *i;
 	
 	return _return;

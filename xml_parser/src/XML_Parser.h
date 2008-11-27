@@ -25,50 +25,49 @@
 #include <vector>
 #include <string>
 #include <map>
-using namespace std;
 
 struct Node
 {
-	string name;
-	map <string, string> attributes;
-	vector <Node*> children;
+	std::string name;
+	std::map <std::string, std::string> attributes;
+	std::vector <Node*> children;
 };
 
 class XML_Parser
 {
 	public:
-		void free_nodes( vector <Node*>& nodes );
+		void free_nodes( std::vector <Node*>& nodes );
 		
-		vector <Node*>
-		get_children_nodes( const string& _name,
-								const string& _xml_file_name,
-								const string& _attribute_name = "",
-								const string& _attribute_value = "" );
+		std::vector <Node*>
+		get_children_nodes( const std::string& _name,
+								const std::string& _xml_file_name,
+								const std::string& _attribute_name = "",
+								const std::string& _attribute_value = "" );
 								
-		vector <Node*>
+		std::vector <Node*>
 		get_children_nodes( const Node* _node,
-								const string& _name,
-								const string& _attribute_name = "",
-								const string& _attribute_value = "" );
+								const std::string& _name,
+								const std::string& _attribute_name = "",
+								const std::string& _attribute_value = "" );
 		
 	private:
-		//vector <vector <Node*> > nodes_created;
+		//std::vector <std::vector <Node*> > nodes_created;
 		
-		bool search_child( const vector<Node*>& _nodes, const string& _name );
+		bool search_child( const std::vector<Node*>& _nodes, const std::string& _name );
 		
 		void
-		get_nodes_recurvise( vector <Node*>& nodes_found,
+		get_nodes_recurvise( std::vector <Node*>& nodes_found,
 								const xmlNodePtr& _current_node,
-								const string& _name,
-								const string& _attribute_name = "",
-								const string& _attribute_value = "" );
+								const std::string& _name,
+								const std::string& _attribute_name = "",
+								const std::string& _attribute_value = "" );
 								
 		void
-		get_nodes_recurvise( vector <Node*>& nodes_found,
+		get_nodes_recurvise( std::vector <Node*>& nodes_found,
 								const Node* _current_node,
-								const string& _name,
-								const string& _attribute_name = "",
-								const string& _attribute_value = "" );
+								const std::string& _name,
+								const std::string& _attribute_name = "",
+								const std::string& _attribute_value = "" );
 		
 		
 };

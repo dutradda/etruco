@@ -19,7 +19,7 @@
  */
 
 #include "Messages_Handler.h"
-
+using namespace std;
 
 ipcpp::Messages_Handler::Messages_Handler( const string& _xml_file_name )
 {
@@ -102,7 +102,7 @@ ipcpp::Messages_Handler::register_messages( vector <Message>& _messages,
 		
 		message.id = atoi( (*i)->attributes["id"].c_str() );
 		message.name = (*i)->attributes["name"];
-		message.callback = callback.func;
+		//message.callback = callback.func;
 		
 		_messages.push_back( message );
 	}
@@ -127,8 +127,8 @@ int ipcpp::Messages_Handler::run_message( const vector <Message>& _messages, con
 	for( vector<Message>::const_iterator i = _messages.begin(); i != _messages.end(); i++ )
 		if( (*i).id == _msg_id )
 		{
-			int (*callback)( void* ) = (int (*)( void* )) (*i).callback;
-			return callback(_data);
+			/*int (*callback)( void* ) = (int (*)( void* )) (*i).callback;
+			return callback(_data);*/
 		}
 }
 
@@ -137,7 +137,7 @@ int ipcpp::Messages_Handler::run_message( const vector <Message>& _messages, con
 	for( vector<Message>::const_iterator i = _messages.begin(); i != _messages.end(); i++ )
 		if( (*i).name == _msg_name )
 		{
-			int (*callback)( void* ) = (int (*)( void* )) (*i).callback;
-			return callback(_data);
+			/*int (*callback)( void* ) = (int (*)( void* )) (*i).callback;
+			return callback(_data);*/
 		}
 }

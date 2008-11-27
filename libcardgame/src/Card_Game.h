@@ -32,16 +32,16 @@
 #include <string>
 #include <vector>
 #include <map>
-using namespace std;
+
 using namespace libcardgame;
 
 namespace libcardgame
 {
-	struct Callback
+	struct Module_Symbol
 	{
-		string name;
-		string module_file_name;
-		void* func;
+		std::string name;
+		std::string module_file_name;
+		void* symbol;
 	};
 
 	/**
@@ -60,7 +60,7 @@ namespace libcardgame
 			 */
 			Card_Game(const int& _num_team_players,
 						const int& _num_teams,
-						const string& _xml_file_name );
+						const std::string& _xml_file_name );
 			
 			/**
 			 * Destructor
@@ -80,17 +80,17 @@ namespace libcardgame
 			 *  The rule attribute value pre-requisite.
 			 * 
 			 * @return
-			 *  The multimap with the errors and rules.
+			 *  The multistd::map with the errors and rules.
 			 *  The errors are:
 			 *  -1 if the dependencies dont match.
 			 *  -2 if the conflicts match.
 			 *  -3 if the module of a rule function dont exist.
 			 *  -4 if a rule function dont exist in the module.
 			 */
-			multimap <int, string>
-			load_rules_file( const string& _xml_file_name,
-							const string& _attribute_name = "",
-							const string& _attribute_value = "" );
+			std::multimap <int, std::string>
+			load_rules_file( const std::string& _xml_file_name,
+							const std::string& _attribute_name = "",
+							const std::string& _attribute_value = "" );
 							
 			/**
 			 * Loads rules.
@@ -102,16 +102,16 @@ namespace libcardgame
 			 *  The rule attribute value pre-requisite.
 			 * 
 			 * @return
-			 *  The multimap with the errors and rules.
+			 *  The multistd::map with the errors and rules.
 			 *  The errors are:
 			 *  -1 if the dependencies dont match.
 			 *  -2 if the conflicts match.
 			 *  -3 if the module of a rule function dont exist.
 			 *  -4 if a rule function dont exist in the module.
 			 */
-			multimap <int, string>
-			load_rules( const string& _attribute_name = "",
-							const string& _attribute_value = "" );
+			std::multimap <int, std::string>
+			load_rules( const std::string& _attribute_name = "",
+							const std::string& _attribute_value = "" );
 			
 			/**
 			 * Apply a rule.
@@ -125,22 +125,22 @@ namespace libcardgame
 			 * @return
 			 *  1 if the rule was applied sucessful. 0 if the rule cant be aplied.
 			 */
-			int apply_rule( const string& _name, const vector <void*>& _params );
+			int apply_rule( const std::string& _name, const std::vector <void*>& _params );
 			
 			/**
 			 * Return the rules
 			 */		
-			inline vector <Rule*> get_rules() { return rules; };
+			inline std::vector <Rule*> get_rules() { return rules; };
 			
 			/**
 			 * Return the players
 			 */		
-			inline vector <Player*> get_players() { return players; };
+			inline std::vector <Player*> get_players() { return players; };
 			
 			/**
 			 * Return the teams
 			 */		
-			inline vector <Team*> get_teams() { return teams; };
+			inline std::vector <Team*> get_teams() { return teams; };
 			
 			/**
 			 * Return the team of the player
@@ -153,16 +153,16 @@ namespace libcardgame
 			inline Deck* get_deck() { return deck; };
 		
 		protected:
-			vector <Player*> players; // The players of the game
-			vector <Team*> teams; // The teams of the game
+			std::vector <Player*> players; // The players of the game
+			std::vector <Team*> teams; // The teams of the game
 			Deck* deck; // The game's deck
 			
 		
 		private:
-			string xml_file_name;
+			std::string xml_file_name;
 			XML_Parser xml_parser; // The xml document parser
-			vector <Rule*> rules; // The rules loaded in the game
-			vector <Eina_Module*> modules; // The modules where the rules functions are in
+			std::vector <Rule*> rules; // The rules loaded in the game
+			std::vector <Eina_Module*> modules; // The modules where the rules functions are in
 			
 			/*
 			 * Checks for conflicts with the rules already loaded.
@@ -174,7 +174,7 @@ namespace libcardgame
 			 *	 1 if there is no conflicts.
 			 *  0 if have conflicts.
 			 */
-			int check_rule_conflicts( const vector <Conflict>& _conflicts );
+			int check_rule_conflicts( const std::vector <Conflict>& _conflicts );
 			
 			/*
 			 * Checks for dependencies with the rules already loaded.
@@ -192,9 +192,9 @@ namespace libcardgame
 			 *  1 if all dependencies are satisfied.
 			 *  0 if are missing dependencies.
 			 */
-			int check_rule_dependencies( vector <Rule*>& _rules_deps,
-												const string& _type,
-												const vector <string>& _dependencies );
+			int check_rule_dependencies( std::vector <Rule*>& _rules_deps,
+												const std::string& _type,
+												const std::vector <std::string>& _dependencies );
 	};
 };
 

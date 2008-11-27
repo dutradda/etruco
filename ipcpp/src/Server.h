@@ -35,7 +35,7 @@ namespace ipcpp
 	class Server : public Messages_Handler
 	{
 		public:
-			Server( const int& _port, const string& _xml_file_name );
+			Server( const int& _port, const std::string& _xml_file_name );
 			
 			~Server();
 			
@@ -43,7 +43,7 @@ namespace ipcpp
 			
 		private:
 			Ecore_Ipc_Server* server;
-			vector <Ecore_Ipc_Client*> clients;
+			std::vector <Ecore_Ipc_Client*> clients;
 			
 			friend int handle_client_connect( void* _server, int _event_type, void* _full_message );
 			

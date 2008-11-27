@@ -35,7 +35,7 @@ namespace ipcpp
 	class Client : public Messages_Handler
 	{
 		public:
-			Client( const int& _port, const string& _xml_file_name );
+			Client( const int& _port, const std::string& _xml_file_name );
 			
 			~Client();
 			

@@ -24,8 +24,6 @@
 #include "Card.h"
 
 #include <vector>
-using namespace std;
-using namespace libcardgame;
 
 namespace libcardgame
 {
@@ -46,7 +44,7 @@ namespace libcardgame
 			 * @param _cards
 			 *  The new cards of the player.
 			 */
-			inline Player( vector <Card*> _cards ) { cards = _cards; };
+			inline Player( std::vector <Card*> _cards ) { cards = _cards; };
 		
 			/**
 			 * Get the player's cards.
@@ -54,7 +52,7 @@ namespace libcardgame
 			 * @return
 			 *  The cards.
 			 */
-			inline vector <Card*> get_cards() { return cards; };
+			inline std::vector <Card*> get_cards() { return cards; };
 			
 			/**
 			 * Play a card.
@@ -73,21 +71,21 @@ namespace libcardgame
 			 * Receive new cards.
 			 *
 			 * @param _cards
-			 *  A vector with three cards.
+			 *  A std::vector with three cards.
 			 */
-			inline void receive_cards( vector <Card*> _cards ) { cards = _cards; };
+			inline void receive_cards( std::vector <Card*> _cards ) { cards = _cards; };
 		
 		private:
-			vector <Card*> cards; /**< The player's cards */
+			std::vector <Card*> cards; /**< The player's cards */
 	};
 };
  
-inline int Player::plays_card( Card& _card )
+inline int libcardgame::Player::plays_card( Card& _card )
 {
 	if( cards.empty() )
 		return -1;
 	
-	for( vector<Card*>::iterator i = cards.begin(); i != cards.end(); i++)
+	for( std::vector<Card*>::iterator i = cards.begin(); i != cards.end(); i++)
 	{
 		if( _card == *(*i) )
 		{

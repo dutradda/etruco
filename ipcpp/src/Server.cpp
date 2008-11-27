@@ -20,6 +20,7 @@
 
 #include "Server.h"
 #include <algorithm>
+using namespace std;
 
 ipcpp::Server::Server( const int& port, const string& _xml_file_name ) : Messages_Handler( _xml_file_name )
 {

@@ -24,8 +24,6 @@
 #include "Card.h"
 
 #include <vector>
-using namespace std;
-using namespace libcardgame;
 
 namespace libcardgame
 {
@@ -60,11 +58,11 @@ namespace libcardgame
 			
 		private:
 			int cards_geted;
-			vector <Card*> cards; /**< The deck's cards */
+			std::vector <Card*> cards; /**< The deck's cards */
 	};
 };
 
-inline Deck::Deck(int _size, int _suits)
+inline libcardgame::Deck::Deck(int _size, int _suits)
 {	
 	cards_geted = 0;
 	
@@ -73,13 +71,13 @@ inline Deck::Deck(int _size, int _suits)
 			cards.push_back(new Card(i, j));
 }
 
-inline Deck::~Deck()
+inline libcardgame::Deck::~Deck()
 {
-	for( vector<Card*>::iterator i = cards.begin(); i != cards.end(); i++ )
+	for( std::vector<Card*>::iterator i = cards.begin(); i != cards.end(); i++ )
 		delete *i;
 }
 
-inline Card* Deck::get_card()
+inline libcardgame::Card* libcardgame::Deck::get_card()
 {
 	if( cards.size() == cards_geted )
 		return NULL;

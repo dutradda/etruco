@@ -21,8 +21,10 @@
 #include "Deck.h"
 
 #include <cstdlib>
+using namespace libcardgame;
+using namespace std;
 
-void libcardgame::Deck::shuffle()
+void Deck::shuffle()
 {
 	cards_geted = 0;
 	

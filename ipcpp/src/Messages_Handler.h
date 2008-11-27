@@ -28,16 +28,16 @@ namespace ipcpp
 {
 	struct Callback
 	{
-		string name;
-		string module_file_name;
+		std::string name;
+		std::string module_file_name;
 		void* func;
 	};
 
 	struct Message
 	{
 		int id;
-		string name;
-		void* callback;
+		std::string name;
+		virtual int callback() {};
 	};
 
 	class Messages_Handler
@@ -49,7 +49,7 @@ namespace ipcpp
 			 * @param _xml_file_name
 			 *  The xml file that contain a list of messages.
 			 */
-			Messages_Handler( const string& _xml_file_name );
+			Messages_Handler( const std::string& _xml_file_name );
 			
 			/**
 			 * Destructor.
@@ -61,33 +61,33 @@ namespace ipcpp
 			int run_message_send( const int& _msg_id, void* _data );*/
 			
 		protected:
-			vector <Message> messages_to_receive;
-			vector <Message> messages_to_send;
+			std::vector <Message> messages_to_receive;
+			std::vector <Message> messages_to_send;
 			
-			int run_message( const vector <Message>& _messages, const int& _msg_id, void*& _data );
+			int run_message( const std::vector <Message>& _messages, const int& _msg_id, void*& _data );
 			
-			int run_message( const vector <Message>& _messages, const string& _msg_name, void*& _data );
+			int run_message( const std::vector <Message>& _messages, const std::string& _msg_name, void*& _data );
 			
 			Message get_message_by_id( const int& _msg_id );
 			
 		private:
 			XML_Parser xml_parser;
-			string xml_file_name;
-			vector <Eina_Module*> modules; // The modules where the rules functions are in
+			std::string xml_file_name;
+			std::vector <Eina_Module*> modules; // The modules where the rules functions are in
 			
 			/*
 			 * Register all messages to be handled.
 			 * 
 			 * @return
-			 *  The multimap with the errors and messages.
+			 *  The multistd::map with the errors and messages.
 			 *  The errors are:
 			 *  -1 if the module of a rule function dont exist.
 			 *  -2 if a rule function dont exist in the module.
 			 */
-			multimap <int, string> register_messages();
+			std::multimap <int, std::string> register_messages();
 			
-			multimap <int, string>
-			register_messages( vector <Message>& _messages, const string& _msg_type );
+			std::multimap <int, std::string>
+			register_messages( std::vector <Message>& _messages, const std::string& _msg_type );
 	};
 };
 #endif

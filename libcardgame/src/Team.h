@@ -24,8 +24,6 @@
 #include "Player.h"
 
 #include <vector>
-using namespace std;
-using namespace libcardgame;
 
 namespace libcardgame
 {
@@ -38,16 +36,16 @@ namespace libcardgame
 			/**
 			 * Constructor
 			 */
-			Team( vector <Player*> _players ) : players( _players ) { };
+			Team( std::vector <Player*> _players ) : players( _players ) { };
 			
 			/**
 			 * Return the players.
 			 *
 			 */
-			inline vector <Player*> get_players() { return players; };
+			inline std::vector <Player*> get_players() { return players; };
 		
 		private:
-			vector <Player*> players; /**< The team's players */
+			std::vector <Player*> players; /**< The team's players */
 	};
 };
 #endif

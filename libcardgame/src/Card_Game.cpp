@@ -23,8 +23,9 @@
 #include "Card_Game.h"
 
 using namespace std;
+using namespace libcardgame;
 
-libcardgame::Card_Game::Card_Game( const int& _num_team_players,
+Card_Game::Card_Game( const int& _num_team_players,
 							const int& _num_teams,
 							const string& _xml_file_name )
 {
@@ -48,7 +49,7 @@ libcardgame::Card_Game::Card_Game( const int& _num_team_players,
 	eina_module_init();
 }
 
-libcardgame::Card_Game::~Card_Game()
+Card_Game::~Card_Game()
 {
 	for( vector <Player*>::iterator i = players.begin(); i != players.end(); i++ )
 		delete *i;
@@ -66,7 +67,7 @@ libcardgame::Card_Game::~Card_Game()
 	eina_module_shutdown();
 }
 
-int libcardgame::Card_Game::check_rule_conflicts( const vector <Conflict>& _conflicts )
+int Card_Game::check_rule_conflicts( const vector <Conflict>& _conflicts )
 {
 	for( vector <Rule*>::iterator i = rules.begin(); i != rules.end(); i++ )
 		for( vector <Conflict>::const_iterator j = _conflicts.begin(); j != _conflicts.end(); j++ )
@@ -76,7 +77,7 @@ int libcardgame::Card_Game::check_rule_conflicts( const vector <Conflict>& _conf
 }
 
 int
-libcardgame::Card_Game::check_rule_dependencies( vector <Rule*>& _rules_deps,
+Card_Game::check_rule_dependencies( vector <Rule*>& _rules_deps,
 										const string& _type,
 										const vector <string>& _dependencies )
 {
@@ -101,7 +102,7 @@ libcardgame::Card_Game::check_rule_dependencies( vector <Rule*>& _rules_deps,
 	return 1;
 }
 
-int libcardgame::Card_Game::apply_rule( const string& _name, const vector <void*>& _params )
+int Card_Game::apply_rule( const string& _name, const vector <void*>& _params )
 {
 	Rule* rule = NULL;
 	vector<Rule*>::iterator i;
@@ -115,31 +116,31 @@ int libcardgame::Card_Game::apply_rule( const string& _name, const vector <void*
 	if( rule == NULL )
 		return 0;
 	
-	int ( *callback )( Rule*, Card_Game*, vector<void*> ) =
+	/*int ( *callback )( Rule*, Card_Game*, vector<void*> ) =
 		( int (*)( Rule*, Card_Game*, vector<void*> ) ) rule->get_callback();
 		
 	if( !callback(rule, this, _params) )
 		return 0;
-	else
+	else*/
 		return 1;
 }
 
 multimap <int, string>
-libcardgame::Card_Game::load_rules( const string& _attribute_name,
+Card_Game::load_rules( const string& _attribute_name,
 							const string& _attribute_value )
 {
 	return load_rules_file( xml_file_name, _attribute_name, _attribute_value );
 }
 
 multimap <int, string>
-libcardgame::Card_Game::load_rules_file( const string& _xml_file_name,
+Card_Game::load_rules_file( const string& _xml_file_name,
 							const string& _attribute_name,
 							const string& _attribute_value )
 {
 	multimap <int, string> rule_errors;
 	bool have_module;
 	Conflict conflict;
-	Callback callback;
+	Module_Symbol module_symbol; // Eh a regra instanciada na biblioteca
 	vector <Node*> nodes = xml_parser.get_children_nodes("rule", _xml_file_name, _attribute_name, _attribute_value);
 	
 	if( nodes.size() == 0 )
@@ -161,31 +162,29 @@ libcardgame::Card_Game::load_rules_file( const string& _xml_file_name,
 			}
 			else if( (*j)->name == "dependence" )
 				dependencies.push_back( (*j)->attributes["name"] );
-			else if( (*j)->name == "callback" )
-			{
-				callback.name = (*j)->attributes["name"];
-				callback.module_file_name = (*j)->attributes["module_file_name"];
-			}
-		
+			
+		module_symbol.name = (*i)->attributes["name"];
+		module_symbol.module_file_name = (*i)->attributes["module_file_name"];
 		vector <Rule*> rules_deps;
 		if( check_rule_conflicts(conflicts) )
 			if( check_rule_dependencies( rules_deps, (*i)->attributes["type"], dependencies ) )
 			{
-				// Verifica se o modulo ja esta carregado
+				// Verifica se o modulo ja esta carregado e pega a funcao
 				have_module = false;
 				for( vector<Eina_Module*>::iterator j = modules.begin(); j != modules.end(); j++ )
 				{
-					callback.func = eina_module_symbol_get( *j, callback.name.c_str() );
-					if( callback.func != NULL )
+					module_symbol.symbol = eina_module_symbol_get( *j, module_symbol.name.c_str() );
+					if( module_symbol.symbol != NULL )
 					{
 						have_module = true;
 						break;
 					}
 				}
 				
+				// Carrega o modulo e pega a funcao
 				if( !have_module )
 				{
-					modules.push_back( eina_module_new( callback.module_file_name.c_str() ) );
+					modules.push_back( eina_module_new( module_symbol.module_file_name.c_str() ) );
 					if( modules.back() == NULL )
 					{
 						rule_errors.insert( pair <int,string>( -3, (*i)->attributes["name"] ) );
@@ -193,21 +192,18 @@ libcardgame::Card_Game::load_rules_file( const string& _xml_file_name,
 						continue;
 					}
 					eina_module_load( modules.back() );
-					callback.func = eina_module_symbol_get( modules.back(), callback.name.c_str() );
+					module_symbol.symbol = eina_module_symbol_get( modules.back(), module_symbol.name.c_str() );
 				}
 				
-				if( callback.func == NULL )
+				if( module_symbol.symbol == NULL )
 				{
 					rule_errors.insert( pair <int,string>( -4, (*i)->attributes["name"] ) );
 					continue;
 				}
 				
-				rules.push_back( new Rule( (*i)->attributes["name"],
-													(*i)->attributes["type"],
-													(*i)->attributes["description"],
-													conflicts,
-													rules_deps,
-													callback.func ) );		
+				Rule* new_rule = (Rule*) module_symbol.symbol;
+				new_rule->dependencies = rules_deps;
+				rules.push_back( new_rule );		
 			}
 			else
 				rule_errors.insert( pair <int,string>( -1, (*i)->attributes["name"] ) );
@@ -220,7 +216,7 @@ libcardgame::Card_Game::load_rules_file( const string& _xml_file_name,
 	return rule_errors;
 }
 
-Team* libcardgame::Card_Game::get_player_team( const Player* _player )
+Team* Card_Game::get_player_team( const Player* _player )
 {
 	vector <Player*> team_players;
 	vector<Player*>::iterator result;

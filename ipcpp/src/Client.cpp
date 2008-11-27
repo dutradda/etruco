@@ -18,14 +18,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
 
-#include "Client.h";
+#include "Client.h"
+using namespace std;
 
 ipcpp::Client::Client( const int& port, const string& _xml_file_name ) : Messages_Handler( _xml_file_name )
 {
 	ecore_init();
 	ecore_ipc_init();
 	
-	server = ecore_ipc_server_connect( ECORE_IPC_REMOTE_SYSTEM, "localhost", port, NULL );
+	server = ecore_ipc_server_connect( ECORE_IPC_REMOTE_SYSTEM, (char*) "localhost", port, NULL );
 	
 	ecore_event_handler_add( ECORE_IPC_EVENT_SERVER_ADD,
 									handle_server_connect, this );
