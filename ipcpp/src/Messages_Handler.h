@@ -26,18 +26,18 @@
 
 namespace ipcpp
 {
-	struct Callback
+	struct Module_Symbol
 	{
 		std::string name;
 		std::string module_file_name;
-		void* func;
+		void* symbol;
 	};
 
 	struct Message
 	{
 		int id;
 		std::string name;
-		virtual int callback() {};
+		void* callback;
 	};
 
 	class Messages_Handler

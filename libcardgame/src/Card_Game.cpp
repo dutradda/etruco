@@ -18,8 +18,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
 
-#include <config.h>
-
 #include "Card_Game.h"
 
 using namespace std;
@@ -115,14 +113,8 @@ int Card_Game::apply_rule( const string& _name, const vector <void*>& _params )
 		
 	if( rule == NULL )
 		return 0;
-	
-	/*int ( *callback )( Rule*, Card_Game*, vector<void*> ) =
-		( int (*)( Rule*, Card_Game*, vector<void*> ) ) rule->get_callback();
-		
-	if( !callback(rule, this, _params) )
-		return 0;
-	else*/
-		return 1;
+	else
+		return rule->execute(this, _params);
 }
 
 multimap <int, string>
@@ -169,7 +161,7 @@ Card_Game::load_rules_file( const string& _xml_file_name,
 		if( check_rule_conflicts(conflicts) )
 			if( check_rule_dependencies( rules_deps, (*i)->attributes["type"], dependencies ) )
 			{
-				// Verifica se o modulo ja esta carregado e pega a funcao
+				// Verifica se o modulo ja esta carregado e pega a regra
 				have_module = false;
 				for( vector<Eina_Module*>::iterator j = modules.begin(); j != modules.end(); j++ )
 				{
@@ -181,7 +173,7 @@ Card_Game::load_rules_file( const string& _xml_file_name,
 					}
 				}
 				
-				// Carrega o modulo e pega a funcao
+				// Carrega o modulo e pega a regra
 				if( !have_module )
 				{
 					modules.push_back( eina_module_new( module_symbol.module_file_name.c_str() ) );

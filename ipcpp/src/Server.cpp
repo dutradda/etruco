@@ -53,14 +53,10 @@ ipcpp::Server::~Server()
 
 int ipcpp::Server::send_message( const int& _client_id, const int& _msg_id, void* _data )
 {
-	int data_size = run_message( messages_to_send, _msg_id, _data );
-	if( data_size )
-		if( ecore_ipc_client_send( clients.at(_client_id), 0, 0, _msg_id, 0, 0, _data, data_size ) )
-			return 1;
-		else
-			return 0;
-		return 0;
-		
+	if( run_message( messages_to_send, _msg_id, _data ) )
+		return ecore_ipc_client_send( clients.at(_client_id), 0, 0, _msg_id, 0, 0, _data, sizeof(_data) );
+	else
+		return 0;	
 }
 
 int ipcpp::handle_client_connect( void* _server, int _event_type, void* _client )

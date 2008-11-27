@@ -58,51 +58,57 @@ ipcpp::Messages_Handler::register_messages( vector <Message>& _messages,
 	multimap <int, string> messages_errors;
 	
 	bool have_module;
-	Callback callback;
+	Module_Symbol module_symbol;
 	vector <Node*> node_callback;
 	Message message;
 	for( vector <Node*>::iterator i = nodes.begin(); i != nodes.end(); i++ )
 	{
 		// Pega a callback	
 		node_callback = xml_parser.get_children_nodes(*i, "callback");
-		callback.name = (*(node_callback.begin()))->attributes["name"];
-		callback.module_file_name = (*(node_callback.begin()))->attributes["module_file_name"];
-
-		// Verifica se o modulo ja esta carregado e pega a funcao
-		have_module = false;
-		for( vector<Eina_Module*>::iterator j = modules.begin(); j != modules.end(); j++ )
-		{
-			callback.func = eina_module_symbol_get( *j, callback.name.c_str() );
-			if( callback.func != NULL )
-			{
-				have_module = true;
-				break;
-			}
-		}
+		module_symbol.symbol = NULL;
 		
-		// Carrega o modulo e pega a funcao
-		if( !have_module )
+		if( node_callback.size() ) // Se essa mensagem possuir callback
 		{
-			modules.push_back( eina_module_new( callback.module_file_name.c_str() ) );
-			if( modules.back() == NULL )
+			module_symbol.name = (*(node_callback.begin()))->attributes["name"];
+			module_symbol.module_file_name = (*(node_callback.begin()))->attributes["module_file_name"];
+
+			// Verifica se o modulo ja esta carregado e pega a funcao
+			have_module = false;
+			for( vector<Eina_Module*>::iterator j = modules.begin(); j != modules.end(); j++ )
 			{
-				messages_errors.insert( pair <int,string>( -1, (*i)->attributes["name"] ) );
-				modules.pop_back();
+				module_symbol.symbol = eina_module_symbol_get( *j, module_symbol.name.c_str() );
+				if( module_symbol.symbol != NULL )
+				{
+					have_module = true;
+					break;
+				}
+			}
+			
+			// Carrega o modulo e pega a funcao
+			if( !have_module )
+			{
+				modules.push_back( eina_module_new( module_symbol.module_file_name.c_str() ) );
+				if( modules.back() == NULL )
+				{
+					messages_errors.insert( pair <int,string>( -1, (*i)->attributes["name"] ) );
+					modules.pop_back();
+					continue;
+				}
+				eina_module_load( modules.back() );
+				module_symbol.symbol = eina_module_symbol_get( modules.back(), module_symbol.name.c_str() );
+			}
+			
+			if( module_symbol.symbol == NULL )
+			{
+				messages_errors.insert( pair <int,string>( -2, (*i)->attributes["name"] ) );
 				continue;
 			}
-			eina_module_load( modules.back() );
-			callback.func = eina_module_symbol_get( modules.back(), callback.name.c_str() );
-		}
-		
-		if( callback.func == NULL )
-		{
-			messages_errors.insert( pair <int,string>( -2, (*i)->attributes["name"] ) );
-			continue;
+			
+			message.callback = module_symbol.symbol;	
 		}
 		
 		message.id = atoi( (*i)->attributes["id"].c_str() );
 		message.name = (*i)->attributes["name"];
-		//message.callback = callback.func;
 		
 		_messages.push_back( message );
 	}
@@ -126,18 +132,28 @@ int ipcpp::Messages_Handler::run_message( const vector <Message>& _messages, con
 {
 	for( vector<Message>::const_iterator i = _messages.begin(); i != _messages.end(); i++ )
 		if( (*i).id == _msg_id )
-		{
-			/*int (*callback)( void* ) = (int (*)( void* )) (*i).callback;
-			return callback(_data);*/
-		}
+			if( (*i).callback != NULL )
+			{
+				int (*callback)( void* ) = (int (*)( void* )) (*i).callback;
+				return callback(_data);
+			}
+			else
+				return -10;
+		else
+			return 0;
 }
 
 int ipcpp::Messages_Handler::run_message( const vector <Message>& _messages, const string& _msg_name, void*& _data )
 {
 	for( vector<Message>::const_iterator i = _messages.begin(); i != _messages.end(); i++ )
 		if( (*i).name == _msg_name )
-		{
-			/*int (*callback)( void* ) = (int (*)( void* )) (*i).callback;
-			return callback(_data);*/
-		}
+			if( (*i).callback != NULL )
+			{
+				int (*callback)( void* ) = (int (*)( void* )) (*i).callback;
+				return callback(_data);
+			}
+			else
+				return -10;
+		else
+			return -11;
 }

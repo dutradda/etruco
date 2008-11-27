@@ -153,13 +153,13 @@ namespace libcardgame
 			inline Deck* get_deck() { return deck; };
 		
 		protected:
-			std::vector <Player*> players; // The players of the game
-			std::vector <Team*> teams; // The teams of the game
-			Deck* deck; // The game's deck
+			std::vector <Player*> players; /**< The players of the game */
+			std::vector <Team*> teams; /**< The teams of the game */
+			Deck* deck; /**< The game's deck */
 			
 		
 		private:
-			std::string xml_file_name;
+			std::string xml_file_name; // The name of the xml file
 			XML_Parser xml_parser; // The xml document parser
 			std::vector <Rule*> rules; // The rules loaded in the game
 			std::vector <Eina_Module*> modules; // The modules where the rules functions are in

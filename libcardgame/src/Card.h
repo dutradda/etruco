@@ -53,7 +53,7 @@ namespace libcardgame
 			/**
 			 * The = operator
 			 */
-			inline Card operator=( Card& _card );
+			//inline Card operator=( Card& _card );
 			
 			/**
 			 * The = operator
@@ -66,14 +66,14 @@ namespace libcardgame
 	};
 };
 
-inline
+/*inline
 libcardgame::Card libcardgame::Card::operator=( Card& _card )
 {
 this->value = _card.get_value();
 this->suit = _card.get_suit();
 
 return *this;
-}
+}*/
 
 inline
 bool libcardgame::Card::operator==( Card& _card ) const

@@ -20,7 +20,7 @@
 
 #ifndef LIBCARDGAME_RULE_H
 #define LIBCARDGAME_RULE_H
- 
+
 #include <string>
 #include <vector>
 #include <map>
@@ -31,6 +31,7 @@ namespace libcardgame
 	class Conflict
 	{
 		friend class Card_Game;
+		
 		public:
 			inline std::string get_name() { return name; }
 			inline std::string get_type() { return type; }
@@ -40,7 +41,7 @@ namespace libcardgame
 	};
 
 	/**
-	 * The game's rule
+	 * The game's rule.
 	 */
 	class Rule
 	{
@@ -48,7 +49,7 @@ namespace libcardgame
 		
 		public:
 			/**
-			 * Constructor
+			 * Constructor.
 			 */
 			inline Rule( const std::string& _name,
 				const std::string& _type,
@@ -56,49 +57,54 @@ namespace libcardgame
 				const std::vector <Conflict>& _conflicts,
 				std::vector <Rule*> _dependencies );
 				
-			/**
+			/*
 			 * Sets rule's callback state
 			 */
-			inline void set_state( std::string _name, void* _value )  { state[_name.c_str()] = _value; };
+			//inline void set_state( std::string _name, void* _value )  { state[_name.c_str()] = _value; };
 			
 			/**
-			 * Return the rule's name
+			 * Return the rule's name.
 			 */
 			inline std::string get_name() { return name; };
 			
 			/**
-			 * Return the rule's type
+			 * Return the rule's type.
 			 */
 			inline std::string get_type() { return type; };
 			
 			/**
-			 * Return the rule's description
+			 * Return the rule's description.
 			 */
 			inline std::string get_description() { return description; };
 			
 			/**
-			 * Return the rule's conflicts
+			 * Return the rule's conflicts.
 			 */
 			inline std::vector <Conflict> get_conflicts() { return conflicts; };
 			
 			/**
-			 * Return the rule's dependencies
+			 * Return the rule's dependencies.
 			 */
 			inline std::vector <Rule*> get_dependencies() { return dependencies; };
 			
 			/**
-			 * Return the a std::map of rule's dependencies
+			 * Return the a std::map of rule's dependencies.
 			 */
 			inline std::map <std::string, Rule*> get_dependencies_map();
 			
 			/**
-			 * Return the rule's callback
+			 * Execute the rule.
+			 * 
+			 * @param _card_game
+			 *  The Card Game are executing the rule.
+			 * 
+			 * @param _params
+			 *  The parameters of the execution.
 			 */
-			virtual int execute();
-			//inline void* get_callback() { return callback; };
+			virtual int execute( void*  _card_game, std::vector<void*> _params ) = 0;
 			
 			/**
-			 * Return the rule's callback state
+			 * Return the rule's state.
 			 */
 			inline std::map <std::string, void*> get_state()  { return state; };
 		
@@ -108,7 +114,6 @@ namespace libcardgame
 			std::string description; /**< The rule's description */
 			std::vector <Conflict> conflicts; /**< Which rules this rule conflits */
 			std::vector <Rule*> dependencies; /**< Which rules this rule depends */
-			//void* callback; /**< The function callback to the rule */
 			std::map <std::string, void*> state; /**< The variables defines the rule's state */
 	};
 };
@@ -123,7 +128,6 @@ inline libcardgame::Rule::Rule( const std::string& _name,
 	description = _description;
 	conflicts = _conflicts;
 	dependencies = _dependencies;
-	//callback = _callback;
 }
 
 inline std::map <std::string, libcardgame::Rule*> libcardgame::Rule::get_dependencies_map()
