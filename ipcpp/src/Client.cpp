@@ -19,15 +19,27 @@
  */
 
 #include "Client.h"
-using namespace std;
 
-ipcpp::Client::Client( const int& port, const string& _xml_file_name ) : Messages_Handler( _xml_file_name )
+using namespace std;
+using namespace ipcpp;
+
+ipcpp::Client::Client( const int& port, const string& _host )
 {
 	ecore_init();
 	ecore_ipc_init();
 	
-	server = ecore_ipc_server_connect( ECORE_IPC_REMOTE_SYSTEM, (char*) "localhost", port, NULL );
+	server = ecore_ipc_server_connect( ECORE_IPC_REMOTE_SYSTEM, (char*) _host.c_str(), port, NULL );
+}
+
+ipcpp::Client::~Client()
+{
+	ecore_ipc_server_del( server );
 	
+	ecore_ipc_shutdown();
+	ecore_shutdown();
+}
+void ipcpp::Client::register_events()
+{
 	ecore_event_handler_add( ECORE_IPC_EVENT_SERVER_ADD,
 									handle_server_connect, this );
 									
@@ -38,20 +50,9 @@ ipcpp::Client::Client( const int& port, const string& _xml_file_name ) : Message
    								handle_messages_client_received, this );
 }
 
-ipcpp::Client::~Client()
+int ipcpp::Client::send( const int& _msg_id, void* _data )
 {
-	ecore_ipc_server_del( server );
-	
-	ecore_ipc_shutdown();
-	ecore_shutdown();
-}
-
-int ipcpp::Client::send_message( const int& _msg_id, void* _data )
-{
-	if( run_message( messages_to_send, _msg_id, _data ) )
 		return ecore_ipc_server_send( server, 0, 0, _msg_id, 0, 0, _data, sizeof(_data) );
-	else
-		return 0;
 }
 
 int ipcpp::handle_server_connect( void* _client, int _event_type, void* _server )
@@ -73,12 +74,4 @@ int ipcpp::handle_server_disconnect( void* _client, int _event_type, void* _serv
 	ecore_ipc_server_del( client->server );
 
 	return 1;
-}
-
-int ipcpp::handle_messages_client_received( void* _client, int _event_type, void* _full_message )
-{
-	Client* client = (Client*) _client;
-	Ecore_Ipc_Event_Server_Data *full_message = (Ecore_Ipc_Event_Server_Data*) _full_message;
-	
-	return client->run_message( client->messages_to_receive, full_message->ref, full_message->data );
 }

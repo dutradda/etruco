@@ -21,7 +21,8 @@
 #ifndef IPCPP_CLIENT_H
 #define IPCPP_CLIENT_H
 
-#include "Messages_Handler.h"
+#include <string>
+#include <vector>
 
 #include <Ecore.h>
 #include <Ecore_Ipc.h>
@@ -32,16 +33,18 @@ namespace ipcpp
 	int handle_server_disconnect( void* _server, int _event_type, void* _client );
 	int handle_messages_client_received( void* _server, int _event_type, void* _full_message );
 
-	class Client : public Messages_Handler
+	class Client
 	{
 		public:
-			Client( const int& _port, const std::string& _xml_file_name );
+			Client( const int& _port, const std::string& _host );
 			
 			~Client();
 			
-			int send_message( const int& _msg_id, void* _data );
+			void register_events();
 			
-		private:
+			int send( const int& _msg_id, void* _data );
+			
+		protected:
 			Ecore_Ipc_Server* server;
 			
 			friend int handle_server_connect( void* _client, int _event_type, void* _full_message );

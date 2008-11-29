@@ -11,13 +11,9 @@ AC_CONFIG_FILES([Makefile src/Makefile ipcpp.pc])
 ipcpp_includedir='${includedir}/ipcpp'
 AC_SUBST(ipcpp_includedir)
 
-PKG_CHECK_MODULES(XML_PARSER, xml_parser)
-AC_SUBST(XML_PARSER_CFLAGS)
-AC_SUBST(XML_PARSER_LIBS)
-
-PKG_CHECK_MODULES(EINA, eina-0)
-AC_SUBST(EINA_CFLAGS)
-AC_SUBST(EINA_LIBS)
+PKG_CHECK_MODULES(ECORE_IPC, ecore-ipc)
+AC_SUBST(ECORE_IPC)
+AC_SUBST(ECORE_IPC)
 
 if test "x${prefix}" = "xNONE"; then
 	AC_DEFINE_UNQUOTED(PACKAGE_DATA_DIR, "${ac_default_prefix}/share/${PACKAGE}", [PACKAGE_DATA_DIR])

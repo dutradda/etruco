@@ -19,24 +19,16 @@
  */
 
 #include "Server.h"
-#include <algorithm>
-using namespace std;
 
-ipcpp::Server::Server( const int& port, const string& _xml_file_name ) : Messages_Handler( _xml_file_name )
+using namespace std;
+using namespace ipcpp;
+
+ipcpp::Server::Server( const int& port, const string& _xml_file_name )
 {
 	ecore_init();
 	ecore_ipc_init();
 	
 	server = ecore_ipc_server_add( ECORE_IPC_REMOTE_SYSTEM, "localhost", port, NULL );
-	
-	ecore_event_handler_add( ECORE_IPC_EVENT_CLIENT_ADD,
-									handle_client_connect, this );
-									
-   ecore_event_handler_add( ECORE_IPC_EVENT_CLIENT_DEL,
-   								handle_client_disconnect, this );
-   
-   ecore_event_handler_add( ECORE_IPC_EVENT_CLIENT_DATA,
-   								handle_messages_server_received, this );
 }
 
 ipcpp::Server::~Server()
@@ -51,12 +43,22 @@ ipcpp::Server::~Server()
 	ecore_shutdown();
 }
 
-int ipcpp::Server::send_message( const int& _client_id, const int& _msg_id, void* _data )
+void ipcpp::Server::register_events()
 {
-	if( run_message( messages_to_send, _msg_id, _data ) )
+		
+	ecore_event_handler_add( ECORE_IPC_EVENT_CLIENT_ADD,
+									handle_client_connect, this );
+									
+	ecore_event_handler_add( ECORE_IPC_EVENT_CLIENT_DEL,
+							handle_client_disconnect, this );
+   
+	ecore_event_handler_add( ECORE_IPC_EVENT_CLIENT_DATA,
+							handle_messages_server_received, this );
+}
+
+int ipcpp::Server::send( const int& _client_id, const int& _msg_id, void* _data )
+{
 		return ecore_ipc_client_send( clients.at(_client_id), 0, 0, _msg_id, 0, 0, _data, sizeof(_data) );
-	else
-		return 0;	
 }
 
 int ipcpp::handle_client_connect( void* _server, int _event_type, void* _client )
@@ -88,10 +90,15 @@ int ipcpp::handle_client_disconnect( void* _server, int _event_type, void* _clie
 	return 1;
 }
 
-int ipcpp::handle_messages_server_received( void* _server, int _event_type, void* _full_message )
-{
+/*int ipcpp::handle_messages_server_received( void* _server, int _event_type, void* _full_message )
+{	
 	Server* server = (Server*) _server;
 	Ecore_Ipc_Event_Client_Data *full_message = (Ecore_Ipc_Event_Client_Data*) _full_message;
 	
-	return server->run_message( server->messages_to_receive, full_message->ref, full_message->data );
-}
+	int i;
+	for( i = 0; i < server->clients.size(); i++ )
+		if( server->clients.at(i) == full_message->client )
+			break;
+	
+	return server->run_message( full_message->ref, full_message->data );
+}*/

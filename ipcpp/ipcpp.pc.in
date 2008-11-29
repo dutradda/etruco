@@ -9,6 +9,6 @@ ipcpp_includedir=@ipcpp_includedir@
 Name: Inter Process Communication Plus Plus
 Description: A small wrapper for Ecore_Ipc
 Version: @VERSION@
-Requires: xml_parser, eina-0, ecore-ipc
+Requires: ecore-ipc
 Libs: -L${libdir} -lipcpp
 Cflags: -I${ipcpp_includedir}
