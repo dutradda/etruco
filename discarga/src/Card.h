@@ -18,16 +18,16 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
  
-#ifndef LIBCARDGAME_CARD_H
-#define LIBCARDGAME_CARD_H
+#ifndef DISCARGA_CARD_H
+#define DISCARGA_CARD_H
 
-namespace libcardgame
+namespace discarga
 {
 	/**
 	 * The card class.
 	 */
 	class Card
-	{
+	{	
 		public:
 			/**
 			 * Constructor
@@ -56,9 +56,9 @@ namespace libcardgame
 			//inline Card operator=( Card& _card );
 			
 			/**
-			 * The = operator
+			 * The == operator
 			 */
-			inline bool operator==( Card& _card ) const;
+			friend inline bool operator==( const Card& _card, const Card& _card2 );
 			
 		private:
 			int value; /**< The card's value */
@@ -67,7 +67,7 @@ namespace libcardgame
 };
 
 /*inline
-libcardgame::Card libcardgame::Card::operator=( Card& _card )
+discarga::Card discarga::Card::operator=( Card& _card )
 {
 this->value = _card.get_value();
 this->suit = _card.get_suit();
@@ -76,9 +76,9 @@ return *this;
 }*/
 
 inline
-bool libcardgame::Card::operator==( Card& _card ) const
+bool discarga::operator==( const discarga::Card& _card, const discarga::Card& _card2 )
 {
-if( this->value == _card.get_value() && this->suit == _card.get_suit() )
+if( _card.value == _card2.value && _card.suit == _card2.suit )
 	return true;
 else
 	return false;

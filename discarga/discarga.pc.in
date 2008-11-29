@@ -4,11 +4,11 @@ datarootdir=@datarootdir@
 datadir=@datadir@/@PACKAGE@
 libdir=@libdir@
 includedir=@includedir@
-libcardgame_includedir=@libcardgame_includedir@
+discarga_includedir=@discarga_includedir@
 
-Name: libcardgame
-Description: A small library to make card games
+Name: DIS.CAR.GA
+Description: A small library to make distributed card games
 Version: @VERSION@
 Requires: xml_parser, eina-0
-Libs: -L${libdir} -lcardgame
-Cflags: -I${libcardgame_includedir}
+Libs: -L${libdir} -ldiscarga
+Cflags: -I${discarga_includedir}

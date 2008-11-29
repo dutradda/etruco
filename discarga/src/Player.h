@@ -17,42 +17,35 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
- 
-#ifndef LIBCARDGAME_PLAYER_H
-#define LIBCARDGAME_PLAYER_H
 
+#ifndef DISCARGA_PLAYER_H
+#define DISCARGA_PLAYER_H
+
+#include "Action_Handler.h"
 #include "Card.h"
 
+#include <string>
 #include <vector>
+#include <ipcpp/Client.h>
 
-namespace libcardgame
+namespace discarga
 {
-	/**
-	 * The player class.
-	 */
-	class Player
+	class Player : public ipcpp::Client, public Action_Handler
 	{
 		public:
+			Player(const int& _port,
+					const std::string& _host,
+					const std::string& _xml_file_name );
+			
+			int do_action( const int& _act_id, std::vector<void*>& _data );
+			
 			/**
-			 * Default Constructor
-			 */
-			inline Player( ) { };
-		
-			/**
-			 * Constructor
+			 * Receive new cards.
 			 *
 			 * @param _cards
-			 *  The new cards of the player.
+			 *  A std::vector with three cards.
 			 */
-			inline Player( std::vector <Card*> _cards ) { cards = _cards; };
-		
-			/**
-			 * Get the player's cards.
-			 *
-			 * @return
-			 *  The cards.
-			 */
-			inline std::vector <Card*> get_cards() { return cards; };
+			inline void receive_card( discarga::Card _card ) { cards.push_back( _card ); };
 			
 			/**
 			 * Play a card.
@@ -65,36 +58,21 @@ namespace libcardgame
 			 *  0 if the player dont have the card.
 			 *  -1 if the player dont have any card.
 			 */
-			inline int plays_card( Card& _card );
+			int plays_card( const Card& _card );
 			
 			/**
-			 * Receive new cards.
+			 * Get the player's cards.
 			 *
-			 * @param _cards
-			 *  A std::vector with three cards.
+			 * @return
+			 *  The cards.
 			 */
-			inline void receive_cards( std::vector <Card*> _cards ) { cards = _cards; };
+			inline std::vector <Card> get_cards() { return cards; };
 		
 		private:
-			std::vector <Card*> cards; /**< The player's cards */
+			int id; /**< The id of the player */
+			int team; /**< The team of the player */
+			std::vector <discarga::Card> cards; /**< The player's cards */
 	};
 };
- 
-inline int libcardgame::Player::plays_card( Card& _card )
-{
-	if( cards.empty() )
-		return -1;
-	
-	for( std::vector<Card*>::iterator i = cards.begin(); i != cards.end(); i++)
-	{
-		if( _card == *(*i) )
-		{
-			cards.erase(i);
-			return 1;
-		}
-	}
-	
-	return 0;
-}
- 
+
 #endif

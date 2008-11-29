@@ -18,14 +18,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
  
-#ifndef LIBCARDGAME_DECK_H
-#define LIBCARDGAME_DECK_H
+#ifndef DISCARGA_DECK_H
+#define DISCARGA_DECK_H
 
 #include "Card.h"
 
 #include <vector>
 
-namespace libcardgame
+namespace discarga
 {
 	/**
 	 * The deck class.
@@ -62,7 +62,7 @@ namespace libcardgame
 	};
 };
 
-inline libcardgame::Deck::Deck(int _size, int _suits)
+inline discarga::Deck::Deck(int _size, int _suits)
 {	
 	cards_geted = 0;
 	
@@ -71,13 +71,13 @@ inline libcardgame::Deck::Deck(int _size, int _suits)
 			cards.push_back(new Card(i, j));
 }
 
-inline libcardgame::Deck::~Deck()
+inline discarga::Deck::~Deck()
 {
 	for( std::vector<Card*>::iterator i = cards.begin(); i != cards.end(); i++ )
 		delete *i;
 }
 
-inline libcardgame::Card* libcardgame::Deck::get_card()
+inline discarga::Card* discarga::Deck::get_card()
 {
 	if( cards.size() == cards_geted )
 		return NULL;

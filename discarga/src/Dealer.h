@@ -1,5 +1,5 @@
 /*  
- * Team.h
+ * Dealer.h
  *
  * Copyright 2008 Diogo Dutra Albuquerque <diogo.comp@gmail.com>
  *
@@ -17,35 +17,25 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
- 
-#ifndef LIBCARDGAME_TEAM_H
-#define LIBCARDGAME_TEAM_H
 
-#include "Player.h"
+#ifndef DISCARGA_DEALER_H
+#define DISCARGA_DEALER_H
 
+#include "Action_Handler.h"
+
+#include <string>
 #include <vector>
+#include <ipcpp/Server.h>
 
-namespace libcardgame
+namespace discarga
 {
-	/**
-	 * The team who plays
-	 */
-	class Team
-	{
+	class Dealer : public ipcpp::Server, public Action_Handler
+	{	
 		public:
-			/**
-			 * Constructor
-			 */
-			Team( std::vector <Player*> _players ) : players( _players ) { };
+			Dealer( const int& _port, const std::string& _xml_file_name );
 			
-			/**
-			 * Return the players.
-			 *
-			 */
-			inline std::vector <Player*> get_players() { return players; };
-		
-		private:
-			std::vector <Player*> players; /**< The team's players */
+			int do_action( const int& _act_id, std::vector<void*>& _data );
 	};
 };
+
 #endif

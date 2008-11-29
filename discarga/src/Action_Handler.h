@@ -1,5 +1,5 @@
 /*  
- * Deck.cpp
+ * Action_Handler.h
  *
  * Copyright 2008 Diogo Dutra Albuquerque <diogo.comp@gmail.com>
  *
@@ -18,29 +18,39 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
 
-#include "Deck.h"
+#ifndef DISCARGA_ACTION_HANDLER_H
+#define DISCARGA_ACTION_HANDLER_H
 
-#include <cstdlib>
-using namespace libcardgame;
-using namespace std;
+#include "Rule_Handler.h"
 
-void Deck::shuffle()
+#include <string>
+#include <vector>
+#include <map>
+
+namespace discarga
 {
-	cards_geted = 0;
-	
-	int size = cards.size();
-	int random;
-	Card* temp;
-	vector<Card*>::iterator randomized;
-	srand( time(NULL) );
-	
-	for( vector<Card*>::iterator i = cards.end()-1; i > cards.begin(); i--, size-- )
+	class Action_Handler : public Rule_Handler
 	{
-		random = ( rand() % size );
-		randomized = (cards.begin()+random);
-		temp = *i;
-		*i = *randomized;
-		*randomized = temp;
-	}
-}
+		struct Action
+		{
+			int id;
+			std::string name;
+			std::map <std::string, Rule*> rules;
+		};
+		
+		public:
+			Action_Handler( const std::string& _xml_file_name ) : Rule_Handler( _xml_file_name ) { };
+			
+			std::multimap <int, std::string>
+			load_actions( const std::string& _attribute_name = "",
+						const std::string& _attribute_value = "",
+						const std::string& _xml_file_name = "" );
+			
+			virtual int do_action( const int& _act_id, std::vector<void*>& _data ) = 0;
+		
+		protected:
+			std::map <int, Action> actions;
+	};
+};
 
+#endif

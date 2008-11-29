@@ -1,7 +1,7 @@
 SUBDIRS=src
 
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = libcardgame.pc
+pkgconfig_DATA = discarga.pc
 
 EXTRA_DIST = \
 	AUTHORS		\
@@ -11,8 +11,8 @@ EXTRA_DIST = \
 	README		\
 	ChangeLog	\
 	Doxyfile	\
-	libcardgame.c.in	\
-	libcardgame.pc.in	\
+	discarga.c.in	\
+	discarga.pc.in	\
 	doc/
 
 MAINTAINERCLEANFILES = aclocal.m4 autom4te.cache/ config.guess config.h config.h.in	\
