@@ -36,15 +36,15 @@ struct Node
 class XML_Parser
 {
 	public:
-		void free_nodes( std::vector <Node*>& nodes );
+		static void free_nodes( std::vector <Node*>& nodes );
 		
-		std::vector <Node*>
+		static std::vector <Node*>
 		get_children_nodes( const std::string& _name,
 								const std::string& _xml_file_name,
 								const std::string& _attribute_name = "",
 								const std::string& _attribute_value = "" );
 								
-		std::vector <Node*>
+		static std::vector <Node*>
 		get_children_nodes( const Node* _node,
 								const std::string& _name,
 								const std::string& _attribute_name = "",
@@ -53,16 +53,16 @@ class XML_Parser
 	private:
 		//std::vector <std::vector <Node*> > nodes_created;
 		
-		bool search_child( const std::vector<Node*>& _nodes, const std::string& _name );
+		static bool search_child( const std::vector<Node*>& _nodes, const std::string& _name );
 		
-		void
+		static void
 		get_nodes_recurvise( std::vector <Node*>& nodes_found,
 								const xmlNodePtr& _current_node,
 								const std::string& _name,
 								const std::string& _attribute_name = "",
 								const std::string& _attribute_value = "" );
 								
-		void
+		static void
 		get_nodes_recurvise( std::vector <Node*>& nodes_found,
 								const Node* _current_node,
 								const std::string& _name,
