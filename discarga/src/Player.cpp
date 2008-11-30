@@ -25,25 +25,36 @@ using namespace discarga;
 
 Player::Player(const int& _port,
 				const std::string& _host,
-				const std::string& _xml_file_name ) : Client( _port, _host ), Action_Handler( _xml_file_name )
+				const std::string& _xml_file_name ) : Client( _port, _host ), Rule_Handler( _xml_file_name )
 {	
 	register_events();
+	
+	ecore_event_handler_add( ECORE_IPC_EVENT_SERVER_DATA,
+ 								ipcpp::handle_messages_client_received, this );
 }
 
-int Player::do_action( const int& _act_id, vector<void*>& _data )
+int Player::apply_rule( const int& _rule_id, vector<void*>& _data )
 {
-	map <int, Action>::iterator result = actions.find( _act_id );
-	if( result != actions.end() )
+	for( map<string, Rule*>::iterator i = rules.begin(); i != rules.end(); i++ )
+		if( i->second->get_id() == _rule_id )
+			return apply_rule( i->first, _data );
+	
+	return 0;
+}
+
+int Player::apply_rule( const string& _rule_name, vector<void*>& _data )
+{
+	if( Rule_Handler::apply_rule( _rule_name, _data ) )
 	{
-		for( map <string, Rule*>::iterator j = result->second.rules.begin(); j != result->second.rules.end(); j++ )
-			apply_rule( j->second->get_name(), _data );
-		
 		void* data_send = _data.back();
+		
+		int* msg_size = (int*) *(_data.end()-3);
 		
 		int* msg_to_send = (int*) *(_data.end()-2);
 		if( *msg_to_send != -1 )
-			send( *msg_to_send, data_send );
-			
+			send( *msg_to_send, data_send, *msg_size );
+		
+		delete msg_size;
 		delete msg_to_send;
 		delete (char*) data_send;
 		_data.pop_back();
@@ -71,10 +82,10 @@ int Player::plays_card( const Card& _card )
 
 int ipcpp::handle_messages_client_received( void* _client, int _event_type, void* _full_message )
 {
-	Player* client = (Player*) _client;
+	Player* player = (Player*) _client;
 	Ecore_Ipc_Event_Server_Data *full_message = (Ecore_Ipc_Event_Server_Data*) _full_message;
 	
 	vector<void*> data;
 	data.push_back( full_message->data );
-	return client->do_action( full_message->ref, data );
+	return player->apply_rule( full_message->ref, data );
 }

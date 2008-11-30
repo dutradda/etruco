@@ -21,7 +21,7 @@
 #ifndef DISCARGA_PLAYER_H
 #define DISCARGA_PLAYER_H
 
-#include "Action_Handler.h"
+#include "Rule_Handler.h"
 #include "Card.h"
 
 #include <string>
@@ -30,14 +30,16 @@
 
 namespace discarga
 {
-	class Player : public ipcpp::Client, public Action_Handler
+	class Player : public ipcpp::Client, public Rule_Handler
 	{
 		public:
 			Player(const int& _port,
 					const std::string& _host,
 					const std::string& _xml_file_name );
 			
-			int do_action( const int& _act_id, std::vector<void*>& _data );
+			int apply_rule( const std::string& _rule_name, std::vector<void*>& _data );
+			
+			int apply_rule( const int& _rule_id, std::vector<void*>& _data );
 			
 			/**
 			 * Receive new cards.

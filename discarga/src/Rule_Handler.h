@@ -24,7 +24,7 @@
 #include "Rule.h"
 
 #include <XML_Parser.h>
-#include <Eina.h>
+#include <eina-0/Eina.h>
 #include <string>
 #include <vector>
 #include <map>
@@ -81,8 +81,8 @@ namespace discarga
 			 */
 			std::multimap <int, std::string>
 			load_rules_file( const std::string& _xml_file_name,
-							const std::string& _attribute_name = "",
-							const std::string& _attribute_value = "" );
+							const std::string& _type = "",
+							const std::string& _name = "" );
 							
 			/**
 			 * Loads rules.
@@ -118,7 +118,7 @@ namespace discarga
 			 * @return
 			 *  1 if the rule was applied sucessful. 0 if the rule cant be aplied.
 			 */
-			int apply_rule( const std::string& _name, std::vector <void*>& _data );
+			virtual int apply_rule( const std::string& _name, std::vector <void*>& _data );
 			
 			int unload_rule( const std::string& _name );
 			

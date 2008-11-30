@@ -166,7 +166,7 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 	{
 		// verifica se a regra jah estah carrregada
 		result = rules.find( (*i)->attributes["name"] );
-		if( result == rules.end() || result->second->type != (*i)->attributes["type"] )
+		if( result != rules.end() && result->second->type == (*i)->attributes["type"] )
 		{
 			rule_errors.insert( pair <int,string>( -5, (*i)->attributes["name"] ) );
 			continue;
@@ -206,13 +206,12 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 				if( !have_module )
 				{
 					modules.push_back( eina_module_new( module_symbol.module_file_name.c_str() ) );
-					if( modules.back() == NULL )
+					if( !eina_module_load( modules.back() ) )
 					{
 						rule_errors.insert( pair <int,string>( -3, (*i)->attributes["name"] ) );
 						modules.pop_back();
 						continue;
 					}
-					eina_module_load( modules.back() );
 					module_symbol.symbol = eina_module_symbol_get( modules.back(), module_symbol.name.c_str() );
 					
 					if( module_symbol.symbol == NULL )
@@ -223,7 +222,12 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 				}
 				
 				Rule* new_rule = (Rule*) module_symbol.symbol;
+				new_rule->id = atoi( (*i)->attributes["id"].c_str() );
+				new_rule->name = (*i)->attributes["name"];
+				new_rule->type = (*i)->attributes["type"];
+				new_rule->description = (*i)->attributes["description"];
 				new_rule->dependencies = rules_deps;
+				new_rule->conflicts = conflicts;
 				rules[new_rule->name] = new_rule;		
 			}
 			else

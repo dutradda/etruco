@@ -2,7 +2,6 @@ lib_LTLIBRARIES = libdiscarga.la
 libdiscarga_la_SOURCES = \
 	Deck.cpp	\
 	Rule_Handler.cpp \
-	Action_Handler.cpp \
 	Dealer.cpp	\
 	Player.cpp
 libdiscarga_la_CPPFLAGS = @XML_PARSER_CFLAGS@ @EINA_CFLAGS@ @IPCPP_CFLAGS@
@@ -14,6 +13,5 @@ discarga_include_HEADERS = \
 	Player.h	\
 	Rule.h		\
 	Rule_Handler.h	\
-	Action_Handler.h\
 	Dealer.h	\
 	Deck.h

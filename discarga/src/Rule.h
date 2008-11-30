@@ -58,9 +58,19 @@ namespace discarga
 				std::map <std::string, Rule*> _dependencies );
 			
 			/**
+			 * Default Constructor.
+			 */
+			Rule( ) { };
+			
+			/**
 			 * Return the rule's name.
 			 */
 			inline std::string get_name() { return name; };
+			
+			/**
+			 * Return the rule's id.
+			 */
+			inline int get_id() { return id; };
 			
 			/**
 			 * Return the rule's type.
@@ -83,6 +93,7 @@ namespace discarga
 			inline std::map <std::string, Rule*> get_dependencies() { return dependencies; };
 		
 		protected:
+			int id; /**< The rule's identification */
 			std::string name; /**< The rule's name */
 			std::string type; /**< The rule's type */
 			std::string description; /**< The rule's description */

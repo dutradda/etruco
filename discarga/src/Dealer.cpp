@@ -18,32 +18,44 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
 
+#include <vector>
+
+
 #include "Dealer.h"
 
 using namespace std;
-using namespace ipcpp;
 using namespace discarga;
 
 Dealer::Dealer(const int& _port,	const std::string& _xml_file_name ) :
-													Server( _port ), Action_Handler( _xml_file_name )
-{	
+													Server( _port ), Rule_Handler( _xml_file_name )
+{	 
 	register_events();
+	
+	ecore_event_handler_add( ECORE_IPC_EVENT_CLIENT_DATA,
+							ipcpp::handle_messages_server_received, this );
 }
 
-int Dealer::do_action( const int& _act_id, vector<void*>& _data )
+int Dealer::apply_rule( const int& _rule_id, vector<void*>& _data )
 {
-	map <int, Action>::iterator result = actions.find( _act_id );
-	if( result != actions.end() )
+	for( map<string, Rule*>::iterator i = rules.begin(); i != rules.end(); i++ )
+		if( i->second->get_id() == _rule_id )
+			return apply_rule( i->first, _data );
+	
+	return 0;
+}
+
+int Dealer::apply_rule( const string& _rule_name, vector<void*>& _data )
+{
+	if( Rule_Handler::apply_rule( _rule_name, _data ) )
 	{
-		for( map <string, Rule*>::iterator j = result->second.rules.begin(); j != result->second.rules.end(); j++ )
-			apply_rule( j->second->get_name(), _data );
-		
 		void* data_send = _data.back();
 		vector <pair <int, int> >* send_to = (vector <pair <int, int> >*) *(_data.end()-2);
+		int* msg_size = (int*) *(_data.end()-3);
 		
-		for( vector <pair <int, int> >::iterator j = send_to->begin(); j != send_to->end(); j++ )
-			send( (*j).first, (*j).second, data_send );
-			
+		for( vector <pair <int, int> >::iterator i = send_to->begin(); i != send_to->end(); i++ )
+			send( i->first, i->second, data_send, *msg_size );
+		
+		delete msg_size;
 		delete send_to;
 		delete (char*) data_send;
 		_data.pop_back();
@@ -57,10 +69,13 @@ int Dealer::do_action( const int& _act_id, vector<void*>& _data )
 
 int ipcpp::handle_messages_server_received( void* _server, int _event_type, void* _full_message )
 {	
-	Dealer* server = (Dealer*) _server;
+	Dealer* dealer = (Dealer*) _server;
 	Ecore_Ipc_Event_Client_Data *full_message = (Ecore_Ipc_Event_Client_Data*) _full_message;
+	
 	
 	vector<void*> data;
 	data.push_back( full_message->data );
-	return server->do_action( full_message->ref, data );
+	dealer->apply_rule( full_message->ref, data );
+	
+	return 1;
 }

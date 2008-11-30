@@ -21,7 +21,7 @@
 #ifndef DISCARGA_DEALER_H
 #define DISCARGA_DEALER_H
 
-#include "Action_Handler.h"
+#include "Rule_Handler.h"
 
 #include <string>
 #include <vector>
@@ -29,12 +29,16 @@
 
 namespace discarga
 {
-	class Dealer : public ipcpp::Server, public Action_Handler
+	class Dealer : public ipcpp::Server, public Rule_Handler
 	{	
 		public:
 			Dealer( const int& _port, const std::string& _xml_file_name );
 			
-			int do_action( const int& _act_id, std::vector<void*>& _data );
+			int apply_rule( const std::string& _rule_name, std::vector<void*>& _data );
+			
+			int apply_rule( const int& _rule_id, std::vector<void*>& _data );
+			 
+		friend int ipcpp::handle_messages_server_received( void* _data, int _event_type, void* _full_message );
 	};
 };
 
