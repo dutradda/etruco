@@ -36,16 +36,18 @@ namespace ipcpp
 	class Client
 	{
 		public:
+			int send( const int& _msg_id, void* _data, const int& _size );
+		
+		protected:
 			Client( const int& _port, const std::string& _host );
 			
 			~Client();
 			
-			void register_events();
+			void register_events( void* _data );
 			
-			int send( const int& _msg_id, void* _data );
-			
-		protected:
 			Ecore_Ipc_Server* server;
+			
+			virtual int handle_message( const int& _msg_id, std::vector <void*> _data ) { };
 			
 			friend int handle_server_connect( void* _client, int _event_type, void* _full_message );
 			

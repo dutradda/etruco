@@ -36,17 +36,19 @@ namespace ipcpp
 	class Server
 	{
 		public:
-			Server( const int& _port, const std::string& _xml_file_name = "" );
+			int send( const int& _client_id, const int& _msg_id, void* _data, const int& _size );
+			
+		protected:
+			Server( const int& _port );
 			
 			~Server();
 			
-			int send( const int& _client_id, const int& _msg_id, void* _data );
+			void register_events( void* _data );
 			
-			void register_events();
-			
-		protected:
 			Ecore_Ipc_Server* server;
 			std::vector <Ecore_Ipc_Client*> clients;
+			
+			virtual int handle_message( const int& _msg_id, std::vector <void*> _data , const int& _who_sent ) { };
 			
 			friend int handle_client_connect( void* _server, int _event_type, void* _full_message );
 			
