@@ -16,7 +16,7 @@ Aplicar as regras de empate para a todas as rodadas – mao_winner() //ok
 Dar suporte a jogar cartas - play_cards() //ok
 Dar suporte a um pedido de truco – truco_accepted() //ok
 Dar suporte a um pedido de aumento de aposta (seis, nove e doze) – truco_accepted() //ok
-Dar suporte a uma fuja (não aceitar o truco ou aumento de aposta) – truco_rejected() //ok
+Dar suporte a uma fuga (não aceitar o truco ou aumento de aposta) – truco_rejected() //ok
 
 Dar suporte à regra de mão de onze – mao_winner()//ok
 Dar suporte à regra mão de ferro – mao_winner() //ok
