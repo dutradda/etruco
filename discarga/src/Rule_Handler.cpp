@@ -81,11 +81,12 @@ Rule_Handler::check_rule_dependencies( map <string, Rule*>& _rules_deps,
 	return 1;
 }
 
-int Rule_Handler::apply_rule( const string& _name, vector <void*>& _data )
+int Rule_Handler::apply_rule( const string& _name, vector <void*>& _data, const int& _who_sent )
 {
 	map <string, Rule*>::iterator result = rules.find( _name );
 	if( result != rules.end() )
 	{
+		_data.push_back( (void*) _who_sent );
 		_data.push_back( this );
 		return rules[_name]->execute( _data );
 	}
@@ -183,9 +184,12 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 			}
 			else if( (*j)->name == "dependence" )
 				dependencies.push_back( (*j)->attributes["name"] );
-			
-		module_symbol.name = (*i)->attributes["name"];
-		module_symbol.module_file_name = (*i)->attributes["module_file_name"];
+			else if( (*j)->name == "instance" )
+			{
+				module_symbol.name = (*j)->attributes["name"];
+				module_symbol.module_file_name = (*j)->attributes["module_file_name"];
+			}
+		
 		map <string, Rule*> rules_deps;
 		if( check_rule_conflicts(conflicts) )
 			if( check_rule_dependencies( rules_deps, (*i)->attributes["type"], dependencies, _xml_file_name ) )
@@ -208,7 +212,7 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 					modules.push_back( eina_module_new( module_symbol.module_file_name.c_str() ) );
 					if( !eina_module_load( modules.back() ) )
 					{
-						rule_errors.insert( pair <int,string>( -3, (*i)->attributes["name"] ) );
+						rule_errors.insert( pair <int,string>( -3, module_symbol.module_file_name ) );
 						modules.pop_back();
 						continue;
 					}

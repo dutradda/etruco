@@ -29,53 +29,31 @@ using namespace discarga;
 Dealer::Dealer(const int& _port,	const std::string& _xml_file_name ) :
 													Server( _port ), Rule_Handler( _xml_file_name )
 {	 
-	register_events();
-	
-	ecore_event_handler_add( ECORE_IPC_EVENT_CLIENT_DATA,
-							ipcpp::handle_messages_server_received, this );
+	register_events( this );
 }
 
-int Dealer::apply_rule( const int& _rule_id, vector<void*>& _data )
+int Dealer::apply_rule( const int& _rule_id, vector<void*>& _data, const int& _who_sent )
 {
 	for( map<string, Rule*>::iterator i = rules.begin(); i != rules.end(); i++ )
 		if( i->second->get_id() == _rule_id )
-			return apply_rule( i->first, _data );
+			return apply_rule( i->first, _data, _who_sent );
 	
 	return 0;
 }
 
-int Dealer::apply_rule( const string& _rule_name, vector<void*>& _data )
+int Dealer::apply_rule( const string& _rule_name, vector<void*>& _data, const int& _who_sent )
 {
 	if( Rule_Handler::apply_rule( _rule_name, _data ) )
 	{
-		void* data_send = _data.back();
-		vector <pair <int, int> >* send_to = (vector <pair <int, int> >*) *(_data.end()-2);
-		int* msg_size = (int*) *(_data.end()-3);
-		
-		for( vector <pair <int, int> >::iterator i = send_to->begin(); i != send_to->end(); i++ )
-			send( i->first, i->second, data_send, *msg_size );
-		
-		delete msg_size;
-		delete send_to;
-		delete (char*) data_send;
-		_data.pop_back();
-		_data.pop_back();
-		
-		return 1;
+		_data.push_back( (void*) &_who_sent );
+		_data.push_back( this );
+		return rules[_rule_name]->send_my_message( _data );
 	}
 	else
 		return 0;
 }
 
-int ipcpp::handle_messages_server_received( void* _server, int _event_type, void* _full_message )
-{	
-	Dealer* dealer = (Dealer*) _server;
-	Ecore_Ipc_Event_Client_Data *full_message = (Ecore_Ipc_Event_Client_Data*) _full_message;
-	
-	
-	vector<void*> data;
-	data.push_back( full_message->data );
-	dealer->apply_rule( full_message->ref, data );
-	
-	return 1;
+int Dealer::handle_message( const int& _msg_id, vector<void*> _data, const int& _who_sent )
+{
+	apply_rule( _msg_id, _data, _who_sent );
 }

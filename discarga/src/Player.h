@@ -47,7 +47,7 @@ namespace discarga
 			 * @param _cards
 			 *  A std::vector with three cards.
 			 */
-			inline void receive_card( discarga::Card _card ) { cards.push_back( _card ); };
+			//inline void receive_card( discarga::Card _card ) { cards.push_back( _card ); };
 			
 			/**
 			 * Play a card.
@@ -60,7 +60,7 @@ namespace discarga
 			 *  0 if the player dont have the card.
 			 *  -1 if the player dont have any card.
 			 */
-			int plays_card( const Card& _card );
+			//int plays_card( const Card& _card );
 			
 			/**
 			 * Get the player's cards.
@@ -68,12 +68,15 @@ namespace discarga
 			 * @return
 			 *  The cards.
 			 */
-			inline std::vector <Card> get_cards() { return cards; };
+			//inline std::vector <Card> get_cards() { return cards; };
+			
+		protected:
+			int handle_message( const int& _msg_id, std::vector<void*> _data );
 		
-		private:
-			int id; /**< The id of the player */
-			int team; /**< The team of the player */
-			std::vector <discarga::Card> cards; /**< The player's cards */
+		//private:
+			//int id; /**< The id of the player */
+			//int team; /**< The team of the player */
+			//std::vector <discarga::Card> cards; /**< The player's cards */
 	};
 };
 

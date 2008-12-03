@@ -27,10 +27,7 @@ Player::Player(const int& _port,
 				const std::string& _host,
 				const std::string& _xml_file_name ) : Client( _port, _host ), Rule_Handler( _xml_file_name )
 {	
-	register_events();
-	
-	ecore_event_handler_add( ECORE_IPC_EVENT_SERVER_DATA,
- 								ipcpp::handle_messages_client_received, this );
+	register_events( this );
 }
 
 int Player::apply_rule( const int& _rule_id, vector<void*>& _data )
@@ -46,46 +43,14 @@ int Player::apply_rule( const string& _rule_name, vector<void*>& _data )
 {
 	if( Rule_Handler::apply_rule( _rule_name, _data ) )
 	{
-		void* data_send = _data.back();
-		
-		int* msg_size = (int*) *(_data.end()-3);
-		
-		int* msg_to_send = (int*) *(_data.end()-2);
-		if( *msg_to_send != -1 )
-			send( *msg_to_send, data_send, *msg_size );
-		
-		delete msg_size;
-		delete msg_to_send;
-		delete (char*) data_send;
-		_data.pop_back();
-		_data.pop_back();
-		
-		return 1;
+		_data.push_back(this);
+		return rules[_rule_name]->send_my_message( _data );
 	}
 	else
 		return 0;
 }
 
-int Player::plays_card( const Card& _card )
+int Player::handle_message( const int& _msg_id, vector<void*> _data )
 {
-	if( cards.empty() )
-		return -1;
-	
-	vector<Card>::iterator result = find( cards.begin(), cards.end(), _card);		
-	if( result != cards.end() )
-		cards.erase( result );
-	else
-		return 0;
-
-	return 1;
-}
-
-int ipcpp::handle_messages_client_received( void* _client, int _event_type, void* _full_message )
-{
-	Player* player = (Player*) _client;
-	Ecore_Ipc_Event_Server_Data *full_message = (Ecore_Ipc_Event_Server_Data*) _full_message;
-	
-	vector<void*> data;
-	data.push_back( full_message->data );
-	return player->apply_rule( full_message->ref, data );
+	apply_rule( _msg_id, _data );
 }

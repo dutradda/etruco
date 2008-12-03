@@ -34,11 +34,12 @@ namespace discarga
 		public:
 			Dealer( const int& _port, const std::string& _xml_file_name );
 			
-			int apply_rule( const std::string& _rule_name, std::vector<void*>& _data );
+			int apply_rule( const std::string& _rule_name, std::vector<void*>& _data, const int& _who_sent = -1 );
 			
-			int apply_rule( const int& _rule_id, std::vector<void*>& _data );
-			 
-		friend int ipcpp::handle_messages_server_received( void* _data, int _event_type, void* _full_message );
+			int apply_rule( const int& _rule_id, std::vector<void*>& _data, const int& _who_sent = -1 );
+			
+		protected:
+			int handle_message( const int& _msg_id, std::vector<void*> _data, const int& _who_sent );
 	};
 };
 

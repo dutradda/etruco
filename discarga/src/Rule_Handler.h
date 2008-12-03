@@ -118,7 +118,7 @@ namespace discarga
 			 * @return
 			 *  1 if the rule was applied sucessful. 0 if the rule cant be aplied.
 			 */
-			virtual int apply_rule( const std::string& _name, std::vector <void*>& _data );
+			virtual int apply_rule( const std::string& _name, std::vector <void*>& _data, const int& _who_sent = -1 );
 			
 			int unload_rule( const std::string& _name );
 			

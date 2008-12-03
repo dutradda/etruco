@@ -91,14 +91,6 @@ namespace discarga
 			 * Return the rule's dependencies.
 			 */
 			inline std::map <std::string, Rule*> get_dependencies() { return dependencies; };
-		
-		protected:
-			int id; /**< The rule's identification */
-			std::string name; /**< The rule's name */
-			std::string type; /**< The rule's type */
-			std::string description; /**< The rule's description */
-			std::vector <Conflict> conflicts; /**< Which rules this rule conflits */
-			std::map <std::string, Rule*> dependencies; /**< Which rules this rule depends */
 			
 			/**
 			 * Execute the rule.
@@ -108,6 +100,15 @@ namespace discarga
 			 */
 			virtual int execute( std::vector<void*>& _data ) = 0;
 			
+			virtual int send_my_message( std::vector<void*>& _data ) = 0;
+		
+		protected:
+			int id; /**< The rule's identification */
+			std::string name; /**< The rule's name */
+			std::string type; /**< The rule's type */
+			std::string description; /**< The rule's description */
+			std::vector <Conflict> conflicts; /**< Which rules this rule conflits */
+			std::map <std::string, Rule*> dependencies; /**< Which rules this rule depends */
 	};
 };
 inline discarga::Rule::Rule( const std::string& _name,
