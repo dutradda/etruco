@@ -14,7 +14,7 @@
    id="svg2383"
    sodipodi:version="0.32"
    inkscape:version="0.46"
-   sodipodi:docname="background-pure.svg"
+   sodipodi:docname="screen-create.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:export-filename="/home/dda/projects/truco/etruco/images/background-pure.png"
    inkscape:export-xdpi="90"
@@ -28,10 +28,10 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="385.05449"
-     inkscape:cy="389.76064"
-     inkscape:current-layer="layer5"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="366.08584"
+     inkscape:cy="275.84589"
+     inkscape:current-layer="svg2383"
      inkscape:document-units="px"
      showgrid="false"
      inkscape:window-width="1118"
@@ -42,6 +42,17 @@
      inkscape:guide-bbox="true" />
   <defs
      id="defs2385">
+    <linearGradient
+       id="linearGradient4949">
+      <stop
+         style="stop-color:#00fd00;stop-opacity:1;"
+         offset="0"
+         id="stop4951" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop4953" />
+    </linearGradient>
     <linearGradient
        id="linearGradient3374">
       <stop
@@ -202,30 +213,6 @@
     </linearGradient>
     <filter
        inkscape:collect="always"
-       id="filter4173"
-       x="-0.029172774"
-       width="1.0583456"
-       y="-0.13535222"
-       height="1.2707045">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="5.8767188"
-         id="feGaussianBlur4175" />
-    </filter>
-    <filter
-       inkscape:collect="always"
-       id="filter4177"
-       x="-0.029172774"
-       width="1.0583456"
-       y="-0.13535222"
-       height="1.2707045">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="5.8767188"
-         id="feGaussianBlur4179" />
-    </filter>
-    <filter
-       inkscape:collect="always"
        id="filter3385">
       <feGaussianBlur
          inkscape:collect="always"
@@ -259,6 +246,274 @@
          stdDeviation="0.7134375"
          id="feGaussianBlur5676" />
     </filter>
+    <linearGradient
+       y2="315.11508"
+       x2="361.46686"
+       y1="300.81979"
+       x1="46.970272"
+       gradientTransform="matrix(0.8106243,0,0,0.7663204,122.09795,524.47206)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3213"
+       xlink:href="#linearGradient3440"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="315.11508"
+       x2="361.46686"
+       y1="300.81979"
+       x1="46.970272"
+       gradientTransform="matrix(0.8106243,0,0,0.7663204,122.09768,524.47157)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3204"
+       xlink:href="#linearGradient3440"
+       inkscape:collect="always" />
+    <linearGradient
+       gradientTransform="matrix(0.8106243,0,0,0.8628074,122.09768,494.78136)"
+       y2="315.11508"
+       x2="361.46686"
+       y1="300.81979"
+       x1="46.970272"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient2402"
+       xlink:href="#linearGradient3440"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="315.11508"
+       x2="361.46686"
+       y1="300.81979"
+       x1="46.970272"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient2640"
+       xlink:href="#linearGradient3440"
+       inkscape:collect="always" />
+    <inkscape:perspective
+       id="perspective2445"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <filter
+       id="filter3532"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur3534"
+         stdDeviation="1.2694509"
+         inkscape:collect="always" />
+    </filter>
+    <filter
+       id="filter3556"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur3558"
+         stdDeviation="0.42315031"
+         inkscape:collect="always" />
+    </filter>
+    <filter
+       height="1.3461379"
+       y="-0.17306894"
+       width="1.1109171"
+       x="-0.055458564"
+       id="filter3411"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur3413"
+         stdDeviation="4.2707208"
+         inkscape:collect="always" />
+    </filter>
+    <linearGradient
+       y2="315.11508"
+       x2="361.46686"
+       y1="300.81979"
+       x1="46.970272"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient3452"
+       xlink:href="#linearGradient3440"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3440">
+      <stop
+         id="stop3442"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         id="stop3444"
+         offset="1"
+         style="stop-color:#ffffff;stop-opacity:0;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3224">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3226" />
+      <stop
+         style="stop-color:#002d00;stop-opacity:0;"
+         offset="1"
+         id="stop3228" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3224"
+       id="linearGradient3084"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.8106243,0,0,0.7663204,122.09795,524.47206)"
+       x1="46.970272"
+       y1="300.81979"
+       x2="361.46686"
+       y2="315.11508" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3440"
+       id="linearGradient3133"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.8106243,0,0,0.7663204,122.09796,524.47204)"
+       x1="46.970272"
+       y1="300.81979"
+       x2="361.46686"
+       y2="315.11508" />
+    <filter
+       id="filter3229"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur3231"
+         stdDeviation="8.2930143"
+         inkscape:collect="always" />
+    </filter>
+    <inkscape:perspective
+       id="perspective10"
+       inkscape:persp3d-origin="375.48941 : 342.21596 : 1"
+       inkscape:vp_z="804.56871 : 517.60966 : 1"
+       inkscape:vp_y="7.0616468e-14 : 1000 : 0"
+       inkscape:vp_x="-53.589892 : 517.60966 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       id="linearGradient3169">
+      <stop
+         id="stop3171"
+         offset="0"
+         style="stop-color:#00fd00;stop-opacity:1;" />
+      <stop
+         id="stop3173"
+         offset="1"
+         style="stop-color:#000000;stop-opacity:0;" />
+    </linearGradient>
+    <radialGradient
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,1.4188034,0,-213.97518)"
+       r="354.56354"
+       fy="510.92039"
+       fx="364.66506"
+       cy="510.92039"
+       cx="364.66506"
+       id="radialGradient4147"
+       xlink:href="#linearGradient3169"
+       inkscape:collect="always" />
+    <inkscape:perspective
+       id="perspective4133"
+       inkscape:persp3d-origin="375.48941 : 342.21596 : 1"
+       inkscape:vp_z="804.56871 : 517.60966 : 1"
+       inkscape:vp_y="7.0616468e-14 : 1000 : 0"
+       inkscape:vp_x="-53.589892 : 517.60966 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       id="linearGradient4127">
+      <stop
+         id="stop4129"
+         offset="0"
+         style="stop-color:#ff0000;stop-opacity:1;" />
+      <stop
+         id="stop4131"
+         offset="1"
+         style="stop-color:#000000;stop-opacity:0;" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3169"
+       id="radialGradient5083"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,228.48675,0.708106)"
+       cx="364.66506"
+       cy="510.92039"
+       fx="364.66506"
+       fy="510.92039"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4127"
+       id="radialGradient5085"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,348.76301,5.708106)"
+       cx="364.66507"
+       cy="510.92038"
+       fx="364.66507"
+       fy="510.92038"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3169"
+       id="radialGradient5163"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,228.48675,0.708106)"
+       cx="364.66506"
+       cy="510.92039"
+       fx="364.66506"
+       fy="510.92039"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4127"
+       id="radialGradient5165"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,348.76301,5.708106)"
+       cx="364.66507"
+       cy="510.92038"
+       fx="364.66507"
+       fy="510.92038"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3169"
+       id="radialGradient5203"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,228.48675,0.708106)"
+       cx="364.66506"
+       cy="510.92039"
+       fx="364.66506"
+       fy="510.92039"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4127"
+       id="radialGradient5205"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,348.76301,5.708106)"
+       cx="364.66507"
+       cy="510.92038"
+       fx="364.66507"
+       fy="510.92038"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3169"
+       id="radialGradient5243"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,228.48675,0.708106)"
+       cx="364.66506"
+       cy="510.92039"
+       fx="364.66506"
+       fy="510.92039"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4127"
+       id="radialGradient5245"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,348.76301,5.708106)"
+       cx="364.66507"
+       cy="510.92038"
+       fx="364.66507"
+       fy="510.92038"
+       r="354.56354" />
   </defs>
   <metadata
      id="metadata2388">
@@ -274,7 +529,7 @@
   <g
      inkscape:groupmode="layer"
      inkscape:label="background"
-     id="layer1"
+     id="background"
      style="display:inline">
     <rect
        inkscape:export-ydpi="90"
@@ -284,19 +539,20 @@
        x="0"
        height="600"
        width="800"
-       id="rect2393"
-       style="opacity:1;fill:url(#linearGradient2481-565);fill-opacity:1;fill-rule:nonzero;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+       id="bg"
+       style="opacity:1;fill:url(#linearGradient2481-565);fill-opacity:1;fill-rule:nonzero;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       inkscape:label="#rect2393" />
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer2"
+     id="cards"
      inkscape:label="cards"
-     style="display:inline">
+     style="opacity:0.07725321;display:inline">
     <g
        style="display:inline"
-       id="g11425"
+       id="hearts7"
        inkscape:label="Layer 1"
-       transform="matrix(0.1654073,7.7e-2,-0.1184166,0.155,675.24711,230.76897)">
+       transform="matrix(0.1654073,7.7e-2,-0.1184166,0.155,495.73239,190.73239)">
       <rect
          style="opacity:0.91666667;fill:#000000;filter:url(#filter3254)"
          id="rect11427"
@@ -368,9 +624,9 @@
     </g>
     <g
        style="display:inline"
-       id="g11272"
+       id="spadesA"
        inkscape:label="Layer 1"
-       transform="matrix(0.1447315,5.8e-2,-0.1071389,0.121,648.36091,164.10497)">
+       transform="matrix(0.1447315,5.8e-2,-0.1071389,0.121,205.98415,343.75677)">
       <rect
          style="opacity:0.91666667;fill:#000000;filter:url(#filter3254)"
          id="rect11483"
@@ -418,9 +674,9 @@
     </g>
     <g
        style="display:inline"
-       id="g11152"
+       id="diamonds7"
        inkscape:label="Layer 1"
-       transform="matrix(0.1484907,3.5e-2,-9.210181e-2,0.14,509.0428,169.41597)">
+       transform="matrix(0.1484907,3.5e-2,-9.210181e-2,0.14,277.11177,193.4576)">
       <rect
          style="opacity:0.91666667;fill:#000000;filter:url(#filter3254)"
          id="rect11154"
@@ -492,9 +748,9 @@
     </g>
     <g
        style="display:inline"
-       id="g11011"
+       id="clubs4"
        inkscape:label="Layer 1"
-       transform="matrix(0.1409721,9e-2,-0.1654073,9.5e-2,419.34879,208.88897)">
+       transform="matrix(0.1409721,9e-2,-0.1654073,9.5e-2,670.94677,300.03616)">
       <rect
          style="opacity:0.91666667;fill:#000000;filter:url(#filter3254)"
          id="rect11013"
@@ -559,8 +815,8 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer5"
-     inkscape:label="new name"
+     id="name"
+     inkscape:label="name"
      style="display:inline">
     <text
        xml:space="preserve"
@@ -580,7 +836,95 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer4"
+     id="button-leave"
+     inkscape:label="button-sair"
+     style="display:inline">
+    <g
+       id="button-shadow-bg-leave"
+       inkscape:label="shadow"
+       style="display:inline"
+       transform="matrix(0.8212115,0,0,1,-177.34471,-216.95114)">
+      <rect
+         style="fill:#000000;fill-opacity:1;display:inline;filter:url(#filter3411)"
+         id="rect3060"
+         width="184.81779"
+         height="59.223392"
+         x="181.24397"
+         y="291.62994"
+         rx="16.337484"
+         ry="14.54403"
+         transform="matrix(0.9381631,0,0,0.5251031,97.709593,596.51701)"
+         inkscape:label="#rect2499" />
+    </g>
+    <g
+       id="button-white-bg-leave"
+       inkscape:label="white-bg"
+       style="display:inline"
+       transform="matrix(0.8398054,0,0,1,-182.71596,-216.95114)">
+      <rect
+         style="opacity:0.80425529;fill:url(#linearGradient3133);fill-opacity:1;display:inline"
+         id="rect3064"
+         width="149.81779"
+         height="45.384098"
+         x="265.29401"
+         y="743.25909"
+         rx="13.243562"
+         ry="11.145389"
+         inkscape:label="#rect2497" />
+    </g>
+    <g
+       id="button-green-bg-leave"
+       inkscape:label="green-bg"
+       style="display:inline"
+       transform="matrix(0.8398054,0,0,1,-182.71596,-216.95114)">
+      <rect
+         style="opacity:1;fill:url(#linearGradient3084);fill-opacity:1;display:inline"
+         id="rect3068"
+         width="149.81779"
+         height="45.384098"
+         x="265.29401"
+         y="743.25909"
+         rx="13.243562"
+         ry="11.145389"
+         inkscape:label="#rect2497" />
+    </g>
+    <g
+       inkscape:label="text"
+       id="button-text-leave"
+       style="display:inline"
+       transform="translate(-225.21462,-216.95114)">
+      <g
+         id="g3072"
+         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+         inkscape:label="#g3560">
+        <text
+           xml:space="preserve"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="117.89352"
+           y="295.70563"
+           id="text3074"
+           transform="scale(0.9613872,1.0401637)"><tspan
+             sodipodi:role="line"
+             id="tspan3076"
+             x="117.89352"
+             y="295.70563">Sair</tspan></text>
+        <text
+           transform="scale(0.9613872,1.0401637)"
+           id="text3078"
+           y="294.72397"
+           x="116.83142"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="294.72397"
+             x="116.83142"
+             id="tspan3080"
+             sodipodi:role="line">Sair</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="name bg"
      inkscape:label="name bg"
      style="opacity:1;display:inline">
     <rect
@@ -599,5 +943,410 @@
        d="M 0,0 L 800,0 C 800,0 821.20828,35.66527 708.07611,60.904546 C 594.94395,86.143822 163.0977,152.93247 43.84062,53.833478 C 16.215834,30.878123 0,0 0,0 z"
        id="rect2586"
        sodipodi:nodetypes="cczcc" />
+  </g>
+  <g
+     id="player0"
+     inkscape:label="#g5104">
+    <g
+       transform="translate(-132.03553,-542.9559)"
+       style="display:inline"
+       id="text-player0"
+       inkscape:label="text">
+      <g
+         inkscape:label="#g3560"
+         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+         id="g3395">
+        <text
+           transform="scale(0.9613872,1.0401637)"
+           id="text3397"
+           y="295.70563"
+           x="117.89352"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="295.70563"
+             x="117.89352"
+             id="tspan3399"
+             sodipodi:role="line">Jogador 0</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="116.83142"
+           y="294.72397"
+           id="text3401"
+           transform="scale(0.9613872,1.0401637)"><tspan
+             sodipodi:role="line"
+             id="tspan3403"
+             x="116.83142"
+             y="294.72397">Jogador 0</tspan></text>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
+       id="connected-player0"
+       style="opacity:1">
+      <text
+         xml:space="preserve"
+         style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+         x="-37.211048"
+         y="299.09674"
+         id="text2395"
+         transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan2397"
+           x="-37.211048"
+           y="299.09674">Coneted</tspan></text>
+      <rect
+         style="fill:url(#radialGradient5083);fill-opacity:1"
+         id="rect3206"
+         width="98.044693"
+         height="139.10614"
+         x="229.88339"
+         y="31.379898"
+         ry="8.7988825"
+         rx="8.3798876" />
+    </g>
+    <g
+       transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)"
+       id="disconnected-player0">
+      <rect
+         style="fill:url(#radialGradient5085);fill-opacity:1"
+         id="rect4157"
+         width="98.044693"
+         height="139.10614"
+         x="350.15967"
+         y="36.379898"
+         ry="8.7988825"
+         rx="8.3798876" />
+      <g
+         id="g3253"
+         transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)">
+        <text
+           xml:space="preserve"
+           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="-771.14294"
+           y="614.03113"
+           id="text4160"
+           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"><tspan
+             sodipodi:role="line"
+             id="tspan4162"
+             x="-771.14294"
+             y="614.03113">Disconnected</tspan></text>
+        <text
+           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"
+           id="text4164"
+           y="638.83704"
+           x="-807.25031"
+           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="638.83704"
+             x="-807.25031"
+             id="tspan4166"
+             sodipodi:role="line">Disconnected</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:label="#g5104"
+     id="player1"
+     transform="translate(145.664,101.82338)">
+    <g
+       inkscape:label="text"
+       id="text-player1"
+       style="display:inline"
+       transform="translate(-132.03553,-542.9559)">
+      <g
+         id="g5131"
+         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+         inkscape:label="#g3560">
+        <text
+           xml:space="preserve"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="117.89352"
+           y="295.70563"
+           id="text5133"
+           transform="scale(0.9613872,1.0401637)"><tspan
+             sodipodi:role="line"
+             id="tspan5135"
+             x="117.89352"
+             y="295.70563">Jogador 1</tspan></text>
+        <text
+           transform="scale(0.9613872,1.0401637)"
+           id="text5137"
+           y="294.72397"
+           x="116.83142"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="294.72397"
+             x="116.83142"
+             id="tspan5139"
+             sodipodi:role="line">Jogador 1</tspan></text>
+      </g>
+    </g>
+    <g
+       id="connected-player1"
+       transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
+       style="opacity:1">
+      <text
+         transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"
+         id="text5143"
+         y="299.09674"
+         x="-37.211048"
+         style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+         xml:space="preserve"><tspan
+           y="299.09674"
+           x="-37.211048"
+           id="tspan5145"
+           sodipodi:role="line">Coneted</tspan></text>
+      <rect
+         rx="8.3798876"
+         ry="8.7988825"
+         y="31.379898"
+         x="229.88339"
+         height="139.10614"
+         width="98.044693"
+         id="rect5147"
+         style="fill:url(#radialGradient5163);fill-opacity:1" />
+    </g>
+    <g
+       id="disconnected-player1"
+       transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)">
+      <rect
+         rx="8.3798876"
+         ry="8.7988825"
+         y="36.379898"
+         x="350.15967"
+         height="139.10614"
+         width="98.044693"
+         id="rect5151"
+         style="fill:url(#radialGradient5165);fill-opacity:1" />
+      <g
+         transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)"
+         id="g5153">
+        <text
+           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"
+           id="text5155"
+           y="614.03113"
+           x="-771.14294"
+           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="614.03113"
+             x="-771.14294"
+             id="tspan5157"
+             sodipodi:role="line">Disconnected</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="-807.25031"
+           y="638.83704"
+           id="text5159"
+           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"><tspan
+             sodipodi:role="line"
+             id="tspan5161"
+             x="-807.25031"
+             y="638.83704">Disconnected</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g
+     transform="translate(265.87215,216.37467)"
+     id="player2"
+     inkscape:label="#g5104">
+    <g
+       transform="translate(-132.03553,-542.9559)"
+       style="display:inline"
+       id="text-player2"
+       inkscape:label="text">
+      <g
+         inkscape:label="#g3560"
+         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+         id="g5171">
+        <text
+           transform="scale(0.9613872,1.0401637)"
+           id="text5173"
+           y="295.70563"
+           x="117.89352"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="295.70563"
+             x="117.89352"
+             id="tspan5175"
+             sodipodi:role="line">Jogador 2</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="116.83142"
+           y="294.72397"
+           id="text5177"
+           transform="scale(0.9613872,1.0401637)"><tspan
+             sodipodi:role="line"
+             id="tspan5179"
+             x="116.83142"
+             y="294.72397">Jogador 2</tspan></text>
+      </g>
+    </g>
+    <g
+       transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
+       id="connected-player2">
+      <text
+         xml:space="preserve"
+         style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+         x="-37.211048"
+         y="299.09674"
+         id="text5183"
+         transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan5185"
+           x="-37.211048"
+           y="299.09674">Coneted</tspan></text>
+      <rect
+         style="fill:url(#radialGradient5203);fill-opacity:1"
+         id="rect5187"
+         width="98.044693"
+         height="139.10614"
+         x="229.88339"
+         y="31.379898"
+         ry="8.7988825"
+         rx="8.3798876" />
+    </g>
+    <g
+       transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)"
+       id="disconnected-player2">
+      <rect
+         style="fill:url(#radialGradient5205);fill-opacity:1"
+         id="rect5191"
+         width="98.044693"
+         height="139.10614"
+         x="350.15967"
+         y="36.379898"
+         ry="8.7988825"
+         rx="8.3798876" />
+      <g
+         id="g5193"
+         transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)">
+        <text
+           xml:space="preserve"
+           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="-771.14294"
+           y="614.03113"
+           id="text5195"
+           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"><tspan
+             sodipodi:role="line"
+             id="tspan5197"
+             x="-771.14294"
+             y="614.03113">Disconnected</tspan></text>
+        <text
+           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"
+           id="text5199"
+           y="638.83704"
+           x="-807.25031"
+           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="638.83704"
+             x="-807.25031"
+             id="tspan5201"
+             sodipodi:role="line">Disconnected</tspan></text>
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:label="#g5104"
+     id="player3"
+     transform="translate(414.36457,318.19805)">
+    <g
+       inkscape:label="text"
+       id="text-player3"
+       style="display:inline"
+       transform="translate(-132.03553,-542.9559)">
+      <g
+         id="g5211"
+         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+         inkscape:label="#g3560">
+        <text
+           xml:space="preserve"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="117.89352"
+           y="295.70563"
+           id="text5213"
+           transform="scale(0.9613872,1.0401637)"><tspan
+             sodipodi:role="line"
+             id="tspan5215"
+             x="117.89352"
+             y="295.70563">Jogador 3</tspan></text>
+        <text
+           transform="scale(0.9613872,1.0401637)"
+           id="text5217"
+           y="294.72397"
+           x="116.83142"
+           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="294.72397"
+             x="116.83142"
+             id="tspan5219"
+             sodipodi:role="line">Jogador 3</tspan></text>
+      </g>
+    </g>
+    <g
+       id="connected-player3"
+       transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)">
+      <text
+         transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"
+         id="text5223"
+         y="299.09674"
+         x="-37.211048"
+         style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+         xml:space="preserve"><tspan
+           y="299.09674"
+           x="-37.211048"
+           id="tspan5225"
+           sodipodi:role="line">Coneted</tspan></text>
+      <rect
+         rx="8.3798876"
+         ry="8.7988825"
+         y="31.379898"
+         x="229.88339"
+         height="139.10614"
+         width="98.044693"
+         id="rect5227"
+         style="fill:url(#radialGradient5243);fill-opacity:1" />
+    </g>
+    <g
+       id="disconnected-player3"
+       transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)">
+      <rect
+         rx="8.3798876"
+         ry="8.7988825"
+         y="36.379898"
+         x="350.15967"
+         height="139.10614"
+         width="98.044693"
+         id="rect5231"
+         style="fill:url(#radialGradient5245);fill-opacity:1" />
+      <g
+         transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)"
+         id="g5233">
+        <text
+           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"
+           id="text5235"
+           y="614.03113"
+           x="-771.14294"
+           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           xml:space="preserve"><tspan
+             y="614.03113"
+             x="-771.14294"
+             id="tspan5237"
+             sodipodi:role="line">Disconnected</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="-807.25031"
+           y="638.83704"
+           id="text5239"
+           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"><tspan
+             sodipodi:role="line"
+             id="tspan5241"
+             x="-807.25031"
+             y="638.83704">Disconnected</tspan></text>
+      </g>
+    </g>
   </g>
 </svg>

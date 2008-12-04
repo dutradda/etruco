@@ -14,12 +14,22 @@
    id="svg2437"
    sodipodi:version="0.32"
    inkscape:version="0.46"
-   sodipodi:docname="button.svg"
+   sodipodi:docname="button2.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs2439">
     <linearGradient
-       inkscape:collect="always"
+       id="linearGradient3224">
+      <stop
+         id="stop3226"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:1;" />
+      <stop
+         id="stop3228"
+         offset="1"
+         style="stop-color:#002d00;stop-opacity:0;" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient3440">
       <stop
          style="stop-color:#ffffff;stop-opacity:1;"
@@ -83,6 +93,56 @@
        y1="300.81979"
        x2="361.46686"
        y2="315.11508" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3440"
+       id="linearGradient2402"
+       gradientUnits="userSpaceOnUse"
+       x1="46.970272"
+       y1="300.81979"
+       x2="361.46686"
+       y2="315.11508"
+       gradientTransform="matrix(0.8106243,0,0,0.8628074,122.09768,494.78136)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3440"
+       id="linearGradient3204"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.8106243,0,0,0.7663204,122.09768,524.47157)"
+       x1="46.970272"
+       y1="300.81979"
+       x2="361.46686"
+       y2="315.11508" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3440"
+       id="linearGradient3208"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.8106243,0,0,0.7663204,122.09796,524.47204)"
+       x1="46.970272"
+       y1="300.81979"
+       x2="361.46686"
+       y2="315.11508" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3440"
+       id="linearGradient3213"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.8106243,0,0,0.7663204,122.09795,524.47206)"
+       x1="46.970272"
+       y1="300.81979"
+       x2="361.46686"
+       y2="315.11508" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3224"
+       id="linearGradient3222"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.9072446,0,0,0.7663204,105.03007,524.47206)"
+       x1="46.970272"
+       y1="300.81979"
+       x2="361.46686"
+       y2="315.11508" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -95,10 +155,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="375"
+     inkscape:cx="348.084"
      inkscape:cy="291.42857"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="svg2437"
      showgrid="false"
      inkscape:window-width="661"
      inkscape:window-height="707"
@@ -116,34 +176,64 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="button-shadow-bg"
+     inkscape:label="shadow"
+     style="display:inline"
+     transform="matrix(1.2224557,0,0,0.8851571,-59.561631,89.663721)">
+    <rect
+       style="fill:#000000;fill-opacity:1;display:inline;filter:url(#filter3411)"
+       id="rect3220"
+       width="184.81779"
+       height="59.223392"
+       x="181.24397"
+       y="291.62994"
+       rx="16.337484"
+       ry="14.54403"
+       transform="matrix(0.8812559,0,0,0.5251031,108.02369,595.71005)"
+       inkscape:label="#rect2499" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="button-bg-white"
+     inkscape:label="white-bg"
+     style="opacity:1;display:inline">
+    <rect
+       style="opacity:0.80425529;fill:url(#linearGradient3208);fill-opacity:1;display:inline"
+       id="rect3206"
+       width="167.67494"
+       height="45.384098"
+       x="265.29401"
+       y="743.25909"
+       rx="13.243562"
+       ry="11.145389"
+       inkscape:label="#rect2497" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="button-bg-green"
+     inkscape:label="green-bg"
+     style="display:inline">
+    <rect
+       style="opacity:1;fill:url(#linearGradient3222);fill-opacity:1;display:inline"
+       id="rect3211"
+       width="167.67494"
+       height="45.384098"
+       x="265.29401"
+       y="743.25909"
+       rx="14.822094"
+       ry="11.145389"
+       inkscape:label="#rect2497" />
+  </g>
+  <g
+     inkscape:label="text"
+     inkscape:groupmode="layer"
+     id="button-text"
+     style="display:inline">
     <g
-       id="g3448"
-       transform="matrix(1,0,0,1.0437206,88.644636,435.98722)">
-      <rect
-         ry="14.54403"
-         rx="16.337484"
-         y="291.62994"
-         x="181.24397"
-         height="59.223392"
-         width="184.81779"
-         id="rect2499"
-         style="fill:#000000;fill-opacity:1;filter:url(#filter3411)" />
-      <rect
-         ry="14.54403"
-         rx="16.337484"
-         y="285.50339"
-         x="176.64906"
-         height="59.223392"
-         width="184.81779"
-         id="rect2497"
-         style="opacity:0.80425529;fill:url(#linearGradient3452);fill-opacity:1" />
-    </g>
-    <g
-       id="g3560"
-       transform="matrix(1.037431,0,0,1.0437206,167.26689,464.03485)">
+       id="button-text-criar"
+       transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+       inkscape:label="#g3560">
       <text
          xml:space="preserve"
          style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
@@ -154,7 +244,7 @@
            sodipodi:role="line"
            id="tspan3460"
            x="117.89352"
-           y="295.70563">Botão</tspan></text>
+           y="295.70563">Button</tspan></text>
       <text
          transform="scale(0.9613872,1.0401637)"
          id="text3454"
@@ -165,7 +255,7 @@
            y="294.72397"
            x="116.83142"
            id="tspan3456"
-           sodipodi:role="line">Botão</tspan></text>
+           sodipodi:role="line">Button</tspan></text>
     </g>
   </g>
 </svg>
