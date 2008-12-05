@@ -1,0 +1,477 @@
+   group {
+      name: "screen-waiting";
+      min: 801 600;
+      max: 801 600;
+      images {
+         image: screen-waiting/background.png COMP;
+         image: screen-waiting/hearts7.png COMP;
+         image: screen-waiting/spadesA.png COMP;
+         image: screen-waiting/diamonds7.png COMP;
+         image: screen-waiting/clubs4.png COMP;
+         image: screen-waiting/button-shadow-bg-leave.png COMP;
+         image: screen-waiting/button-white-bg-leave.png COMP;
+         image: screen-waiting/button-green-bg-leave.png COMP;
+         image: screen-waiting/button-text-leave.png COMP;
+         image: screen-waiting/text-player0.png COMP;
+         image: screen-waiting/connected-player0.png COMP;
+         image: screen-waiting/disconnected-player0.png COMP;
+         image: screen-waiting/text-player1.png COMP;
+         image: screen-waiting/connected-player1.png COMP;
+         image: screen-waiting/disconnected-player1.png COMP;
+         image: screen-waiting/text-player2.png COMP;
+         image: screen-waiting/connected-player2.png COMP;
+         image: screen-waiting/disconnected-player2.png COMP;
+         image: screen-waiting/text-player3.png COMP;
+         image: screen-waiting/connected-player3.png COMP;
+         image: screen-waiting/disconnected-player3.png COMP;
+      }
+      parts {
+
+         part {
+            name: "background";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 801 600;
+               max: 801 600;
+               rel1 {
+                  relative: 0.0 0.0;
+                  offset: 0 0;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -1 -1;
+               }
+               image.normal: screen-waiting/background.png;
+            }
+         }
+
+         part {
+            name: "hearts7";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 226 207;
+               max: 226 207;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -419 -403;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -193 -197;
+               }
+               image.normal: screen-waiting/hearts7.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "spadesA";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 201 160;
+               max: 201 160;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -698 -252;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -498 -92;
+               }
+               image.normal: screen-waiting/spadesA.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "diamonds7";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 190 164;
+               max: 190 164;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -612 -403;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -423 -239;
+               }
+               image.normal: screen-waiting/diamonds7.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "clubs4";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 256 155;
+               max: 256 155;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -292 -295;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -37 -140;
+               }
+               image.normal: screen-waiting/clubs4.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "button-shadow-bg-leave";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 142 31;
+               max: 142 31;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 42 -67;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -617 -37;
+               }
+               image.normal: screen-waiting/button-shadow-bg-leave.png;
+            }
+         }
+
+         part {
+            name: "button-bg-leave";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 125 45;
+               max: 125 45;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 40 -74;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -636 -29;
+               }
+               image.normal: screen-waiting/button-white-bg-leave.png;
+            }
+            description {
+               state: "default" 1.0;
+               min: 125 45;
+               max: 125 45;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 40 -74;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -636 -29;
+               }
+               image.normal: screen-waiting/button-green-bg-leave.png;
+            }
+         }
+
+         part {
+            name: "button-text-leave";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 95 39;
+               max: 95 39;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -751 -73;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -656 -34;
+               }
+               image.normal: screen-waiting/button-text-leave.png;
+            }
+         }
+
+         part {
+            name: "text-player0";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 225 53;
+               max: 225 53;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -669 -416;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -444 -363;
+               }
+               image.normal: screen-waiting/text-player0.png;
+            }
+         }
+
+         part {
+            name: "status-player0";
+            type: IMAGE;
+            mouse_events: 0;
+	    description {
+               state: "default" 0.0;
+               min: 89 90;
+               max: 89 90;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 37 -440;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -675 -351;
+               }
+               image.normal: screen-waiting/disconnected-player0.png;
+            }
+            description {
+               state: "default" 1.0;
+               min: 89 90;
+               max: 89 90;
+               visible: 0;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 37 -440;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -675 -351;
+               }
+               image.normal: screen-waiting/connected-player0.png;
+            }
+         }
+
+         part {
+            name: "text-player1";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 215 53;
+               max: 215 53;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -523 -314;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -309 -261;
+               }
+               image.normal: screen-waiting/text-player1.png;
+            }
+         }
+
+         part {
+            name: "status-player1";
+            type: IMAGE;
+            mouse_events: 0;
+	    description {
+               state: "default" 0.0;
+               min: 89 90;
+               max: 89 90;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -618 -338;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -529 -249;
+               }
+               image.normal: screen-waiting/disconnected-player1.png;
+            }
+            description {
+               state: "default" 1.0;
+               min: 89 90;
+               max: 89 90;
+	       visible: 0;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -618 -338;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -529 -249;
+               }
+               image.normal: screen-waiting/connected-player1.png;
+            }
+         }
+
+         part {
+            name: "text-player2";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 229 53;
+               max: 229 53;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -403 -200;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -174 -147;
+               }
+               image.normal: screen-waiting/text-player2.png;
+            }
+         }
+
+         part {
+            name: "status-player2";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 89 90;
+               max: 89 90;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -498 -224;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -409 -135;
+               }
+               image.normal: screen-waiting/disconnected-player2.png;
+            }
+            description {
+               state: "default" 1.0;
+               min: 89 90;
+               max: 89 90;
+	       visible: 0;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -498 -224;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -409 -135;
+               }
+               image.normal: screen-waiting/connected-player2.png;
+            }
+         }
+
+         part {
+            name: "text-player3";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 226 53;
+               max: 226 53;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -254 -98;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -28 -45;
+               }
+               image.normal: screen-waiting/text-player3.png;
+            }
+         }
+
+         part {
+            name: "status-player3";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 89 90;
+               max: 89 90;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -349 -122;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -260 -33;
+               }
+               image.normal: screen-waiting/disconnected-player3.png;
+            }
+            description {
+               state: "default" 1.0;
+               min: 89 90;
+               max: 89 90;
+	       visible: 0;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -349 -122;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -260 -33;
+               }
+               image.normal: screen-waiting/connected-player3.png;
+            }
+         }
+      } /* Close Parts */
+      programs {
+	/* LEAVE BUTTON */
+	program {
+	  name, "button-leave_in";
+	  signal, "mouse,in";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_out";
+	  signal, "mouse,out";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_clicked";
+	  signal, "mouse,down,1";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_unclicked";
+	  signal, "mouse,up,1";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-leave";
+	  after, "do-leave";
+	}
+	program {
+	  name, "do-leave";
+	  source, "button-leave_unclicked";
+	  action, SIGNAL_EMIT "leave_create" "";
+	}
+      } /* Close programss */
+   } /* Close group */

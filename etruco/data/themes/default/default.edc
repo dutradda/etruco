@@ -1,0 +1,6 @@
+collections {
+	#include "screen-initial/screen.edc"
+	#include "screen-waiting/screen.edc"
+	#include "screen-join/screen.edc"
+	#include "screen-in_game/screen.edc"
+}

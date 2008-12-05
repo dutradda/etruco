@@ -1,0 +1,424 @@
+   group {
+      name: "screen-join";
+      min: 801 600;
+      max: 801 600;
+      images {
+         image: screen-join/background.png COMP;
+         image: screen-join/button-shadow-bg-leave.png COMP;
+         image: screen-join/button-white-bg-leave.png COMP;
+         image: screen-join/button-green-bg-leave.png COMP;
+         image: screen-join/button-text-leave.png COMP;
+         image: screen-join/button-shadow-bg-go.png COMP;
+         image: screen-join/button-green-bg-go.png COMP;
+         image: screen-join/button-white-bg-go.png COMP;
+         image: screen-join/button-text-go.png COMP;
+         image: screen-join/clubs7.png COMP;
+         image: screen-join/diamonds5.png COMP;
+         image: screen-join/diamonds2.png COMP;
+         image: screen-join/spadesK.png COMP;
+         image: screen-join/ip.png COMP;
+      }
+      parts {
+
+         part {
+            name: "background";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 801 600;
+               max: 801 600;
+               rel1 {
+                  relative: 0.0 0.0;
+                  offset: 0 0;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -1 -1;
+               }
+               image.normal: screen-join/background.png;
+            }
+         }
+
+	part {
+            name: "clubs7";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 214 121;
+               max: 214 121;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -666 -404;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -452 -284;
+               }
+               image.normal: screen-join/clubs7.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "diamonds5";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 197 134;
+               max: 197 134;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -464 -366;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -268 -232;
+               }
+               image.normal: screen-join/diamonds5.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "diamonds2";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 158 171;
+               max: 158 171;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -251 -382;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -94 -212;
+               }
+               image.normal: screen-join/diamonds2.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "spadesK";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 181 142;
+               max: 181 142;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -191 -237;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -10 -96;
+               }
+               image.normal: screen-join/spadesK.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "button-shadow-bg-leave";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 142 31;
+               max: 142 31;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 42 -67;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -617 -37;
+               }
+               image.normal: screen-join/button-shadow-bg-leave.png;
+            }
+         }
+
+         part {
+            name: "button-bg-leave";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 125 45;
+               max: 125 45;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 40 -74;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -636 -29;
+               }
+               image.normal: screen-join/button-white-bg-leave.png;
+            }
+	    description {
+               state: "default" 1.0;
+               min: 125 45;
+               max: 125 45;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 40 -74;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -636 -29;
+               }
+               image.normal: screen-join/button-green-bg-leave.png;
+            }
+         }
+
+         part {
+            name: "button-text-leave";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 95 39;
+               max: 95 39;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -751 -73;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -656 -34;
+               }
+               image.normal: screen-join/button-text-leave.png;
+            }
+         }
+
+         part {
+            name: "button-shadow-bg-go";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 182 31;
+               max: 182 31;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -509 -118;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -327 -88;
+               }
+               image.normal: screen-join/button-shadow-bg-go.png;
+            }
+         }
+
+         part {
+            name: "button-bg-go";
+            type: IMAGE;
+            mouse_events: 1;
+	    description {
+               state: "default" 0.0;
+               min: 152 45;
+               max: 152 45;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -512 -125;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -360 -80;
+               }
+               image.normal: screen-join/button-white-bg-go.png;
+            }
+            description {
+               state: "default" 1.0;
+               min: 152 45;
+               max: 152 45;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -512 -125;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -360 -80;
+               }
+               image.normal: screen-join/button-green-bg-go.png;
+            }
+         }
+
+         part {
+            name: "button-text-go";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 159 39;
+               max: 159 39;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -508 -122;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -350 -84;
+               }
+               image.normal: screen-join/button-text-go.png;
+            }
+         }
+
+         part {
+            name: "ip";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 316 95;
+               max: 316 95;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 42 -268;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -443 -173;
+               }
+               image.normal: screen-join/ip.png;
+            }
+         }
+	 part {
+            name: "ip-entry";
+            type: TEXTBLOCK;
+	    entry_mode: EDITABLE;
+            //mouse_events: 0;
+	    multiline: 0;
+            description {
+               state: "default" 0.0;
+               min: 316 95;
+               max: 316 95;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 42 -268;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -443 -173;
+               }
+            }
+         }
+	 /*part {
+            name: "ip-entry-text";
+            type: TEXT;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 316 95;
+               max: 316 95;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 42 -268;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -443 -173;
+               }
+	       text {
+		font: "Gemelli";
+		align: 0.0 0.4;
+		size: 18;
+		text:        "some string of text to display";
+	       }
+            }
+         }*/
+      } /* Close Parts */
+      programs {
+	/* LEAVE BUTTON */
+	program {
+	  name, "button-leave_in";
+	  signal, "mouse,in";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_out";
+	  signal, "mouse,out";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_clicked";
+	  signal, "mouse,down,1";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_unclicked";
+	  signal, "mouse,up,1";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-leave";
+	  after, "do-leave";
+	}
+	program {
+	  name, "do-leave";
+	  source, "button-leave_unclicked";
+	  action, SIGNAL_EMIT "leave_join" "";
+	}
+
+	/* ENTER BUTTON */
+	program {
+	  name, "button-go_in";
+	  signal, "mouse,in";
+	  source, "button-bg-go";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-go";
+	}
+	program {
+	  name, "button-go_out";
+	  signal, "mouse,out";
+	  source, "button-bg-go";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-go";
+	}
+	program {
+	  name, "button-go_clicked";
+	  signal, "mouse,down,1";
+	  source, "button-bg-go";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-go";
+	}
+	program {
+	  name, "button-go_unclicked";
+	  signal, "mouse,up,1";
+	  source, "button-bg-go";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-go";
+	  after, "do-go";
+	}
+	program {
+	  name, "do-go";
+	  source, "button-go_unclicked";
+	  action, SIGNAL_EMIT "enter_screen_waiting" "";
+	}
+      } /* Close programs */
+   } /* Close group */

@@ -1,0 +1,472 @@
+   group {
+      name: "screen-initial";
+      min: 801 600;
+      max: 801 600;
+      images {
+         image: screen-initial/background.png COMP;
+         image: screen-initial/hearts7.png COMP;
+         image: screen-initial/spadesA.png COMP;
+         image: screen-initial/diamonds7.png COMP;
+         image: screen-initial/clubs4.png COMP;
+         image: screen-initial/button-shadow-bg-leave.png COMP;
+         image: screen-initial/button-white-bg-leave.png COMP;
+         image: screen-initial/button-green-bg-leave.png COMP;
+         image: screen-initial/button-text-leave.png COMP;
+         image: screen-initial/button-shadow-bg-join.png COMP;
+         image: screen-initial/button-white-bg-join.png COMP;
+         image: screen-initial/button-green-bg-join.png COMP;
+         image: screen-initial/button-text-join.png COMP;
+         image: screen-initial/button-shadow-bg-create.png COMP;
+         image: screen-initial/button-white-bg-create.png COMP;
+         image: screen-initial/button-green-bg-create.png COMP;
+         image: screen-initial/button-text-create.png COMP;
+      }
+      parts {
+
+         part {
+            name: "background";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 801 600;
+               max: 801 600;
+               rel1 {
+                  relative: 0.0 0.0;
+                  offset: 0 0;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -1 -1;
+               }
+               image.normal: screen-initial/background.png;
+            }
+         }
+
+         part {
+            name: "hearts7";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 226 207;
+               max: 226 207;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -240 -363;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -14 -157;
+               }
+               image.normal: screen-initial/hearts7.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "spadesA";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 201 160;
+               max: 201 160;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -256 -431;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -55 -272;
+               }
+               image.normal: screen-initial/spadesA.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "diamonds7";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 190 164;
+               max: 190 164;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -380 -427;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -191 -263;
+               }
+               image.normal: screen-initial/diamonds7.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+	}
+         part {
+            name: "clubs4";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 256 155;
+               max: 256 155;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -544 -386;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -288 -231;
+               }
+               image.normal: screen-initial/clubs4.png;
+            }
+	    dragable {
+                x: 1 1 0;
+                y: 1 1 0;
+	    }
+         }
+
+         part {
+            name: "button-shadow-bg-leave";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 142 31;
+               max: 142 31;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 42 -67;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -617 -37;
+               }
+               image.normal: screen-initial/button-shadow-bg-leave.png;
+            }
+         }
+
+         part {
+            name: "button-bg-leave";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 125 45;
+               max: 125 45;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 40 -74;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -636 -29;
+               }
+               image.normal: screen-initial/button-white-bg-leave.png;
+            }
+	    description {
+               state: "default" 1.0;
+               min: 125 45;
+               max: 125 45;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 40 -74;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -636 -29;
+               }
+               image.normal: screen-initial/button-green-bg-leave.png;
+            }
+         }
+
+         part {
+            name: "button-text-leave";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 95 39;
+               max: 95 39;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -751 -73;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -656 -34;
+               }
+               image.normal: screen-initial/button-text-leave.png;
+            }
+         }
+
+         part {
+            name: "button-shadow-bg-join";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 206 31;
+               max: 206 31;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -692 -202;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -486 -172;
+               }
+               image.normal: screen-initial/button-shadow-bg-join.png;
+            }
+         }
+
+         part {
+            name: "button-bg-join";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 187 45;
+               max: 187 45;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -694 -209;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -507 -164;
+               }
+               image.normal: screen-initial/button-white-bg-join.png;
+            }
+	    description {
+               state: "default" 1.0;
+               min: 187 45;
+               max: 187 45;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -694 -209;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -507 -164;
+               }
+               image.normal: screen-initial/button-green-bg-join.png;
+            }
+         }
+
+         part {
+            name: "button-text-join";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 159 39;
+               max: 159 39;
+               rel1 {
+                  relative: 1.0 1.0;
+                  offset: -684 -208;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -526 -169;
+               }
+               image.normal: screen-initial/button-text-join.png;
+            }
+         }
+
+         part {
+            name: "button-shadow-bg-create";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 173 31;
+               max: 173 31;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 29 -303;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -599 -273;
+               }
+               image.normal: screen-initial/button-shadow-bg-create.png;
+            }
+         }
+
+         part {
+            name: "button-bg-create";
+            type: IMAGE;
+            mouse_events: 1;
+            description {
+               state: "default" 0.0;
+               min: 149 45;
+               max: 149 45;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 27 -310;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -626 -265;
+               }
+               image.normal: screen-initial/button-white-bg-create.png;
+	      }
+	      description {
+               state: "default" 1.0;
+               min: 149 45;
+               max: 149 45;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 27 -310;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -626 -265;
+               }
+               image.normal: screen-initial/button-green-bg-create.png;
+            }
+         }
+
+         part {
+            name: "button-text-create";
+            type: IMAGE;
+            mouse_events: 0;
+            description {
+               state: "default" 0.0;
+               min: 116 40;
+               max: 116 40;
+               rel1 {
+                  relative: 0.0 1.0;
+                  offset: 37 -308;
+               }
+               rel2 {
+                  relative: 1.0 1.0;
+                  offset: -649 -269;
+               }
+               image.normal: screen-initial/button-text-create.png;
+            }
+         }
+      } /* Close Parts */
+      programs {
+	/* CREATE BUTTON */
+	program {
+	  name, "button-create_in";
+	  signal, "mouse,in";
+	  source, "button-bg-create";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-create";
+	}
+	program {
+	  name, "button-create_out";
+	  signal, "mouse,out";
+	  source, "button-bg-create";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-create";
+	}
+	program {
+	  name, "button-create_clicked";
+	  signal, "mouse,down,1";
+	  source, "button-bg-create";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-create";
+	}
+	program {
+	  name, "button-create_unclicked";
+	  signal, "mouse,up,1";
+	  source, "button-bg-create";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-create";
+	  after, "do-create";
+	}
+	program {
+	  name, "do-create";
+	  source, "button-leave_unclicked";
+	  action, SIGNAL_EMIT "enter_screen_create" "";
+	}
+	
+	/* JOIN BUTTON */
+	program {
+	  name, "button-join_in";
+	  signal, "mouse,in";
+	  source, "button-bg-join";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-join";
+	}
+	program {
+	  name, "button-join_out";
+	  signal, "mouse,out";
+	  source, "button-bg-join";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-join";
+	}
+	program {
+	  name, "button-join_clicked";
+	  signal, "mouse,down,1";
+	  source, "button-bg-join";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-join";
+	}
+	program {
+	  name, "button-join_unclicked";
+	  signal, "mouse,up,1";
+	  source, "button-bg-join";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-join";
+	  after, "do-join";
+	 }
+	 program {
+	  name, "do-join";
+	  source, "button-join_unclicked";
+	  action, SIGNAL_EMIT "enter_screen_join" "";
+	 }
+
+	/* LEAVE BUTTON */
+	program {
+	  name, "button-leave_in";
+	  signal, "mouse,in";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_out";
+	  signal, "mouse,out";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_clicked";
+	  signal, "mouse,down,1";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 0.0;
+	  target, "button-bg-leave";
+	}
+	program {
+	  name, "button-leave_unclicked";
+	  signal, "mouse,up,1";
+	  source, "button-bg-leave";
+	  action, STATE_SET "default" 1.0;
+	  target, "button-bg-leave";
+	  after, "do-leave";
+	}
+	program {
+	  name, "do-leave";
+	  source, "button-leave_unclicked";
+	  action, SIGNAL_EMIT "leave_initial" "";
+	}
+      } /* Close programs */
+   } /* Close group */

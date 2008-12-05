@@ -1,0 +1,1 @@
+inkscape2edc screen-initial.svg -i background -i hearts7 -i spadesA -i diamonds7 -i clubs4 -i button-shadow-bg-leave -i button-white-bg-leave -i button-green-bg-leave -i button-text-leave -i button-shadow-bg-join -i button-white-bg-join -i button-green-bg-join -i button-text-join -i button-shadow-bg-create -i button-white-bg-create -i button-green-bg-create -i button-text-create
