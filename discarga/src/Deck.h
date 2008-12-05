@@ -62,6 +62,15 @@ namespace discarga
 	};
 };
 
+/**
+* Constructor
+*
+* @param _size
+* The card's numbers
+*
+* @param _suits
+* The card's suits
+*/
 inline discarga::Deck::Deck(int _size, int _suits)
 {	
 	cards_geted = 0;
@@ -71,12 +80,19 @@ inline discarga::Deck::Deck(int _size, int _suits)
 			cards.push_back(new Card(i, j));
 }
 
+/**
+* Destructor
+*/
 inline discarga::Deck::~Deck()
 {
 	for( std::vector<Card*>::iterator i = cards.begin(); i != cards.end(); i++ )
 		delete *i;
 }
 
+/**
+* Get a card
+* Move a pointer ("removing the card from deck")
+*/
 inline discarga::Card* discarga::Deck::get_card()
 {
 	if( cards.size() == cards_geted )

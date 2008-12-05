@@ -22,8 +22,18 @@
 
 using namespace std;
 using namespace discarga;
+
 /**
 * Constructor
+*
+* @param _port 
+* Port's number to connect
+*
+* @param _host
+* The server's adress
+*
+* @param _xml_file_name
+* The xml file name where the rules are.
 */
 Player::Player(const int& _port,
 				const std::string& _host,
@@ -32,6 +42,15 @@ Player::Player(const int& _port,
 	register_events( this );
 }
 
+/**
+* Apply the rule throught rule's id
+*
+* @param _rule_id
+* Rules's id
+*
+* @param _data
+* Data's vector
+*/
 int Player::apply_rule( const int& _rule_id, vector<void*>& _data )
 {
 	for( map<string, Rule*>::iterator i = rules.begin(); i != rules.end(); i++ )
@@ -41,6 +60,15 @@ int Player::apply_rule( const int& _rule_id, vector<void*>& _data )
 	return 0;
 }
 
+/**
+* Apply the rule throught name
+*
+* @param _rule_name
+* Rules's name
+*
+* @param _data
+* Data's vector
+*/
 int Player::apply_rule( const string& _rule_name, vector<void*>& _data )
 {
 	if( Rule_Handler::apply_rule( _rule_name, _data ) )
@@ -52,6 +80,15 @@ int Player::apply_rule( const string& _rule_name, vector<void*>& _data )
 		return 0;
 }
 
+/**
+* Message colector
+*
+* @param _msg_id
+* Message's id
+*
+* @param _data
+* Data's vector
+*/
 int Player::handle_message( const int& _msg_id, vector<void*> _data )
 {
 	apply_rule( _msg_id, _data );

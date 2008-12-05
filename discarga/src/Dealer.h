@@ -32,13 +32,60 @@ namespace discarga
 	class Dealer : public ipcpp::Server, public Rule_Handler
 	{	
 		public:
+			/**
+			* Constructor
+			*
+			* @param _port 
+			* Port's number to connect
+			*
+			* @param _xml_file_name
+			* The xml file name where the rules are.
+			*/
 			Dealer( const int& _port, const std::string& _xml_file_name );
 			
+			/**
+			* Apply the rule throught name
+			*
+			* @param _rule_name
+			* Rules's name
+			*
+			* @param _data
+			* Data's vector
+			*
+			* @param _who_sent
+ 			* Id of who sent the message
+			*/
 			int apply_rule( const std::string& _rule_name, std::vector<void*>& _data, const int& _who_sent = -1 );
 			
+
+			/**
+			* Apply the rule throught rule's id
+			*
+			* @param _rule_id
+			* Rules's id
+			*
+			* @param _data
+			* Data's vector
+			*
+			* @param _who_sent
+ 			* Id of who sent the message
+			*/
 			int apply_rule( const int& _rule_id, std::vector<void*>& _data, const int& _who_sent = -1 );
 			
 		protected:
+			
+			/**
+			* Message colector
+			*
+			* @param _msg_id
+			* Message's id
+			*
+			* @param _data
+			* Data's vector
+			*
+			* @param _who_sent
+ 			* Id of who sent the message
+			*/
 			int handle_message( const int& _msg_id, std::vector<void*> _data, const int& _who_sent );
 	};
 };
