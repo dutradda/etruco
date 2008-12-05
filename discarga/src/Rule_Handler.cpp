@@ -23,12 +23,23 @@
 using namespace std;
 using namespace discarga;
 
+/**
+* Constructor 
+*
+* @param _xml_file_name
+* Is the rule's input
+*/
+
 Rule_Handler::Rule_Handler( const string& _xml_file_name )
 {
 	xml_file_name = _xml_file_name;
 		
 	eina_module_init();
 }
+
+/**
+* Destructor
+*/
 
 Rule_Handler::~Rule_Handler()
 {
@@ -41,6 +52,13 @@ Rule_Handler::~Rule_Handler()
 	eina_module_shutdown();
 }
 
+/**
+* Check for conflicts
+*
+* @param vector <Conflict>& _conflicts
+*
+* Vector that have a rules conflicts's list
+*/
 int Rule_Handler::check_rule_conflicts( const vector <Conflict>& _conflicts )
 {	
 	map <string, Rule*>::iterator result;
@@ -54,6 +72,19 @@ int Rule_Handler::check_rule_conflicts( const vector <Conflict>& _conflicts )
 	return 1;
 }
 
+/**
+* Check the rule's dependencies
+*
+* @param map <string, Rule*>& _rules_deps
+* Is a map (vector with label) of rules that have the rules's dependencies
+*
+* @param _type
+* The rules's type
+* 
+* 
+* @param _xml_file_name
+* The xml file name where the rules are.
+*/
 int
 Rule_Handler::check_rule_dependencies( map <string, Rule*>& _rules_deps,
 										const string& _type,
@@ -81,6 +112,14 @@ Rule_Handler::check_rule_dependencies( map <string, Rule*>& _rules_deps,
 	return 1;
 }
 
+/**
+* Aplly the rule
+*
+* @param _name 
+* The rule's name
+*
+* @param _who_sent
+*/
 int Rule_Handler::apply_rule( const string& _name, vector <void*>& _data, const int& _who_sent )
 {
 	map <string, Rule*>::iterator result = rules.find( _name );
@@ -94,6 +133,12 @@ int Rule_Handler::apply_rule( const string& _name, vector <void*>& _data, const 
 	return 0;
 }
 
+/**
+* Unload a rule
+*
+* @param _name
+* The rule's name
+*/
 int Rule_Handler::unload_rule( const string& _name )
 {
 	map <string, Rule*>::iterator result = rules.find( _name );
@@ -107,6 +152,12 @@ int Rule_Handler::unload_rule( const string& _name )
 	return 0;
 }
 
+/**
+* Unload all rules
+*
+* @param _type
+* The rules's type
+*/
 int Rule_Handler::unload_rule_type( const string& _type )
 {
 	int ret = 0;
@@ -123,6 +174,16 @@ int Rule_Handler::unload_rule_type( const string& _type )
 }
 
 multimap <int, string>
+
+/**
+* Load all rules
+*
+* @param _name
+* The rules's name
+*
+* @param _type
+* The rules's type
+*/
 Rule_Handler::load_rules( const string& _type,
 							const string& _name )
 {
@@ -130,6 +191,19 @@ Rule_Handler::load_rules( const string& _type,
 }
 
 multimap <int, string>
+
+/**
+* Load all rules from xml file
+*
+* @param _xml_file_name
+* The xml file name where the rules are.
+*
+* @param _name
+* The rules's name
+*
+* @param _type
+* The rules's type
+*/
 Rule_Handler::load_rules_file( const string& _xml_file_name,
 							const string& _type,
 							const string& _name )

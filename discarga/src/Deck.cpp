@@ -24,6 +24,10 @@
 using namespace discarga;
 using namespace std;
 
+/**
+*This function shuffle the card's vector
+*/
+
 void Deck::shuffle()
 {
 	cards_geted = 0;

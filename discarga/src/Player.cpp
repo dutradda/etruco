@@ -22,7 +22,9 @@
 
 using namespace std;
 using namespace discarga;
-
+/**
+* Constructor
+*/
 Player::Player(const int& _port,
 				const std::string& _host,
 				const std::string& _xml_file_name ) : Client( _port, _host ), Rule_Handler( _xml_file_name )
