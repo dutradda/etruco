@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="640px"
+   height="480px"
+   id="svg4923"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="card-unkown.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4925">
+    <linearGradient
+       id="linearGradient6918">
+      <stop
+         id="stop6920"
+         offset="0"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         id="stop6922"
+         offset="1"
+         style="stop-color:#cdcdcd;stop-opacity:0;" />
+    </linearGradient>
+    <filter
+       id="filter4966"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4968"
+         stdDeviation="1.4809308"
+         inkscape:collect="always" />
+    </filter>
+    <filter
+       id="filter4970"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur4972"
+         stdDeviation="1.4809308"
+         inkscape:collect="always" />
+    </filter>
+    <filter
+       id="filter3254"
+       inkscape:collect="always">
+      <feGaussianBlur
+         id="feGaussianBlur3256"
+         stdDeviation="7.7965407"
+         inkscape:collect="always" />
+    </filter>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 240 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="640 : 240 : 1"
+       inkscape:persp3d-origin="320 : 160 : 1"
+       id="perspective4931" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6918"
+       id="radialGradient6916"
+       cx="297.20837"
+       cy="213.7289"
+       fx="297.20837"
+       fy="213.7289"
+       r="49.296776"
+       gradientTransform="matrix(1,0,0,1.4188035,0,-89.510399)"
+       gradientUnits="userSpaceOnUse" />
+    <filter
+       inkscape:collect="always"
+       id="filter6944">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.95778809"
+         id="feGaussianBlur6946" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="293.99418"
+     inkscape:cy="258.40475"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="949"
+     inkscape:window-x="0"
+     inkscape:window-y="25" />
+  <metadata
+     id="metadata4928">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="bg">
+    <rect
+       style="fill:#008000;fill-opacity:1"
+       id="rect4947"
+       width="177"
+       height="189"
+       x="204"
+       y="127" />
+  </g>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer6"
+     inkscape:label="question"
+     style="display:inline">
+    <g
+       id="g7012">
+      <rect
+         style="opacity:0.91666667000000002;fill:#ffffff;filter:url(#filter3254);fill-opacity:1"
+         id="rect6998"
+         width="709.12708"
+         height="1006.1119"
+         x="24.243658"
+         y="26.047195"
+         ry="63.63961"
+         rx="60.60915"
+         transform="matrix(0.1390351,0,0,0.1390351,246.50712,142.69302)" />
+      <rect
+         transform="matrix(0.1390351,0,0,0.1390351,246.50712,142.69302)"
+         rx="60.60915"
+         ry="63.63961"
+         y="26.047195"
+         x="24.243658"
+         height="1006.1119"
+         width="709.12708"
+         id="rect2936"
+         style="opacity:0.91666667000000002;fill:#000000;filter:url(#filter3254)" />
+      <rect
+         style="fill:url(#radialGradient6916);fill-opacity:1;fill-rule:evenodd"
+         id="rect2938"
+         width="98.593552"
+         height="139.88487"
+         x="247.91159"
+         y="143.78645"
+         ry="8.8481398"
+         rx="8.4267998" />
+      <text
+         xml:space="preserve"
+         style="font-size:40px;font-style:normal;font-weight:normal;opacity:0.89041095999999997;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter6944);font-family:Bitstream Vera Sans"
+         x="272.12375"
+         y="240.1095"
+         id="text6928"><tspan
+           sodipodi:role="line"
+           id="tspan6930"
+           x="272.12375"
+           y="240.1095"
+           style="font-size:90px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli">?</tspan></text>
+      <text
+         id="text6924"
+         y="239.40239"
+         x="272.12375"
+         style="font-size:40px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         xml:space="preserve"><tspan
+           style="font-size:90px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           y="239.40239"
+           x="272.12375"
+           id="tspan6926"
+           sodipodi:role="line">?</tspan></text>
+    </g>
+  </g>
+</svg>

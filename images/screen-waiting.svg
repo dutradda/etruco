@@ -28,10 +28,10 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="366.08584"
-     inkscape:cy="275.84589"
-     inkscape:current-layer="svg2383"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="259.80917"
+     inkscape:cy="157.36047"
+     inkscape:current-layer="background"
      inkscape:document-units="px"
      showgrid="false"
      inkscape:window-width="1118"
@@ -514,6 +514,94 @@
        fx="364.66507"
        fy="510.92038"
        r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3169"
+       id="radialGradient4622"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,228.48675,0.708106)"
+       cx="364.66506"
+       cy="510.92039"
+       fx="364.66506"
+       fy="510.92039"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4127"
+       id="radialGradient4624"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,348.76301,5.708106)"
+       cx="364.66507"
+       cy="510.92038"
+       fx="364.66507"
+       fy="510.92038"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3169"
+       id="radialGradient4626"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,228.48675,0.708106)"
+       cx="364.66506"
+       cy="510.92039"
+       fx="364.66506"
+       fy="510.92039"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4127"
+       id="radialGradient4628"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,348.76301,5.708106)"
+       cx="364.66507"
+       cy="510.92038"
+       fx="364.66507"
+       fy="510.92038"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3169"
+       id="radialGradient4630"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,228.48675,0.708106)"
+       cx="364.66506"
+       cy="510.92039"
+       fx="364.66506"
+       fy="510.92039"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4127"
+       id="radialGradient4632"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,348.76301,5.708106)"
+       cx="364.66507"
+       cy="510.92038"
+       fx="364.66507"
+       fy="510.92038"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3169"
+       id="radialGradient4634"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,228.48675,0.708106)"
+       cx="364.66506"
+       cy="510.92039"
+       fx="364.66506"
+       fy="510.92039"
+       r="354.56354" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4127"
+       id="radialGradient4636"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.1382611,0,0,0.1961653,348.76301,5.708106)"
+       cx="364.66507"
+       cy="510.92038"
+       fx="364.66507"
+       fy="510.92038"
+       r="354.56354" />
   </defs>
   <metadata
      id="metadata2388">
@@ -528,20 +616,54 @@
   </metadata>
   <g
      inkscape:groupmode="layer"
-     inkscape:label="background"
      id="background"
-     style="display:inline">
-    <rect
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
-       inkscape:export-filename="/home/dda/projects/truco/etruco/images/background-pure.png"
-       y="0"
-       x="0"
-       height="600"
-       width="800"
-       id="bg"
-       style="opacity:1;fill:url(#linearGradient2481-565);fill-opacity:1;fill-rule:nonzero;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       inkscape:label="#rect2393" />
+     inkscape:label="background"
+     style="opacity:1;display:inline">
+    <g
+       id="g4642">
+      <rect
+         inkscape:label="#rect2393"
+         style="opacity:1;fill:url(#linearGradient2481-565);fill-opacity:1;fill-rule:nonzero;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+         id="bg"
+         width="800"
+         height="600"
+         x="0"
+         y="0"
+         inkscape:export-filename="/home/dda/projects/truco/etruco/images/background-pure.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <text
+         id="text4864"
+         y="121.52442"
+         x="157.92052"
+         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+         xml:space="preserve"><tspan
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero"
+           y="121.52442"
+           x="157.92052"
+           id="tspan4866"
+           sodipodi:role="line">ETruco</tspan></text>
+      <path
+         id="text4894"
+         d="M 637.3125,74.4375 C 632.73101,75.214667 627.97681,75.995391 623.15625,76.78125 C 624.5348,77.809671 625.68769,79.42323 626.625,81.59375 C 628.03121,84.781287 628.71869,88.281283 628.71875,92.125 C 628.7187,97.093774 626.84369,101.28127 623.09375,104.65625 C 619.43746,108.03126 615.12495,109.71876 610.15625,109.71875 C 605.84373,109.71876 602.18747,108.12501 599.1875,104.9375 C 596.18749,101.75002 594.68747,98.000024 594.6875,93.6875 C 594.68749,88.343783 597.46872,83.843788 603,80.1875 C 603.16288,80.083009 603.33641,80.007315 603.5,79.90625 C 597.25171,80.870929 590.85847,81.823179 584.3125,82.78125 C 582.80621,86.127096 582.03124,89.774594 582.03125,93.6875 C 582.03125,101.46877 584.74998,108.21876 590.1875,113.9375 C 595.62499,119.5625 602.28122,122.375 610.15625,122.375 C 618.59371,122.375 625.90619,119.46875 632.09375,113.65625 C 638.2812,107.75001 641.37493,100.56252 641.375,92.125 C 641.37495,85.470334 640.04835,79.580285 637.3125,74.4375 z M 525.84375,90.65625 C 520.66783,91.290991 515.4282,91.918542 510.15625,92.53125 C 508.78033,95.931165 508.06249,99.317503 508.0625,102.6875 C 508.0625,109.34376 510.74998,114.96876 516.09375,119.5625 C 521.43749,124.0625 527.53122,126.3125 534.375,126.3125 C 537.74997,126.3125 542.0937,125.59375 547.4375,124.1875 C 553.43745,122.59375 557.34369,120.875 559.125,119 C 560.43745,117.59375 561.09368,116.09376 561.09375,114.5 C 561.0937,112.81251 560.43743,111.31251 559.125,110 C 557.81245,108.68751 556.31244,108.03126 554.625,108.03125 C 553.31245,108.03126 551.81244,108.68751 550.125,110 C 549.37496,110.65626 546.87495,111.43751 542.65625,112.375 C 538.53122,113.21876 535.78121,113.65626 534.375,113.65625 C 531.09373,113.65626 528.09371,112.65626 525.375,110.6875 C 522.28124,108.43751 520.71872,105.78127 520.71875,102.6875 C 520.71874,98.990164 522.45069,94.981953 525.84375,90.65625 z M 488.375,94.96875 C 482.06831,95.644347 475.71388,96.273038 469.3125,96.90625 C 467.33935,98.943272 465.13266,100.96972 462.65625,102.96875 C 454.31247,109.71876 446.74996,113.09376 440,113.09375 C 438.31249,111.78126 437.46872,108.21876 437.46875,102.40625 C 437.46875,101.64675 437.59038,100.78909 437.78125,99.84375 C 433.49022,100.20705 429.18821,100.53626 424.875,100.875 C 424.83314,101.39906 424.8125,101.9167 424.8125,102.40625 C 424.8125,108.31251 425.84373,113.37501 427.90625,117.59375 C 430.62499,123.03125 434.62497,125.75 439.875,125.75 C 451.78122,125.75 463.4062,120.25 474.75,109.28125 C 474.8437,112.56251 475.49993,115.53126 476.71875,118.15625 C 478.2187,121.625 480.37493,123.34375 483.1875,123.34375 C 484.78119,123.34375 486.12492,122.75 487.25,121.53125 C 488.46869,120.3125 489.09367,118.90625 489.09375,117.3125 C 489.09369,116.75 488.99992,116.09376 488.8125,115.34375 C 487.87494,111.87501 487.40617,108.53126 487.40625,105.34375 C 487.40622,101.67517 487.74848,98.238652 488.375,94.96875 z M 158.3125,96.875 C 158.63574,99.060871 159.13868,101.21865 159.875,103.375 C 165.31249,118.75 179.09373,126.4375 201.21875,126.4375 C 206.93745,126.4375 212.8437,125.875 218.9375,124.75 C 225.87493,123.4375 232.49993,121.46875 238.78125,118.84375 C 248.06241,115.00001 252.68741,110.87501 252.6875,106.46875 C 252.68749,106.20195 252.66016,105.94024 252.625,105.6875 C 247.60491,105.50558 242.63199,105.25397 237.6875,105 C 237.34006,105.21382 236.93511,105.47289 236.65625,105.625 C 226.06243,111.25001 214.40619,114.06251 201.65625,114.0625 C 191.99997,114.06251 184.40622,112.06251 178.875,108.03125 C 179.41026,105.18464 179.9215,102.53026 180.40625,100.0625 C 172.87923,99.114295 165.49934,98.0642 158.3125,96.875 z M 379.75,103.90625 C 375.35399,104.1494 370.95807,104.38327 366.5625,104.59375 C 366.41531,109.13667 366.31248,112.77873 366.3125,115.1875 C 366.3125,119.59375 368.43748,121.8125 372.65625,121.8125 C 374.53124,121.8125 376.03122,121.1875 377.15625,119.96875 C 378.37499,118.65625 378.96872,117.0625 378.96875,115.1875 C 378.96874,111.61719 379.24838,107.86015 379.75,103.90625 z M 317.5625,106.1875 C 313.30199,106.25947 309.04895,106.31091 304.8125,106.34375 C 303.84013,111.07039 302.81631,114.70272 301.78125,117.15625 C 300.65621,118.28125 300.0937,119.6875 300.09375,121.375 C 300.09371,123.0625 300.68745,124.5625 301.90625,125.875 C 303.12496,127.28124 304.59369,127.99999 306.28125,128 C 307.49995,127.99999 308.62494,127.65624 309.65625,127 C 312.54405,125.05385 315.17913,118.09702 317.5625,106.1875 z"
+         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;filter:url(#filter4915);font-family:Gemelli;-inkscape-font-specification:Gemelli" />
+      <rect
+         y="0"
+         x="0"
+         height="150"
+         width="800"
+         id="rect2400"
+         style="opacity:1;fill:#000000;fill-opacity:0.38144328;fill-rule:nonzero;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+      <path
+         id="path5605"
+         style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.5pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter5674)"
+         d="M 0,0 L 0,150 M 5,0 L 5,150 M 10,0 L 10,150 M 15,0 L 15,150 M 20,0 L 20,150 M 25,0 L 25,150 M 30,0 L 30,150 M 35,0 L 35,150 M 40,0 L 40,150 M 45,0 L 45,150 M 50,0 L 50,150 M 55,0 L 55,150 M 60,0 L 60,150 M 65,0 L 65,150 M 70,0 L 70,150 M 75,0 L 75,150 M 80,0 L 80,150 M 85,0 L 85,150 M 90,0 L 90,150 M 95,0 L 95,150 M 100,0 L 100,150 M 105,0 L 105,150 M 110,0 L 110,150 M 115,0 L 115,150 M 120,0 L 120,150 M 125,0 L 125,150 M 130,0 L 130,150 M 135,0 L 135,150 M 140,0 L 140,150 M 145,0 L 145,150 M 150,0 L 150,150 M 155,0 L 155,150 M 160,0 L 160,150 M 165,0 L 165,150 M 170,0 L 170,150 M 175,0 L 175,150 M 180,0 L 180,150 M 185,0 L 185,150 M 190,0 L 190,150 M 195,0 L 195,150 M 200,0 L 200,150 M 205,0 L 205,150 M 210,0 L 210,150 M 215,0 L 215,150 M 220,0 L 220,150 M 225,0 L 225,150 M 230,0 L 230,150 M 235,0 L 235,150 M 240,0 L 240,150 M 245,0 L 245,150 M 250,0 L 250,150 M 255,0 L 255,150 M 260,0 L 260,150 M 265,0 L 265,150 M 270,0 L 270,150 M 275,0 L 275,150 M 280,0 L 280,150 M 285,0 L 285,150 M 290,0 L 290,150 M 295,0 L 295,150 M 300,0 L 300,150 M 305,0 L 305,150 M 310,0 L 310,150 M 315,0 L 315,150 M 320,0 L 320,150 M 325,0 L 325,150 M 330,0 L 330,150 M 335,0 L 335,150 M 340,0 L 340,150 M 345,0 L 345,150 M 350,0 L 350,150 M 355,0 L 355,150 M 360,0 L 360,150 M 365,0 L 365,150 M 370,0 L 370,150 M 375,0 L 375,150 M 380,0 L 380,150 M 385,0 L 385,150 M 390,0 L 390,150 M 395,0 L 395,150 M 400,0 L 400,150 M 405,0 L 405,150 M 410,0 L 410,150 M 415,0 L 415,150 M 420,0 L 420,150 M 425,0 L 425,150 M 430,0 L 430,150 M 435,0 L 435,150 M 440,0 L 440,150 M 445,0 L 445,150 M 450,0 L 450,150 M 455,0 L 455,150 M 460,0 L 460,150 M 465,0 L 465,150 M 470,0 L 470,150 M 475,0 L 475,150 M 480,0 L 480,150 M 485,0 L 485,150 M 490,0 L 490,150 M 495,0 L 495,150 M 500,0 L 500,150 M 505,0 L 505,150 M 510,0 L 510,150 M 515,0 L 515,150 M 520,0 L 520,150 M 525,0 L 525,150 M 530,0 L 530,150 M 535,0 L 535,150 M 540,0 L 540,150 M 545,0 L 545,150 M 550,0 L 550,150 M 555,0 L 555,150 M 560,0 L 560,150 M 565,0 L 565,150 M 570,0 L 570,150 M 575,0 L 575,150 M 580,0 L 580,150 M 585,0 L 585,150 M 590,0 L 590,150 M 595,0 L 595,150 M 600,0 L 600,150 M 605,0 L 605,150 M 610,0 L 610,150 M 615,0 L 615,150 M 620,0 L 620,150 M 625,0 L 625,150 M 630,0 L 630,150 M 635,0 L 635,150 M 640,0 L 640,150 M 645,0 L 645,150 M 650,0 L 650,150 M 655,0 L 655,150 M 660,0 L 660,150 M 665,0 L 665,150 M 670,0 L 670,150 M 675,0 L 675,150 M 680,0 L 680,150 M 685,0 L 685,150 M 690,0 L 690,150 M 695,0 L 695,150 M 700,0 L 700,150 M 705,0 L 705,150 M 710,0 L 710,150 M 715,0 L 715,150 M 720,0 L 720,150 M 725,0 L 725,150 M 730,0 L 730,150 M 735,0 L 735,150 M 740,0 L 740,150 M 745,0 L 745,150 M 750,0 L 750,150 M 755,0 L 755,150 M 760,0 L 760,150 M 765,0 L 765,150 M 770,0 L 770,150 M 775,0 L 775,150 M 780,0 L 780,150 M 785,0 L 785,150 M 790,0 L 790,150 M 795,0 L 795,150 M 800,0 L 800,150 M 0,0 L 800,0 M 0,5 L 800,5 M 0,10 L 800,10 M 0,15 L 800,15 M 0,20 L 800,20 M 0,25 L 800,25 M 0,30 L 800,30 M 0,35 L 800,35 M 0,40 L 800,40 M 0,45 L 800,45 M 0,50 L 800,50 M 0,55 L 800,55 M 0,60 L 800,60 M 0,65 L 800,65 M 0,70 L 800,70 M 0,75 L 800,75 M 0,80 L 800,80 M 0,85 L 800,85 M 0,90 L 800,90 M 0,95 L 800,95 M 0,100 L 800,100 M 0,105 L 800,105 M 0,110 L 800,110 M 0,115 L 800,115 M 0,120 L 800,120 M 0,125 L 800,125 M 0,130 L 800,130 M 0,135 L 800,135 M 0,140 L 800,140 M 0,145 L 800,145 M 0,150 L 800,150" />
+      <path
+         sodipodi:nodetypes="cczcc"
+         id="rect2586"
+         d="M 0,0 L 800,0 C 800,0 821.20828,35.66527 708.07611,60.904546 C 594.94395,86.143822 163.0977,152.93247 43.84062,53.833478 C 16.215834,30.878123 0,0 0,0 z"
+         style="opacity:1;fill:url(#radialGradient4859);fill-opacity:1;fill-rule:nonzero;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter3385);enable-background:accumulate" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -815,27 +937,6 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="name"
-     inkscape:label="name"
-     style="display:inline">
-    <text
-       xml:space="preserve"
-       style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-       x="157.92052"
-       y="121.52442"
-       id="text4864"><tspan
-         sodipodi:role="line"
-         id="tspan4866"
-         x="157.92052"
-         y="121.52442"
-         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero">ETruco</tspan></text>
-    <path
-       style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;filter:url(#filter4915);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-       d="M 637.3125,74.4375 C 632.73101,75.214667 627.97681,75.995391 623.15625,76.78125 C 624.5348,77.809671 625.68769,79.42323 626.625,81.59375 C 628.03121,84.781287 628.71869,88.281283 628.71875,92.125 C 628.7187,97.093774 626.84369,101.28127 623.09375,104.65625 C 619.43746,108.03126 615.12495,109.71876 610.15625,109.71875 C 605.84373,109.71876 602.18747,108.12501 599.1875,104.9375 C 596.18749,101.75002 594.68747,98.000024 594.6875,93.6875 C 594.68749,88.343783 597.46872,83.843788 603,80.1875 C 603.16288,80.083009 603.33641,80.007315 603.5,79.90625 C 597.25171,80.870929 590.85847,81.823179 584.3125,82.78125 C 582.80621,86.127096 582.03124,89.774594 582.03125,93.6875 C 582.03125,101.46877 584.74998,108.21876 590.1875,113.9375 C 595.62499,119.5625 602.28122,122.375 610.15625,122.375 C 618.59371,122.375 625.90619,119.46875 632.09375,113.65625 C 638.2812,107.75001 641.37493,100.56252 641.375,92.125 C 641.37495,85.470334 640.04835,79.580285 637.3125,74.4375 z M 525.84375,90.65625 C 520.66783,91.290991 515.4282,91.918542 510.15625,92.53125 C 508.78033,95.931165 508.06249,99.317503 508.0625,102.6875 C 508.0625,109.34376 510.74998,114.96876 516.09375,119.5625 C 521.43749,124.0625 527.53122,126.3125 534.375,126.3125 C 537.74997,126.3125 542.0937,125.59375 547.4375,124.1875 C 553.43745,122.59375 557.34369,120.875 559.125,119 C 560.43745,117.59375 561.09368,116.09376 561.09375,114.5 C 561.0937,112.81251 560.43743,111.31251 559.125,110 C 557.81245,108.68751 556.31244,108.03126 554.625,108.03125 C 553.31245,108.03126 551.81244,108.68751 550.125,110 C 549.37496,110.65626 546.87495,111.43751 542.65625,112.375 C 538.53122,113.21876 535.78121,113.65626 534.375,113.65625 C 531.09373,113.65626 528.09371,112.65626 525.375,110.6875 C 522.28124,108.43751 520.71872,105.78127 520.71875,102.6875 C 520.71874,98.990164 522.45069,94.981953 525.84375,90.65625 z M 488.375,94.96875 C 482.06831,95.644347 475.71388,96.273038 469.3125,96.90625 C 467.33935,98.943272 465.13266,100.96972 462.65625,102.96875 C 454.31247,109.71876 446.74996,113.09376 440,113.09375 C 438.31249,111.78126 437.46872,108.21876 437.46875,102.40625 C 437.46875,101.64675 437.59038,100.78909 437.78125,99.84375 C 433.49022,100.20705 429.18821,100.53626 424.875,100.875 C 424.83314,101.39906 424.8125,101.9167 424.8125,102.40625 C 424.8125,108.31251 425.84373,113.37501 427.90625,117.59375 C 430.62499,123.03125 434.62497,125.75 439.875,125.75 C 451.78122,125.75 463.4062,120.25 474.75,109.28125 C 474.8437,112.56251 475.49993,115.53126 476.71875,118.15625 C 478.2187,121.625 480.37493,123.34375 483.1875,123.34375 C 484.78119,123.34375 486.12492,122.75 487.25,121.53125 C 488.46869,120.3125 489.09367,118.90625 489.09375,117.3125 C 489.09369,116.75 488.99992,116.09376 488.8125,115.34375 C 487.87494,111.87501 487.40617,108.53126 487.40625,105.34375 C 487.40622,101.67517 487.74848,98.238652 488.375,94.96875 z M 158.3125,96.875 C 158.63574,99.060871 159.13868,101.21865 159.875,103.375 C 165.31249,118.75 179.09373,126.4375 201.21875,126.4375 C 206.93745,126.4375 212.8437,125.875 218.9375,124.75 C 225.87493,123.4375 232.49993,121.46875 238.78125,118.84375 C 248.06241,115.00001 252.68741,110.87501 252.6875,106.46875 C 252.68749,106.20195 252.66016,105.94024 252.625,105.6875 C 247.60491,105.50558 242.63199,105.25397 237.6875,105 C 237.34006,105.21382 236.93511,105.47289 236.65625,105.625 C 226.06243,111.25001 214.40619,114.06251 201.65625,114.0625 C 191.99997,114.06251 184.40622,112.06251 178.875,108.03125 C 179.41026,105.18464 179.9215,102.53026 180.40625,100.0625 C 172.87923,99.114295 165.49934,98.0642 158.3125,96.875 z M 379.75,103.90625 C 375.35399,104.1494 370.95807,104.38327 366.5625,104.59375 C 366.41531,109.13667 366.31248,112.77873 366.3125,115.1875 C 366.3125,119.59375 368.43748,121.8125 372.65625,121.8125 C 374.53124,121.8125 376.03122,121.1875 377.15625,119.96875 C 378.37499,118.65625 378.96872,117.0625 378.96875,115.1875 C 378.96874,111.61719 379.24838,107.86015 379.75,103.90625 z M 317.5625,106.1875 C 313.30199,106.25947 309.04895,106.31091 304.8125,106.34375 C 303.84013,111.07039 302.81631,114.70272 301.78125,117.15625 C 300.65621,118.28125 300.0937,119.6875 300.09375,121.375 C 300.09371,123.0625 300.68745,124.5625 301.90625,125.875 C 303.12496,127.28124 304.59369,127.99999 306.28125,128 C 307.49995,127.99999 308.62494,127.65624 309.65625,127 C 312.54405,125.05385 315.17913,118.09702 317.5625,106.1875 z"
-       id="text4894" />
-  </g>
-  <g
-     inkscape:groupmode="layer"
      id="button-leave"
      inkscape:label="button-sair"
      style="display:inline">
@@ -924,428 +1025,417 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="name bg"
-     inkscape:label="name bg"
-     style="opacity:1;display:inline">
-    <rect
-       style="opacity:1;fill:#000000;fill-opacity:0.38144328;fill-rule:nonzero;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       id="rect2400"
-       width="800"
-       height="150"
-       x="0"
-       y="0" />
-    <path
-       d="M 0,0 L 0,150 M 5,0 L 5,150 M 10,0 L 10,150 M 15,0 L 15,150 M 20,0 L 20,150 M 25,0 L 25,150 M 30,0 L 30,150 M 35,0 L 35,150 M 40,0 L 40,150 M 45,0 L 45,150 M 50,0 L 50,150 M 55,0 L 55,150 M 60,0 L 60,150 M 65,0 L 65,150 M 70,0 L 70,150 M 75,0 L 75,150 M 80,0 L 80,150 M 85,0 L 85,150 M 90,0 L 90,150 M 95,0 L 95,150 M 100,0 L 100,150 M 105,0 L 105,150 M 110,0 L 110,150 M 115,0 L 115,150 M 120,0 L 120,150 M 125,0 L 125,150 M 130,0 L 130,150 M 135,0 L 135,150 M 140,0 L 140,150 M 145,0 L 145,150 M 150,0 L 150,150 M 155,0 L 155,150 M 160,0 L 160,150 M 165,0 L 165,150 M 170,0 L 170,150 M 175,0 L 175,150 M 180,0 L 180,150 M 185,0 L 185,150 M 190,0 L 190,150 M 195,0 L 195,150 M 200,0 L 200,150 M 205,0 L 205,150 M 210,0 L 210,150 M 215,0 L 215,150 M 220,0 L 220,150 M 225,0 L 225,150 M 230,0 L 230,150 M 235,0 L 235,150 M 240,0 L 240,150 M 245,0 L 245,150 M 250,0 L 250,150 M 255,0 L 255,150 M 260,0 L 260,150 M 265,0 L 265,150 M 270,0 L 270,150 M 275,0 L 275,150 M 280,0 L 280,150 M 285,0 L 285,150 M 290,0 L 290,150 M 295,0 L 295,150 M 300,0 L 300,150 M 305,0 L 305,150 M 310,0 L 310,150 M 315,0 L 315,150 M 320,0 L 320,150 M 325,0 L 325,150 M 330,0 L 330,150 M 335,0 L 335,150 M 340,0 L 340,150 M 345,0 L 345,150 M 350,0 L 350,150 M 355,0 L 355,150 M 360,0 L 360,150 M 365,0 L 365,150 M 370,0 L 370,150 M 375,0 L 375,150 M 380,0 L 380,150 M 385,0 L 385,150 M 390,0 L 390,150 M 395,0 L 395,150 M 400,0 L 400,150 M 405,0 L 405,150 M 410,0 L 410,150 M 415,0 L 415,150 M 420,0 L 420,150 M 425,0 L 425,150 M 430,0 L 430,150 M 435,0 L 435,150 M 440,0 L 440,150 M 445,0 L 445,150 M 450,0 L 450,150 M 455,0 L 455,150 M 460,0 L 460,150 M 465,0 L 465,150 M 470,0 L 470,150 M 475,0 L 475,150 M 480,0 L 480,150 M 485,0 L 485,150 M 490,0 L 490,150 M 495,0 L 495,150 M 500,0 L 500,150 M 505,0 L 505,150 M 510,0 L 510,150 M 515,0 L 515,150 M 520,0 L 520,150 M 525,0 L 525,150 M 530,0 L 530,150 M 535,0 L 535,150 M 540,0 L 540,150 M 545,0 L 545,150 M 550,0 L 550,150 M 555,0 L 555,150 M 560,0 L 560,150 M 565,0 L 565,150 M 570,0 L 570,150 M 575,0 L 575,150 M 580,0 L 580,150 M 585,0 L 585,150 M 590,0 L 590,150 M 595,0 L 595,150 M 600,0 L 600,150 M 605,0 L 605,150 M 610,0 L 610,150 M 615,0 L 615,150 M 620,0 L 620,150 M 625,0 L 625,150 M 630,0 L 630,150 M 635,0 L 635,150 M 640,0 L 640,150 M 645,0 L 645,150 M 650,0 L 650,150 M 655,0 L 655,150 M 660,0 L 660,150 M 665,0 L 665,150 M 670,0 L 670,150 M 675,0 L 675,150 M 680,0 L 680,150 M 685,0 L 685,150 M 690,0 L 690,150 M 695,0 L 695,150 M 700,0 L 700,150 M 705,0 L 705,150 M 710,0 L 710,150 M 715,0 L 715,150 M 720,0 L 720,150 M 725,0 L 725,150 M 730,0 L 730,150 M 735,0 L 735,150 M 740,0 L 740,150 M 745,0 L 745,150 M 750,0 L 750,150 M 755,0 L 755,150 M 760,0 L 760,150 M 765,0 L 765,150 M 770,0 L 770,150 M 775,0 L 775,150 M 780,0 L 780,150 M 785,0 L 785,150 M 790,0 L 790,150 M 795,0 L 795,150 M 800,0 L 800,150 M 0,0 L 800,0 M 0,5 L 800,5 M 0,10 L 800,10 M 0,15 L 800,15 M 0,20 L 800,20 M 0,25 L 800,25 M 0,30 L 800,30 M 0,35 L 800,35 M 0,40 L 800,40 M 0,45 L 800,45 M 0,50 L 800,50 M 0,55 L 800,55 M 0,60 L 800,60 M 0,65 L 800,65 M 0,70 L 800,70 M 0,75 L 800,75 M 0,80 L 800,80 M 0,85 L 800,85 M 0,90 L 800,90 M 0,95 L 800,95 M 0,100 L 800,100 M 0,105 L 800,105 M 0,110 L 800,110 M 0,115 L 800,115 M 0,120 L 800,120 M 0,125 L 800,125 M 0,130 L 800,130 M 0,135 L 800,135 M 0,140 L 800,140 M 0,145 L 800,145 M 0,150 L 800,150"
-       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:0.5pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter5674)"
-       id="path5605" />
-    <path
-       style="opacity:1;fill:url(#radialGradient4859);fill-opacity:1;fill-rule:nonzero;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;marker:none;marker-start:none;marker-mid:none;marker-end:none;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1;visibility:visible;display:inline;overflow:visible;filter:url(#filter3385);enable-background:accumulate"
-       d="M 0,0 L 800,0 C 800,0 821.20828,35.66527 708.07611,60.904546 C 594.94395,86.143822 163.0977,152.93247 43.84062,53.833478 C 16.215834,30.878123 0,0 0,0 z"
-       id="rect2586"
-       sodipodi:nodetypes="cczcc" />
-  </g>
-  <g
-     id="player0"
-     inkscape:label="#g5104">
+     id="layer1"
+     inkscape:label="information"
+     style="display:inline">
     <g
-       transform="translate(-132.03553,-542.9559)"
        style="display:inline"
-       id="text-player0"
-       inkscape:label="text">
+       id="player0"
+       inkscape:label="#g5104"
+       transform="translate(-7.0060404,-17.528204)">
       <g
-         inkscape:label="#g3560"
-         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
-         id="g3395">
-        <text
-           transform="scale(0.9613872,1.0401637)"
-           id="text3397"
-           y="295.70563"
-           x="117.89352"
-           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           xml:space="preserve"><tspan
+         transform="translate(-132.03553,-542.9559)"
+         style="display:inline"
+         id="text-player0"
+         inkscape:label="text">
+        <g
+           inkscape:label="#g3560"
+           transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+           id="g3395">
+          <text
+             transform="scale(0.9613872,1.0401637)"
+             id="text3397"
              y="295.70563"
              x="117.89352"
-             id="tspan3399"
-             sodipodi:role="line">Jogador 0</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           x="116.83142"
-           y="294.72397"
-           id="text3401"
-           transform="scale(0.9613872,1.0401637)"><tspan
-             sodipodi:role="line"
-             id="tspan3403"
+             style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+             xml:space="preserve"><tspan
+               y="295.70563"
+               x="117.89352"
+               id="tspan3399"
+               sodipodi:role="line">Jogador 0</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
              x="116.83142"
-             y="294.72397">Jogador 0</tspan></text>
+             y="294.72397"
+             id="text3401"
+             transform="scale(0.9613872,1.0401637)"><tspan
+               sodipodi:role="line"
+               id="tspan3403"
+               x="116.83142"
+               y="294.72397">Jogador 0</tspan></text>
+        </g>
       </g>
-    </g>
-    <g
-       transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
-       id="connected-player0"
-       style="opacity:1">
-      <text
-         xml:space="preserve"
-         style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-         x="-37.211048"
-         y="299.09674"
-         id="text2395"
-         transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"><tspan
-           sodipodi:role="line"
-           id="tspan2397"
-           x="-37.211048"
-           y="299.09674">Coneted</tspan></text>
-      <rect
-         style="fill:url(#radialGradient5083);fill-opacity:1"
-         id="rect3206"
-         width="98.044693"
-         height="139.10614"
-         x="229.88339"
-         y="31.379898"
-         ry="8.7988825"
-         rx="8.3798876" />
-    </g>
-    <g
-       transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)"
-       id="disconnected-player0">
-      <rect
-         style="fill:url(#radialGradient5085);fill-opacity:1"
-         id="rect4157"
-         width="98.044693"
-         height="139.10614"
-         x="350.15967"
-         y="36.379898"
-         ry="8.7988825"
-         rx="8.3798876" />
       <g
-         id="g3253"
-         transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)">
+         transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
+         id="connected-player0"
+         style="opacity:1">
         <text
            xml:space="preserve"
-           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           x="-771.14294"
-           y="614.03113"
-           id="text4160"
-           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"><tspan
+           style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="-37.211048"
+           y="299.09674"
+           id="text2395"
+           transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"><tspan
              sodipodi:role="line"
-             id="tspan4162"
+             id="tspan2397"
+             x="-37.211048"
+             y="299.09674">Coneted</tspan></text>
+        <rect
+           style="fill:url(#radialGradient4622);fill-opacity:1"
+           id="rect3206"
+           width="98.044693"
+           height="139.10614"
+           x="229.88339"
+           y="31.379898"
+           ry="8.7988825"
+           rx="8.3798876" />
+      </g>
+      <g
+         transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)"
+         id="disconnected-player0">
+        <rect
+           style="fill:url(#radialGradient4624);fill-opacity:1"
+           id="rect4157"
+           width="98.044693"
+           height="139.10614"
+           x="350.15967"
+           y="36.379898"
+           ry="8.7988825"
+           rx="8.3798876" />
+        <g
+           id="g3253"
+           transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)">
+          <text
+             xml:space="preserve"
+             style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
              x="-771.14294"
-             y="614.03113">Disconnected</tspan></text>
-        <text
-           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"
-           id="text4164"
-           y="638.83704"
-           x="-807.25031"
-           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           xml:space="preserve"><tspan
+             y="614.03113"
+             id="text4160"
+             transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"><tspan
+               sodipodi:role="line"
+               id="tspan4162"
+               x="-771.14294"
+               y="614.03113">Disconnected</tspan></text>
+          <text
+             transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"
+             id="text4164"
              y="638.83704"
              x="-807.25031"
-             id="tspan4166"
-             sodipodi:role="line">Disconnected</tspan></text>
+             style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+             xml:space="preserve"><tspan
+               y="638.83704"
+               x="-807.25031"
+               id="tspan4166"
+               sodipodi:role="line">Disconnected</tspan></text>
+        </g>
       </g>
     </g>
-  </g>
-  <g
-     inkscape:label="#g5104"
-     id="player1"
-     transform="translate(145.664,101.82338)">
     <g
-       inkscape:label="text"
-       id="text-player1"
        style="display:inline"
-       transform="translate(-132.03553,-542.9559)">
+       inkscape:label="#g5104"
+       id="player1"
+       transform="translate(138.65796,84.295176)">
       <g
-         id="g5131"
-         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
-         inkscape:label="#g3560">
-        <text
-           xml:space="preserve"
-           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           x="117.89352"
-           y="295.70563"
-           id="text5133"
-           transform="scale(0.9613872,1.0401637)"><tspan
-             sodipodi:role="line"
-             id="tspan5135"
+         inkscape:label="text"
+         id="text-player1"
+         style="display:inline"
+         transform="translate(-132.03553,-542.9559)">
+        <g
+           id="g5131"
+           transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+           inkscape:label="#g3560">
+          <text
+             xml:space="preserve"
+             style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
              x="117.89352"
-             y="295.70563">Jogador 1</tspan></text>
-        <text
-           transform="scale(0.9613872,1.0401637)"
-           id="text5137"
-           y="294.72397"
-           x="116.83142"
-           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           xml:space="preserve"><tspan
+             y="295.70563"
+             id="text5133"
+             transform="scale(0.9613872,1.0401637)"><tspan
+               sodipodi:role="line"
+               id="tspan5135"
+               x="117.89352"
+               y="295.70563">Jogador 1</tspan></text>
+          <text
+             transform="scale(0.9613872,1.0401637)"
+             id="text5137"
              y="294.72397"
              x="116.83142"
-             id="tspan5139"
-             sodipodi:role="line">Jogador 1</tspan></text>
+             style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+             xml:space="preserve"><tspan
+               y="294.72397"
+               x="116.83142"
+               id="tspan5139"
+               sodipodi:role="line">Jogador 1</tspan></text>
+        </g>
       </g>
-    </g>
-    <g
-       id="connected-player1"
-       transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
-       style="opacity:1">
-      <text
-         transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"
-         id="text5143"
-         y="299.09674"
-         x="-37.211048"
-         style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-         xml:space="preserve"><tspan
+      <g
+         id="connected-player1"
+         transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
+         style="opacity:1">
+        <text
+           transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"
+           id="text5143"
            y="299.09674"
            x="-37.211048"
-           id="tspan5145"
-           sodipodi:role="line">Coneted</tspan></text>
-      <rect
-         rx="8.3798876"
-         ry="8.7988825"
-         y="31.379898"
-         x="229.88339"
-         height="139.10614"
-         width="98.044693"
-         id="rect5147"
-         style="fill:url(#radialGradient5163);fill-opacity:1" />
-    </g>
-    <g
-       id="disconnected-player1"
-       transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)">
-      <rect
-         rx="8.3798876"
-         ry="8.7988825"
-         y="36.379898"
-         x="350.15967"
-         height="139.10614"
-         width="98.044693"
-         id="rect5151"
-         style="fill:url(#radialGradient5165);fill-opacity:1" />
-      <g
-         transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)"
-         id="g5153">
-        <text
-           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"
-           id="text5155"
-           y="614.03113"
-           x="-771.14294"
-           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
            xml:space="preserve"><tspan
+             y="299.09674"
+             x="-37.211048"
+             id="tspan5145"
+             sodipodi:role="line">Coneted</tspan></text>
+        <rect
+           rx="8.3798876"
+           ry="8.7988825"
+           y="31.379898"
+           x="229.88339"
+           height="139.10614"
+           width="98.044693"
+           id="rect5147"
+           style="fill:url(#radialGradient4626);fill-opacity:1" />
+      </g>
+      <g
+         id="disconnected-player1"
+         transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)">
+        <rect
+           rx="8.3798876"
+           ry="8.7988825"
+           y="36.379898"
+           x="350.15967"
+           height="139.10614"
+           width="98.044693"
+           id="rect5151"
+           style="fill:url(#radialGradient4628);fill-opacity:1" />
+        <g
+           transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)"
+           id="g5153">
+          <text
+             transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"
+             id="text5155"
              y="614.03113"
              x="-771.14294"
-             id="tspan5157"
-             sodipodi:role="line">Disconnected</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           x="-807.25031"
-           y="638.83704"
-           id="text5159"
-           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"><tspan
-             sodipodi:role="line"
-             id="tspan5161"
+             style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+             xml:space="preserve"><tspan
+               y="614.03113"
+               x="-771.14294"
+               id="tspan5157"
+               sodipodi:role="line">Disconnected</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
              x="-807.25031"
-             y="638.83704">Disconnected</tspan></text>
+             y="638.83704"
+             id="text5159"
+             transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"><tspan
+               sodipodi:role="line"
+               id="tspan5161"
+               x="-807.25031"
+               y="638.83704">Disconnected</tspan></text>
+        </g>
       </g>
     </g>
-  </g>
-  <g
-     transform="translate(265.87215,216.37467)"
-     id="player2"
-     inkscape:label="#g5104">
     <g
-       transform="translate(-132.03553,-542.9559)"
        style="display:inline"
-       id="text-player2"
-       inkscape:label="text">
+       transform="translate(258.86611,198.84647)"
+       id="player2"
+       inkscape:label="#g5104">
       <g
-         inkscape:label="#g3560"
-         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
-         id="g5171">
-        <text
-           transform="scale(0.9613872,1.0401637)"
-           id="text5173"
-           y="295.70563"
-           x="117.89352"
-           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           xml:space="preserve"><tspan
+         transform="translate(-132.03553,-542.9559)"
+         style="display:inline"
+         id="text-player2"
+         inkscape:label="text">
+        <g
+           inkscape:label="#g3560"
+           transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+           id="g5171">
+          <text
+             transform="scale(0.9613872,1.0401637)"
+             id="text5173"
              y="295.70563"
              x="117.89352"
-             id="tspan5175"
-             sodipodi:role="line">Jogador 2</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           x="116.83142"
-           y="294.72397"
-           id="text5177"
-           transform="scale(0.9613872,1.0401637)"><tspan
-             sodipodi:role="line"
-             id="tspan5179"
+             style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+             xml:space="preserve"><tspan
+               y="295.70563"
+               x="117.89352"
+               id="tspan5175"
+               sodipodi:role="line">Jogador 2</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
              x="116.83142"
-             y="294.72397">Jogador 2</tspan></text>
+             y="294.72397"
+             id="text5177"
+             transform="scale(0.9613872,1.0401637)"><tspan
+               sodipodi:role="line"
+               id="tspan5179"
+               x="116.83142"
+               y="294.72397">Jogador 2</tspan></text>
+        </g>
       </g>
-    </g>
-    <g
-       transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
-       id="connected-player2">
-      <text
-         xml:space="preserve"
-         style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-         x="-37.211048"
-         y="299.09674"
-         id="text5183"
-         transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"><tspan
-           sodipodi:role="line"
-           id="tspan5185"
-           x="-37.211048"
-           y="299.09674">Coneted</tspan></text>
-      <rect
-         style="fill:url(#radialGradient5203);fill-opacity:1"
-         id="rect5187"
-         width="98.044693"
-         height="139.10614"
-         x="229.88339"
-         y="31.379898"
-         ry="8.7988825"
-         rx="8.3798876" />
-    </g>
-    <g
-       transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)"
-       id="disconnected-player2">
-      <rect
-         style="fill:url(#radialGradient5205);fill-opacity:1"
-         id="rect5191"
-         width="98.044693"
-         height="139.10614"
-         x="350.15967"
-         y="36.379898"
-         ry="8.7988825"
-         rx="8.3798876" />
       <g
-         id="g5193"
-         transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)">
+         transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)"
+         id="connected-player2">
         <text
            xml:space="preserve"
-           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           x="-771.14294"
-           y="614.03113"
-           id="text5195"
-           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"><tspan
+           style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           x="-37.211048"
+           y="299.09674"
+           id="text5183"
+           transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"><tspan
              sodipodi:role="line"
-             id="tspan5197"
+             id="tspan5185"
+             x="-37.211048"
+             y="299.09674">Coneted</tspan></text>
+        <rect
+           style="fill:url(#radialGradient4630);fill-opacity:1"
+           id="rect5187"
+           width="98.044693"
+           height="139.10614"
+           x="229.88339"
+           y="31.379898"
+           ry="8.7988825"
+           rx="8.3798876" />
+      </g>
+      <g
+         transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)"
+         id="disconnected-player2">
+        <rect
+           style="fill:url(#radialGradient4632);fill-opacity:1"
+           id="rect5191"
+           width="98.044693"
+           height="139.10614"
+           x="350.15967"
+           y="36.379898"
+           ry="8.7988825"
+           rx="8.3798876" />
+        <g
+           id="g5193"
+           transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)">
+          <text
+             xml:space="preserve"
+             style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
              x="-771.14294"
-             y="614.03113">Disconnected</tspan></text>
-        <text
-           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"
-           id="text5199"
-           y="638.83704"
-           x="-807.25031"
-           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           xml:space="preserve"><tspan
+             y="614.03113"
+             id="text5195"
+             transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"><tspan
+               sodipodi:role="line"
+               id="tspan5197"
+               x="-771.14294"
+               y="614.03113">Disconnected</tspan></text>
+          <text
+             transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"
+             id="text5199"
              y="638.83704"
              x="-807.25031"
-             id="tspan5201"
-             sodipodi:role="line">Disconnected</tspan></text>
+             style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
+             xml:space="preserve"><tspan
+               y="638.83704"
+               x="-807.25031"
+               id="tspan5201"
+               sodipodi:role="line">Disconnected</tspan></text>
+        </g>
       </g>
     </g>
-  </g>
-  <g
-     inkscape:label="#g5104"
-     id="player3"
-     transform="translate(414.36457,318.19805)">
     <g
-       inkscape:label="text"
-       id="text-player3"
        style="display:inline"
-       transform="translate(-132.03553,-542.9559)">
+       inkscape:label="#g5104"
+       id="player3"
+       transform="translate(407.35853,300.66985)">
       <g
-         id="g5211"
-         transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
-         inkscape:label="#g3560">
-        <text
-           xml:space="preserve"
-           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           x="117.89352"
-           y="295.70563"
-           id="text5213"
-           transform="scale(0.9613872,1.0401637)"><tspan
-             sodipodi:role="line"
-             id="tspan5215"
+         inkscape:label="text"
+         id="text-player3"
+         style="display:inline"
+         transform="translate(-132.03553,-542.9559)">
+        <g
+           id="g5211"
+           transform="matrix(1.037431,0,0,1.0437206,159.40975,460.46342)"
+           inkscape:label="#g3560">
+          <text
+             xml:space="preserve"
+             style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3532);font-family:Gemelli;-inkscape-font-specification:Gemelli"
              x="117.89352"
-             y="295.70563">Jogador 3</tspan></text>
-        <text
-           transform="scale(0.9613872,1.0401637)"
-           id="text5217"
-           y="294.72397"
-           x="116.83142"
-           style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           xml:space="preserve"><tspan
+             y="295.70563"
+             id="text5213"
+             transform="scale(0.9613872,1.0401637)"><tspan
+               sodipodi:role="line"
+               id="tspan5215"
+               x="117.89352"
+               y="295.70563">Jogador 3</tspan></text>
+          <text
+             transform="scale(0.9613872,1.0401637)"
+             id="text5217"
              y="294.72397"
              x="116.83142"
-             id="tspan5219"
-             sodipodi:role="line">Jogador 3</tspan></text>
+             style="font-size:49.60916519px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;opacity:0.94468085;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3556);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+             xml:space="preserve"><tspan
+               y="294.72397"
+               x="116.83142"
+               id="tspan5219"
+               sodipodi:role="line">Jogador 3</tspan></text>
+        </g>
       </g>
-    </g>
-    <g
-       id="connected-player3"
-       transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)">
-      <text
-         transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"
-         id="text5223"
-         y="299.09674"
-         x="-37.211048"
-         style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-         xml:space="preserve"><tspan
+      <g
+         id="connected-player3"
+         transform="matrix(0.9179487,0,0,0.646988,-166.30934,156.95318)">
+        <text
+           transform="matrix(0.49503,-0.8568317,0.9093135,0.4461778,0,0)"
+           id="text5223"
            y="299.09674"
            x="-37.211048"
-           id="tspan5225"
-           sodipodi:role="line">Coneted</tspan></text>
-      <rect
-         rx="8.3798876"
-         ry="8.7988825"
-         y="31.379898"
-         x="229.88339"
-         height="139.10614"
-         width="98.044693"
-         id="rect5227"
-         style="fill:url(#radialGradient5243);fill-opacity:1" />
-    </g>
-    <g
-       id="disconnected-player3"
-       transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)">
-      <rect
-         rx="8.3798876"
-         ry="8.7988825"
-         y="36.379898"
-         x="350.15967"
-         height="139.10614"
-         width="98.044693"
-         id="rect5231"
-         style="fill:url(#radialGradient5245);fill-opacity:1" />
-      <g
-         transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)"
-         id="g5233">
-        <text
-           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"
-           id="text5235"
-           y="614.03113"
-           x="-771.14294"
-           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+           style="font-size:32.44603729px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
            xml:space="preserve"><tspan
+             y="299.09674"
+             x="-37.211048"
+             id="tspan5225"
+             sodipodi:role="line">Coneted</tspan></text>
+        <rect
+           rx="8.3798876"
+           ry="8.7988825"
+           y="31.379898"
+           x="229.88339"
+           height="139.10614"
+           width="98.044693"
+           id="rect5227"
+           style="fill:url(#radialGradient4634);fill-opacity:1" />
+      </g>
+      <g
+         id="disconnected-player3"
+         transform="matrix(0.9179487,0,0,0.646988,-276.71723,153.71807)">
+        <rect
+           rx="8.3798876"
+           ry="8.7988825"
+           y="36.379898"
+           x="350.15967"
+           height="139.10614"
+           width="98.044693"
+           id="rect5231"
+           style="fill:url(#radialGradient4636);fill-opacity:1" />
+        <g
+           transform="matrix(9.5681479e-2,-2.4978668e-3,2.3216624e-3,8.8931931e-2,349.8639,84.96872)"
+           id="g5233">
+          <text
+             transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,11.348866,32.005762)"
+             id="text5235"
              y="614.03113"
              x="-771.14294"
-             id="tspan5237"
-             sodipodi:role="line">Disconnected</tspan></text>
-        <text
-           xml:space="preserve"
-           style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
-           x="-807.25031"
-           y="638.83704"
-           id="text5239"
-           transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"><tspan
-             sodipodi:role="line"
-             id="tspan5241"
+             style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter3229);font-family:Gemelli;-inkscape-font-specification:Gemelli"
+             xml:space="preserve"><tspan
+               y="614.03113"
+               x="-771.14294"
+               id="tspan5237"
+               sodipodi:role="line">Disconnected</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-size:234.67218018px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Gemelli;-inkscape-font-specification:Gemelli"
              x="-807.25031"
-             y="638.83704">Disconnected</tspan></text>
+             y="638.83704"
+             id="text5239"
+             transform="matrix(0.4950301,-0.8568317,0.9093134,0.4461778,0,0)"><tspan
+               sodipodi:role="line"
+               id="tspan5241"
+               x="-807.25031"
+               y="638.83704">Disconnected</tspan></text>
+        </g>
       </g>
     </g>
   </g>
