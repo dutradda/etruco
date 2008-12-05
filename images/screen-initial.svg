@@ -30,8 +30,8 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.5"
      inkscape:cx="275"
-     inkscape:cy="128.77552"
-     inkscape:current-layer="cards"
+     inkscape:cy="208.77552"
+     inkscape:current-layer="svg2383"
      inkscape:document-units="px"
      showgrid="false"
      inkscape:window-width="1118"
@@ -414,7 +414,7 @@
   </metadata>
   <g
      inkscape:groupmode="layer"
-     id="name bg"
+     id="background"
      inkscape:label="background"
      style="opacity:1;display:inline">
     <g
