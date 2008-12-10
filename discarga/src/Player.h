@@ -30,6 +30,9 @@
 
 namespace discarga
 {
+	/**
+	 * The player of the game.
+	 */
 	class Player : public ipcpp::Client, public Rule_Handler
 	{
 		public:

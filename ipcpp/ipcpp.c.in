@@ -1,28 +1,23 @@
 /** 
 @brief
-Libcard_game, a Card Game API.
+IPCPP, Inter-process communication Plus Plus.
 */
 
 /**
 
-@mainpage Libcard_game
+@mainpage IPCPP
 
 
 @author Diogo Dutra <diogo.comp\@gmail.com>
 @date 2008
 
-@section libcard_game How Libcard_game works
+@section IPCPP How IPCPP works
 
-This library was created to makes easy creation of an Card Game.
-
-Libcard_game reads a xml file containing the rules to be used in the game.
-This rules are associated with a function, that implements how the rule works.
+IPCPP is little a wrapper of the ecore-ipc.
 
 @section deps Depends
 
-XML_Parser - A little wrapper of libxml2 made by me.
 
-eina - Libcard_game uses only the Eina_Module part of the eina.
-Libcard_game uses eina_module to load libraries in runtime, to map the rules with your functions.
+ecore-ipc - Library for inter-process commmunication.
 
 */

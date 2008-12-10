@@ -24,5 +24,4 @@ class ETruco
 		Evas* evas;
 		Evas_Object* edje;
 		std::string file_name;
-
 };

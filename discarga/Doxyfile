@@ -1,8 +1,8 @@
-PROJECT_NAME 			= Libcard_game
+PROJECT_NAME 			= Dis.Car.Ga
 OUTPUT_DIRECTORY		= doc/
 CREATE_SUBDIRS			= NO
 OUTPUT_LANGUAGE			= English
-INPUT				= src/ libcard_game.c.in
+INPUT				= src/ discarga.c.in
 GENERATE_HTML			= YES
 HTML_OUTPUT			= html
 HTML_FILE_EXTENSION		= .html

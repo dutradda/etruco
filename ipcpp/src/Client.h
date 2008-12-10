@@ -33,6 +33,9 @@ namespace ipcpp
 	int handle_server_disconnect( void* _server, int _event_type, void* _client );
 	int handle_messages_client_received( void* _server, int _event_type, void* _full_message );
 
+	/**
+	 * The Client class
+	 */
 	class Client
 	{
 		public:

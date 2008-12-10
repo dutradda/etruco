@@ -1,8 +1,8 @@
-PROJECT_NAME 			= Messages_Handler
+PROJECT_NAME 			= IPCPP
 OUTPUT_DIRECTORY		= doc/
 CREATE_SUBDIRS			= NO
 OUTPUT_LANGUAGE			= English
-INPUT				= src/ message_handler.c.in
+INPUT				= src/ ipcpp.c.in
 GENERATE_HTML			= YES
 HTML_OUTPUT			= html
 HTML_FILE_EXTENSION		= .html

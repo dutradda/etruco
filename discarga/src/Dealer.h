@@ -29,6 +29,9 @@
 
 namespace discarga
 {
+	/**
+	 * The Dealer of the game.
+	 */
 	class Dealer : public ipcpp::Server, public Rule_Handler
 	{	
 		public:

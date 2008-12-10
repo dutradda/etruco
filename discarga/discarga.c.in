@@ -1,28 +1,29 @@
 /** 
 @brief
-Libcard_game, a Card Game API.
+Discarga, a Distributed Card Game Framework.
 */
 
 /**
 
-@mainpage Libcard_game
+@mainpage Discarga
 
 
 @author Diogo Dutra <diogo.comp\@gmail.com>
 @date 2008
 
-@section libcard_game How Libcard_game works
+@section Discarga How Discarga works
 
-This library was created to makes easy creation of an Card Game.
+This library was created to makes easy creation of an Distributed Card Game.
 
-Libcard_game reads a xml file containing the rules to be used in the game.
+Discarga reads a xml file containing the rules to be used in the game.
 This rules are associated with a function, that implements how the rule works.
 
 @section deps Depends
 
-XML_Parser - A little wrapper of libxml2 made by me.
+XML_Parser - A little wrapper of libxml2 made by me =).
+IPCPP - A little wrapper of ecore-ipc made by me =).
 
-eina - Libcard_game uses only the Eina_Module part of the eina.
-Libcard_game uses eina_module to load libraries in runtime, to map the rules with your functions.
+eina - Discarga uses only the Eina_Module part of the eina.
+Discarga uses eina_module to load libraries in runtime, to map the rules with your functions.
 
 */
