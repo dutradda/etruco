@@ -21,7 +21,7 @@
 #ifndef XML_PARSER_H
 #define XML_PARSER_H
 
-#include <libxml/xmlreader.h>
+#include <libxml2/libxml/xmlreader.h>
 #include <vector>
 #include <string>
 #include <map>
@@ -33,6 +33,9 @@ struct Node
 	std::vector <Node*> children;
 };
 
+/**
+ * The class who parses the xml.
+ */
 class XML_Parser
 {
 	public:
@@ -40,6 +43,12 @@ class XML_Parser
 		
 		static std::vector <Node*>
 		get_children_nodes( const std::string& _name,
+								const std::string& _xml_file_name,
+								const std::string& _attribute_name = "",
+								const std::string& _attribute_value = "" );
+		
+		static std::vector <Node*>
+		get_father_nodes( const std::string& _name,
 								const std::string& _xml_file_name,
 								const std::string& _attribute_name = "",
 								const std::string& _attribute_value = "" );
@@ -56,14 +65,21 @@ class XML_Parser
 		static bool search_child( const std::vector<Node*>& _nodes, const std::string& _name );
 		
 		static void
-		get_nodes_recurvise( std::vector <Node*>& nodes_found,
+		get_nodes_recursive_reverse( std::vector <Node*>& nodes_found,
+								const xmlNodePtr& _current_node,
+								const std::string& _name,
+								const std::string& _attribute_name = "",
+								const std::string& _attribute_value = "" );
+		
+		static void
+		get_nodes_recursive( std::vector <Node*>& nodes_found,
 								const xmlNodePtr& _current_node,
 								const std::string& _name,
 								const std::string& _attribute_name = "",
 								const std::string& _attribute_value = "" );
 								
 		static void
-		get_nodes_recurvise( std::vector <Node*>& nodes_found,
+		get_nodes_recursive( std::vector <Node*>& nodes_found,
 								const Node* _current_node,
 								const std::string& _name,
 								const std::string& _attribute_name = "",
