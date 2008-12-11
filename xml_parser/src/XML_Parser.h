@@ -52,6 +52,16 @@ class XML_Parser
 								const std::string& _xml_file_name,
 								const std::string& _attribute_name = "",
 								const std::string& _attribute_value = "" );
+
+		static std::vector <Node*>
+		get_father_nodes( const std::string& _name,
+								const std::string& _xml_file_name,
+								const std::map <std::string, std::string>& _attributes );
+
+		static std::vector <Node*>
+		get_brothers_nodes( const std::string& _name,
+								const std::string& _xml_file_name,
+								const std::map <std::string, std::string>& _attributes );
 								
 		static std::vector <Node*>
 		get_children_nodes( const Node* _node,
@@ -60,10 +70,20 @@ class XML_Parser
 								const std::string& _attribute_value = "" );
 		
 	private:
-		//std::vector <std::vector <Node*> > nodes_created;
-		
-		static bool search_child( const std::vector<Node*>& _nodes, const std::string& _name );
-		
+		static bool has_child( const std::vector<Node*>& _nodes, const std::string& _name );
+
+		static void
+		get_nodes_recursive_reverse( std::vector <Node*>& nodes_found,
+								const xmlNodePtr& _current_node,
+								const std::string& _name,
+								const std::map <std::string, std::string>& _attributes );
+
+		static void
+		get_brothers_nodes_recursive( std::vector <Node*>& nodes_found,
+								const xmlNodePtr& _current_node,
+								const std::string& _name,
+								const std::map <std::string, std::string>& _attributes );
+
 		static void
 		get_nodes_recursive_reverse( std::vector <Node*>& nodes_found,
 								const xmlNodePtr& _current_node,
@@ -77,6 +97,10 @@ class XML_Parser
 								const std::string& _name,
 								const std::string& _attribute_name = "",
 								const std::string& _attribute_value = "" );
+
+		static void
+		get_node_recursive( std::vector <Node*>& nodes_found,
+								const xmlNodePtr& _current_node );
 								
 		static void
 		get_nodes_recursive( std::vector <Node*>& nodes_found,

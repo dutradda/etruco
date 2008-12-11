@@ -18,11 +18,14 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor Boston, MA 02110-1301,  USA
  */
 
+#include <map>
+#include <iostream>
+
 #include "XML_Parser.h"
 
 using namespace std;
 
-bool XML_Parser::search_child( const vector<Node*>& _nodes, const string& _name )
+bool XML_Parser::has_child( const vector<Node*>& _nodes, const string& _name )
 {
 	for( vector<Node*>::const_iterator i = _nodes.begin(); i != _nodes.end(); i++ )
 		if( (*i)->name == _name )
@@ -72,7 +75,7 @@ XML_Parser::get_nodes_recursive_reverse( vector <Node*>& nodes_found,
 				{
 					// Quando eh feita uma busca por um filho, jah se adiciona todos os filhos daquele tipo
 					if( current_node_child->type != XML_TEXT_NODE &&
-					!search_child( new_node_found->children, (const char*) current_node_child->name ) )
+					!has_child( new_node_found->children, (const char*) current_node_child->name ) )
 						get_nodes_recursive_reverse( new_node_found->children,
 													current_node,
 													(const char*) current_node_child->name );
@@ -102,6 +105,223 @@ XML_Parser::get_nodes_recursive_reverse( vector <Node*>& nodes_found,
 			}
 			else
 				get_nodes_recursive_reverse( nodes_found, current_node, _name, _attribute_name, _attribute_value );
+		current_node = current_node->next;
+	}
+}
+
+void
+XML_Parser::get_node_recursive( vector <Node*>& nodes_found,
+											const xmlNodePtr& _current_node )
+{
+	xmlNodePtr current_node = _current_node->xmlChildrenNode;
+	
+	while( current_node != NULL )
+	{
+		if( current_node->type != XML_TEXT_NODE )
+		{
+			Node* new_node_found = new Node;
+			new_node_found->name = (const char*) current_node->name;
+
+			// Adiciona o atributos do noh
+			struct _xmlAttr*	properties;
+			for( properties = current_node->properties;
+					properties != NULL; properties = properties->next )
+				new_node_found->attributes[(const char*) properties->name] =
+											(const char*) properties->children->content;
+
+			// Adiciona os filhos noh recursivamente
+			xmlNodePtr current_node_child = current_node->xmlChildrenNode;
+			while( current_node_child != NULL )
+			{
+				// Quando eh feita uma busca por um filho, jah se adiciona todos os filhos daquele tipo
+				if( current_node_child->type != XML_TEXT_NODE &&
+				!has_child( new_node_found->children, (const char*) current_node_child->name ) )
+					get_nodes_recursive( new_node_found->children,
+												current_node,
+												(const char*) current_node_child->name );
+				current_node_child = current_node_child->next;
+			}
+			nodes_found.push_back( new_node_found );
+		}
+		current_node = current_node->next;
+	}
+}
+
+void
+XML_Parser::get_brothers_nodes_recursive( vector <Node*>& nodes_found,
+											const xmlNodePtr& _current_node,
+											const string& _name,
+											const map <string, string>& _attributes )
+{
+	xmlNodePtr current_node = _current_node->xmlChildrenNode;
+	
+	while( current_node != NULL )
+	{
+		if( current_node->type != XML_TEXT_NODE )
+			if( (xmlStrcmp( current_node->name, (const xmlChar *) _name.c_str() ) == 0) )
+			{
+				int has_attribute = 1;
+				for( map <string, string>::const_iterator i = _attributes.begin(); i != _attributes.end(); i++ )
+				{
+					/* Se o noh for o corrente e tem o atributo pedido e o valor dele nao foi setado ou
+					 * tem o atributo pedido e o valor foi setado corretamente */
+					if( (xmlHasProp( current_node, (const xmlChar*) i->first.c_str() ) && i->second == "") ||
+						 (xmlHasProp( current_node, (const xmlChar*) i->first.c_str() ) &&
+							  i->second == (const char*) xmlGetProp( current_node,
+																				(const xmlChar*) i->first.c_str() )) )
+						has_attribute = 2;
+					else
+					{
+						has_attribute = 0;
+						break;
+					}
+				}
+
+				// Se um atributo pedido nao foi encontrado ele nao adiciona
+				if( has_attribute == 2 )
+					get_node_recursive(nodes_found, _current_node );
+				else if( has_attribute == 1 )
+				{
+					Node* new_node_found = new Node;
+					new_node_found->name = (const char*) current_node->name;
+
+					// Adiciona os atributos do noh
+					struct _xmlAttr*	properties;
+					for( properties = current_node->properties;
+							properties != NULL; properties = properties->next )
+						new_node_found->attributes[(const char*) properties->name] =
+													(const char*) properties->children->content;
+
+					// Adiciona os filhos noh recursivamente
+					xmlNodePtr current_node_child = current_node->xmlChildrenNode;
+					while( current_node_child != NULL )
+					{
+						// Quando eh feita uma busca por um filho, jah se adiciona todos os filhos daquele tipo
+						if( current_node_child->type != XML_TEXT_NODE &&
+						!has_child( new_node_found->children, (const char*) current_node_child->name ) )
+							get_brothers_nodes_recursive( new_node_found->children,
+														current_node,
+														(const char*) current_node_child->name, map <string,string>() );
+						current_node_child = current_node_child->next;
+					}
+					nodes_found.push_back( new_node_found );
+				}
+				else
+					goto GET_FATHER;
+			}
+			else
+				GET_FATHER:
+				if( current_node->xmlChildrenNode != NULL )
+				{
+					vector <Node*> node_children;
+					get_brothers_nodes_recursive( node_children, current_node, _name, _attributes );
+
+					if( !node_children.empty() )
+					{
+						Node* new_node = new Node;
+						new_node->name = (const char*) current_node->name;
+
+						// Adiciona o atributos do noh
+						struct _xmlAttr*	properties;
+						for( properties = current_node->properties;
+								properties != NULL; properties = properties->next )
+							new_node->attributes[(const char*) properties->name] =
+														(const char*) properties->children->content;
+						new_node->children = node_children;
+						nodes_found.push_back( new_node );
+					}
+				}
+				else
+					get_brothers_nodes_recursive( nodes_found, current_node, _name, _attributes );
+		current_node = current_node->next;
+	}
+}
+
+
+void
+XML_Parser::get_nodes_recursive_reverse( vector <Node*>& nodes_found,
+											const xmlNodePtr& _current_node,
+											const string& _name,
+											const map <string, string>& _attributes )
+{
+	xmlNodePtr current_node = _current_node->xmlChildrenNode;
+
+	while( current_node != NULL )
+	{
+		if( current_node->type != XML_TEXT_NODE )
+			if( (xmlStrcmp( current_node->name, (const xmlChar *) _name.c_str() ) == 0) )
+			{
+				int has_attribute = 1;
+				for( map <string, string>::const_iterator i = _attributes.begin(); i != _attributes.end(); i++ )
+				{
+					/* Se o noh for o corrente e tem o atributo pedido e o valor dele nao foi setado ou
+					 * tem o atributo pedido e o valor foi setado corretamente */
+					if( (xmlHasProp( current_node, (const xmlChar*) i->first.c_str() ) && i->second == "") ||
+						 (xmlHasProp( current_node, (const xmlChar*) i->first.c_str() ) &&
+							  i->second == (const char*) xmlGetProp( current_node,
+																				(const xmlChar*) i->first.c_str() )) )
+						continue;
+					else
+					{
+						has_attribute = 0;
+						break;
+					}
+				}
+
+				// Se um atributo pedido nao foi encontrado ele nao adiciona
+				if( has_attribute )
+				{
+					Node* new_node_found = new Node;
+					new_node_found->name = (const char*) current_node->name;
+
+					// Adiciona os atributos do noh
+					struct _xmlAttr*	properties;
+					for( properties = current_node->properties;
+							properties != NULL; properties = properties->next )
+						new_node_found->attributes[(const char*) properties->name] =
+													(const char*) properties->children->content;
+
+					// Adiciona os filhos noh recursivamente
+					xmlNodePtr current_node_child = current_node->xmlChildrenNode;
+					while( current_node_child != NULL )
+					{
+						// Quando eh feita uma busca por um filho, jah se adiciona todos os filhos daquele tipo
+						if( current_node_child->type != XML_TEXT_NODE &&
+						!has_child( new_node_found->children, (const char*) current_node_child->name ) )
+							get_nodes_recursive_reverse( new_node_found->children,
+														current_node,
+														(const char*) current_node_child->name, map<string,string>() );
+						current_node_child = current_node_child->next;
+					}
+					nodes_found.push_back( new_node_found );
+				}
+				else
+					goto GET_FATHER;
+			}
+			else
+				GET_FATHER:
+				if( current_node->xmlChildrenNode != NULL )
+				{
+					vector <Node*> node_children;
+					get_nodes_recursive_reverse( node_children, current_node, _name, _attributes );
+
+					if( !node_children.empty() )
+					{
+						Node* new_node = new Node;
+						new_node->name = (const char*) current_node->name;
+
+						// Adiciona o atributos do noh
+						struct _xmlAttr*	properties;
+						for( properties = current_node->properties;
+								properties != NULL; properties = properties->next )
+							new_node->attributes[(const char*) properties->name] =
+														(const char*) properties->children->content;
+						new_node->children = node_children;
+						nodes_found.push_back( new_node );
+					}
+				}
+				else
+					get_nodes_recursive_reverse( nodes_found, current_node, _name, _attributes );
 		current_node = current_node->next;
 	}
 }
@@ -148,7 +368,7 @@ XML_Parser::get_nodes_recursive( vector <Node*>& nodes_found,
 				{
 					// Quando eh feita uma busca por um filho, jah se adiciona todos os filhos daquele tipo
 					if( current_node_child->type != XML_TEXT_NODE &&
-					!search_child( new_node_found->children, (const char*) current_node_child->name ) )
+					!has_child( new_node_found->children, (const char*) current_node_child->name ) )
 						get_nodes_recursive( new_node_found->children,
 													current_node,
 													(const char*) current_node_child->name );
@@ -239,6 +459,43 @@ XML_Parser::get_father_nodes( const string& _name,
 
 	return nodes;
 }
+
+std::vector <Node*>
+		XML_Parser::get_father_nodes( const string& _name,
+								const string& _xml_file_name,
+								const map <string, string>& _attributes )
+{
+	xmlDocPtr xml_document = xmlParseFile( _xml_file_name.c_str() );
+	xmlNodePtr root_node = xmlDocGetRootElement( xml_document );
+	vector <Node*> nodes;
+
+	get_nodes_recursive_reverse( nodes, root_node, _name, _attributes );
+
+	xmlFreeDoc( xml_document );
+	xmlCleanupParser();
+	xmlMemoryDump();
+
+	return nodes;
+}
+
+std::vector <Node*>
+		XML_Parser::get_brothers_nodes( const string& _name,
+								const string& _xml_file_name,
+								const map <string, string>& _attributes )
+{
+	xmlDocPtr xml_document = xmlParseFile( _xml_file_name.c_str() );
+	xmlNodePtr root_node = xmlDocGetRootElement( xml_document );
+	vector <Node*> nodes;
+
+	get_brothers_nodes_recursive( nodes, root_node, _name, _attributes );
+
+	xmlFreeDoc( xml_document );
+	xmlCleanupParser();
+	xmlMemoryDump();
+
+	return nodes;
+}
+
 
 void XML_Parser::free_nodes( vector <Node*>& nodes )
 {
