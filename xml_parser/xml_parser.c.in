@@ -1,0 +1,24 @@
+/** 
+@brief
+XML_Parser, a C++ wrapper for libxml2.
+*/
+
+/**
+
+@mainpage XML_Parser
+
+
+@author Diogo Dutra <diogo.comp\@gmail.com>
+@date 2008
+
+@section XML_Parser
+
+@brief This library was created to helps developers parser a xml file.
+
+XML_Parser create a abstract layer in libxml2 and offers some usefull functions to interact with a xml file.
+
+@section deps Depends
+
+XML_Parser depends only libxml2.
+
+*/

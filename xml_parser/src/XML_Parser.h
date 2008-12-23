@@ -34,46 +34,85 @@ struct Node
 };
 
 /**
- * The class who parses the xml.
+ * A class with some functions to parse a xml file.
  */
 class XML_Parser
 {
 	public:
+
+		/**
+		 * Free a vector of nodes.
+		 *	@param nodes
+		 *	 A vector of nodes to free.
+		 *
+		 */
 		static void free_nodes( std::vector <Node*>& nodes );
-		
+
+		/**
+		 * Get all children of a node and its children too.
+		 * @param _name
+		 *  The name of the node to get children.
+		 * @param _xml_file_name
+		 *  The name of xml file.
+		 * @param _attributes
+		 *  The attributes of node. Could be empty, the pattern is a map of name attribute, value attribute.
+		 */
 		static std::vector <Node*>
 		get_children_nodes( const std::string& _name,
 								const std::string& _xml_file_name,
-								const std::string& _attribute_name = "",
-								const std::string& _attribute_value = "" );
-		
-		static std::vector <Node*>
-		get_father_nodes( const std::string& _name,
-								const std::string& _xml_file_name,
-								const std::string& _attribute_name = "",
-								const std::string& _attribute_value = "" );
+								const std::map <std::string, std::string>& _attributes );
 
+		/**
+		 * Get all nodes before the selected node and get its children.
+		 * @param _name
+		 *  The name of the node to get fathers.
+		 * @param _xml_file_name
+		 *  The name of xml file.
+		 * @param _attributes
+		 *  The attributes of node. Could be empty, the pattern is a map of name attribute, value attribute.
+		 */
 		static std::vector <Node*>
-		get_father_nodes( const std::string& _name,
+		get_fathers_nodes( const std::string& _name,
 								const std::string& _xml_file_name,
 								const std::map <std::string, std::string>& _attributes );
 
+		/**
+		 * Get all nodes beside the node selected, get all before and get its children too.
+		 * @param _name
+		 *  The name of the node to get brothers.
+		 * @param _xml_file_name
+		 *  The name of xml file.
+		 * @param _attributes
+		 *  The attributes of node. Could be empty, the pattern is a map of name attribute, value attribute.
+		 */
 		static std::vector <Node*>
 		get_brothers_nodes( const std::string& _name,
 								const std::string& _xml_file_name,
 								const std::map <std::string, std::string>& _attributes );
-								
-		static std::vector <Node*>
-		get_children_nodes( const Node* _node,
-								const std::string& _name,
-								const std::string& _attribute_name = "",
-								const std::string& _attribute_value = "" );
 		
 	private:
-		static bool has_child( const std::vector<Node*>& _nodes, const std::string& _name );
+		
+		XML_Parser() { };
+
+		static Node*
+		create_node( const xmlNodePtr& current_node );
+
+		static int
+		check_node( const xmlNodePtr& _current_node,
+							const std::string& _name,
+							const std::map <std::string, std::string>& _attributes );
 
 		static void
-		get_nodes_recursive_reverse( std::vector <Node*>& nodes_found,
+		get_node_recursive( Node*& node, const xmlNodePtr& current_node );
+
+		static void
+		get_children_nodes_recursive( std::vector <Node*>& nodes_found,
+								const xmlNodePtr& _current_node,
+								const std::string& _name,
+								const std::map <std::string, std::string>& _attributes );
+
+		static void
+		get_fathers_nodes_recursive( std::vector <Node*>& nodes_found,
 								const xmlNodePtr& _current_node,
 								const std::string& _name,
 								const std::map <std::string, std::string>& _attributes );
@@ -83,33 +122,6 @@ class XML_Parser
 								const xmlNodePtr& _current_node,
 								const std::string& _name,
 								const std::map <std::string, std::string>& _attributes );
-
-		static void
-		get_nodes_recursive_reverse( std::vector <Node*>& nodes_found,
-								const xmlNodePtr& _current_node,
-								const std::string& _name,
-								const std::string& _attribute_name = "",
-								const std::string& _attribute_value = "" );
-		
-		static void
-		get_nodes_recursive( std::vector <Node*>& nodes_found,
-								const xmlNodePtr& _current_node,
-								const std::string& _name,
-								const std::string& _attribute_name = "",
-								const std::string& _attribute_value = "" );
-
-		static void
-		get_node_recursive( std::vector <Node*>& nodes_found,
-								const xmlNodePtr& _current_node );
-								
-		static void
-		get_nodes_recursive( std::vector <Node*>& nodes_found,
-								const Node* _current_node,
-								const std::string& _name,
-								const std::string& _attribute_name = "",
-								const std::string& _attribute_value = "" );
-		
-		
 };
 	
 #endif
