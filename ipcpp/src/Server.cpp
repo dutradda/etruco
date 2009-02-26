@@ -89,7 +89,7 @@ int ipcpp::handle_client_disconnect( void* _server, int _event_type, void* _clie
 
 	return 1;
 }
-#include <iostream>
+
 int ipcpp::handle_messages_server_received( void* _server, int _event_type, void* _full_message )
 {	
 	Server* server = (Server*) _server;
