@@ -36,23 +36,53 @@ namespace discarga
 	class Player : public ipcpp::Client, public Rule_Handler
 	{
 		public:
+		/**
+		 * Constructor
+		 *
+		 * @param _port 
+		 * Port's number to connect
+		 *
+		 * @param _host
+		 * The server's adress
+		 *
+		 * @param _xml_file_name
+		 * The xml file name where the rules are.
+		 */
 			Player(const int& _port,
 					const std::string& _host,
 					const std::string& _xml_file_name );
 			
+			/**
+			 * Apply the rule throught name
+			 *
+			 * @param _rule_name
+			 * Rules's name
+			 *
+			 * @param _data
+			 * The data gived to the rule. The Player object is automatic pushed back to this vector. This method calls the execute Rule method.
+			 */
 			int apply_rule( const std::string& _rule_name, std::vector<void*>& _data );
 			
+			/**
+			 * Apply the rule throught rule's id
+			 *
+			 * @param _rule_id
+			 *  Rules's id
+ 			 *
+			 * @param _data
+			 * The data gived to the rule. The Player object is automatic pushed back to this vector. This method calls the execute Rule method.
+			 */
 			int apply_rule( const int& _rule_id, std::vector<void*>& _data );
 			
-			/**
+			/*
 			 * Receive new cards.
 			 *
 			 * @param _cards
 			 *  A std::vector with three cards.
-			 */
+			 *
 			//inline void receive_card( discarga::Card _card ) { cards.push_back( _card ); };
 			
-			/**
+			/*
 			 * Play a card.
 			 *
 			 * @param _card
@@ -62,10 +92,10 @@ namespace discarga
 			 *  1 if the card was played with sucess.
 			 *  0 if the player dont have the card.
 			 *  -1 if the player dont have any card.
-			 */
+			 *
 			//int plays_card( const Card& _card );
 			
-			/**
+			/*
 			 * Get the player's cards.
 			 *
 			 * @return
@@ -74,6 +104,15 @@ namespace discarga
 			//inline std::vector <Card> get_cards() { return cards; };
 			
 		protected:
+			/**
+			 * This method is automatic called when the Player receive a message. Never call this method! This method apply a rule with ID equal _msg_id.
+			 *
+			 * @param _msg_id
+			 * Message's id
+			 *
+			 * @param _data
+			 * Data's vector
+			 */
 			int handle_message( const int& _msg_id, std::vector<void*> _data );
 		
 		//private:

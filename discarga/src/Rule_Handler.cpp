@@ -19,16 +19,10 @@
  */
 
 #include "Rule_Handler.h"
+#include <iostream>
 
 using namespace std;
 using namespace discarga;
-
-/**
-* Constructor 
-*
-* @param _xml_file_name
-* Is the rule's input
-*/
 
 Rule_Handler::Rule_Handler( const string& _xml_file_name )
 {
@@ -36,10 +30,6 @@ Rule_Handler::Rule_Handler( const string& _xml_file_name )
 		
 	eina_module_init();
 }
-
-/**
-* Destructor
-*/
 
 Rule_Handler::~Rule_Handler()
 {
@@ -52,14 +42,8 @@ Rule_Handler::~Rule_Handler()
 	eina_module_shutdown();
 }
 
-/**
-* Check for conflicts
-*
-* @param vector <Conflict>& _conflicts
-*
-* Vector that have a rules conflicts's list
-*/
-int Rule_Handler::check_rule_conflicts( const vector <Conflict>& _conflicts )
+
+int Rule_Handler::check_rule_conflicts( const vector <Conflict>& _conflicts, const string& _name )
 {	
 	map <string, Rule*>::iterator result;
 	for( vector <Conflict>::const_iterator i = _conflicts.begin(); i != _conflicts.end(); i++ )
@@ -68,23 +52,15 @@ int Rule_Handler::check_rule_conflicts( const vector <Conflict>& _conflicts )
 		if( result != rules.end() && result->second->type == i->type )
 			return 0;
 	}
+	
+	for(map <string, Rule*>::iterator i = rules.begin(); i != rules.end(); ++i )
+		for( vector <Conflict>::const_iterator j = i->second->conflicts.begin(); j != i->second->conflicts.end(); ++j )
+			if( j->name == _name )
+				return 0;
 		
 	return 1;
 }
 
-/**
-* Check the rule's dependencies
-*
-* @param map <string, Rule*>& _rules_deps
-* Is a map (vector with label) of rules that have the rules's dependencies
-*
-* @param _type
-* The rules's type
-* 
-* 
-* @param _xml_file_name
-* The xml file name where the rules are.
-*/
 int
 Rule_Handler::check_rule_dependencies( map <string, Rule*>& _rules_deps,
 										const string& _type,
@@ -92,7 +68,7 @@ Rule_Handler::check_rule_dependencies( map <string, Rule*>& _rules_deps,
 										const string& _xml_file_name )
 {
 	multimap <int, string> rule_errors;
-	
+	map <string, Rule*> rules_loaded_now;
 	map <string, Rule*>::iterator result;
 	for( vector <string>::const_iterator i = _dependencies.begin(); i != _dependencies.end(); i++ )
 	{
@@ -100,51 +76,43 @@ Rule_Handler::check_rule_dependencies( map <string, Rule*>& _rules_deps,
 		if( result != rules.end() && result->second->type == _type )
 			_rules_deps[*i] = result->second;
 		else
-		{
+		{ // se uma dependencia nao estiver carregada, tenta carregar agora
 			rule_errors = load_rules_file( _xml_file_name, _type, *i );
 			if( rule_errors.empty() )
+			{
+				rules_loaded_now[*i] = rules.find( *i )->second;
 				_rules_deps[*i] = rules.find( *i )->second;
+			}
 			else
+			{ // se deu problema em carregar alguma dependencia, remove as carregadas automaticamente
+				for( map <string, Rule*>::iterator i = rules_loaded_now.begin(); i != rules_loaded_now.end(); ++i )
+					unload_rule( i->second->name );
 				return 0;
+			}
 		}
 	}
 	
 	return 1;
 }
 
-/**
-* Aplly the rule
-*
-* @param _name 
-* The rule's name
-*
-* @param _who_sent
-*/
-int Rule_Handler::apply_rule( const string& _name, vector <void*>& _data, const int& _who_sent )
+int Rule_Handler::apply_rule( const string& _name, vector <void*>& _data/*, const int& _who_sent*/ )
 {
 	map <string, Rule*>::iterator result = rules.find( _name );
 	if( result != rules.end() )
 	{
-		_data.push_back( (void*) _who_sent );
-		_data.push_back( this );
+		//_data.push_back( (void*) _who_sent );
+		//_data.push_back( this );
 		return rules[_name]->execute( _data );
 	}
 	
 	return 0;
 }
 
-/**
-* Unload a rule
-*
-* @param _name
-* The rule's name
-*/
 int Rule_Handler::unload_rule( const string& _name )
 {
 	map <string, Rule*>::iterator result = rules.find( _name );
 	if( result != rules.end() )
 	{
-		delete result->second;
 		rules.erase( result );
 		return 1;
 	}
@@ -152,12 +120,6 @@ int Rule_Handler::unload_rule( const string& _name )
 	return 0;
 }
 
-/**
-* Unload all rules
-*
-* @param _type
-* The rules's type
-*/
 int Rule_Handler::unload_rule_type( const string& _type )
 {
 	int ret = 0;
@@ -174,16 +136,6 @@ int Rule_Handler::unload_rule_type( const string& _type )
 }
 
 multimap <int, string>
-
-/**
-* Load all rules
-*
-* @param _name
-* The rules's name
-*
-* @param _type
-* The rules's type
-*/
 Rule_Handler::load_rules( const string& _type,
 							const string& _name )
 {
@@ -191,19 +143,6 @@ Rule_Handler::load_rules( const string& _type,
 }
 
 multimap <int, string>
-
-/**
-* Load all rules from xml file
-*
-* @param _xml_file_name
-* The xml file name where the rules are.
-*
-* @param _name
-* The rules's name
-*
-* @param _type
-* The rules's type
-*/
 Rule_Handler::load_rules_file( const string& _xml_file_name,
 							const string& _type,
 							const string& _name )
@@ -213,21 +152,27 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 	Conflict conflict;
 	Module_Symbol module_symbol; // Eh a regra instanciada na biblioteca
 	vector <Node*> nodes;
+	map<string, string> mrules; // Um multimap com o tipo e/ou nome da regra
 	
 	if( _type == "" )
-		nodes = XML_Parser::get_children_nodes( "rule", _xml_file_name );
+		nodes = XML_Parser::get_children_nodes( "rule", _xml_file_name, mrules );
 	else if( _name == "" )
-		nodes = XML_Parser::get_children_nodes( "rule", _xml_file_name, "type", _type );
+	{
+		mrules["type"] = _type;
+		nodes = XML_Parser::get_children_nodes( "rule", _xml_file_name, mrules );
+	}
 	else
 	{
-		vector <Node*> tmp = XML_Parser::get_children_nodes( "rule", _xml_file_name, "name", _name );
+		mrules["type"] = _type;
+		mrules["name"] = _name;
+		nodes = XML_Parser::get_children_nodes( "rule", _xml_file_name, mrules );
 		
-		for( vector <Node*>::iterator i = tmp.begin(); i != tmp.end(); i++ )
+		/*for( vector <Node*>::iterator i = tmp.begin(); i != tmp.end(); i++ )
 			if( (*i)->attributes["type"] == _type )
 			{
 				nodes.push_back( *i );
 				break;
-			}
+			}*/
 	}
 	
 	if( nodes.size() == 0 )
@@ -265,7 +210,7 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 			}
 		
 		map <string, Rule*> rules_deps;
-		if( check_rule_conflicts(conflicts) )
+		if( check_rule_conflicts(conflicts, (*i)->attributes["name"]) )
 			if( check_rule_dependencies( rules_deps, (*i)->attributes["type"], dependencies, _xml_file_name ) )
 			{
 				// Verifica se o modulo ja esta carregado e pega a regra
@@ -306,7 +251,9 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 				new_rule->description = (*i)->attributes["description"];
 				new_rule->dependencies = rules_deps;
 				new_rule->conflicts = conflicts;
-				rules[new_rule->name] = new_rule;		
+				module_symbol.symbol = NULL;
+				new_rule->module_symbol = module_symbol;
+				rules[new_rule->name] = new_rule;
 			}
 			else
 				rule_errors.insert( pair <int,string>( -1, (*i)->attributes["name"] ) );
@@ -314,7 +261,11 @@ Rule_Handler::load_rules_file( const string& _xml_file_name,
 			rule_errors.insert( pair <int,string>( -2, (*i)->attributes["name"] ) );
 	}
 	
+	cout << rules.size() << endl;
+	for(map <string, Rule*>::iterator j = rules.begin(); j != rules.end(); ++j )
+					cout << j->second->name << " " << j->second->type << " " << j->first << endl;
+	
 	XML_Parser::free_nodes(nodes);
-		
+			
 	return rule_errors;
 }

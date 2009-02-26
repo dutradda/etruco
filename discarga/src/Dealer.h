@@ -53,7 +53,7 @@ namespace discarga
 			* Rules's name
 			*
 			* @param _data
-			* Data's vector
+			* The data gived to the rule. The sender id and the Dealer object is automatic pushed back to this vector. This method calls the execute Rule method.
 			*
 			* @param _who_sent
  			* Id of who sent the message
@@ -68,7 +68,7 @@ namespace discarga
 			* Rules's id
 			*
 			* @param _data
-			* Data's vector
+			* The data gived to the rule. The sender id and the Dealer object is automatic pushed back to this vector. This method calls the execute Rule method.
 			*
 			* @param _who_sent
  			* Id of who sent the message
@@ -78,7 +78,7 @@ namespace discarga
 		protected:
 			
 			/**
-			* Message colector
+			* This method is automatic called when the Dealer receive a message. Never call this method! This method apply a rule with ID equal _msg_id.
 			*
 			* @param _msg_id
 			* Message's id

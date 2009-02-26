@@ -15,3 +15,6 @@ discarga_include_HEADERS = \
 	Rule_Handler.h	\
 	Dealer.h	\
 	Deck.h
+
+include_HEADERS = \
+	discarga.hpp

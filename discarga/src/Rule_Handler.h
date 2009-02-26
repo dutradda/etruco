@@ -35,22 +35,13 @@ namespace discarga
 	 * The Card Game class.
 	 */
 	class Rule_Handler
-	{
-		struct Module_Symbol
-		{
-			std::string name;
-			std::string module_file_name;
-			void* symbol;
-		};
-		
+	{	
 		public:
 			/**
 			 * Default Constructor
 			 * 
-			 * @param _num_team_players
-			 * 	The number of players in each team.
-			 * @param _num_teams
-			 * 	The number of teams, the default is two.
+			 * @param _xml_file_name
+			 * The name of the xml file where are the rules.
 			 */
 			Rule_Handler( const std::string& _xml_file_name );
 			
@@ -63,21 +54,22 @@ namespace discarga
 			 * Loads rules.
 			 *
 			 * @param _xml_file_name
-			 *  The xml file name where the rules are.
+			 * The xml file name where the rules are.
 			 * 
-			 * @param _attribute_name
-			 *	 The rule attribute name pre-requisite.
+			 * @param _type
+			 *	The truco type of the rule.
 			 * 
-			 * @param _attribute_value
-			 *  The rule attribute value pre-requisite.
+			 * @param _name
+			 * The name of the rule.
 			 * 
 			 * @return
-			 *  The multistd::map with the errors and rules.
-			 *  The errors are:
-			 *  -1 if the dependencies dont match.
-			 *  -2 if the conflicts match.
-			 *  -3 if the module of a rule function dont exist.
-			 *  -4 if a rule function dont exist in the module.
+			 * The multistd::map with the errors and rules.
+			 * @n The errors are:
+			 *  - -1 if the dependencies dont match.
+			 *  - -2 if the conflicts match.
+			 *  - -3 if the module of a rule function dont exist.
+			 *  - -4 if a rule function dont exist in the module.
+			 *
 			 */
 			std::multimap <int, std::string>
 			load_rules_file( const std::string& _xml_file_name,
@@ -86,21 +78,20 @@ namespace discarga
 							
 			/**
 			 * Loads rules.
-			 *
-			 * @param _attribute_name
-			 *	 The rule attribute name pre-requisite.
 			 * 
-			 * @param _attribute_value
-			 *  The rule attribute value pre-requisite.
+			 * @param _type
+			 * The truco type of the rule.
+			 * 
+			 * @param _name
+			 * The name of the rule.
 			 * 
 			 * @return
-			 *  The multistd::map with the errors and rules.
-			 *  The errors are:
-			 *  -1 if the dependencies dont match.
-			 *  -2 if the conflicts match.
-			 *  -3 if the module of a rule function dont exist.
-			 *  -4 if a rule function dont exist in the module.
-			 *  -5 if the rule is already loaded.
+			 * The multistd::map with the errors and rules.
+			 * @n The errors are:
+			 *  - -1 if the dependencies dont match.
+			 *  - -2 if the conflicts match.
+			 *  - -3 if the module of a rule function dont exist.
+			 *  - -4 if a rule function dont exist in the module.
 			 */
 			std::multimap <int, std::string>
 			load_rules( const std::string& _type = "",
@@ -110,27 +101,66 @@ namespace discarga
 			 * Apply a rule.
 			 * 
 			 * @param _name
-			 *  The rule to be applied.
+			 * The rule to be applied.
 			 * 
-			 * @param _params
-			 *  The params taken by the rule.
+			 * @param _data
+			 * The params taken by the rule.
 			 * 
 			 * @return
-			 *  1 if the rule was applied sucessful. 0 if the rule cant be aplied.
+			 * 1 if the rule was applied sucessful. 0 if the rule cant be aplied.
 			 */
-			virtual int apply_rule( const std::string& _name, std::vector <void*>& _data, const int& _who_sent = -1 );
+			virtual int apply_rule( const std::string& _name, std::vector <void*>& _data );
 			
+			/**
+			 * Unload a rule.
+			 *
+			 * @param _name
+			 * The rule's name.
+			 */
 			int unload_rule( const std::string& _name );
 			
+			/**
+			 * Unload rules by a type.
+			 *
+			 * @param _type
+			 * The rules's type.
+			 */
 			int unload_rule_type( const std::string& _type );
+			
+			/** Return the rules loaded. */
+			inline std::map <std::string, Rule*> get_rules() { return rules; }
 		
 		protected:
-			std::string xml_file_name; // The name of the xml file
-			std::map <std::string, Rule*> rules; // The rules loaded in the game
-			std::vector <Eina_Module*> modules; // The modules where the rules functions are in
+			std::string xml_file_name; /**< The name of the xml file. */
+			std::map <std::string, Rule*> rules; /**< The rules loaded in the game. */
+			std::vector <Eina_Module*> modules; /**< The modules where the rules functions are in. */
 			
-			int check_rule_conflicts( const std::vector <Conflict>& _conflicts );
+			/**
+			 * Check for conflicts.
+			 *
+			 * @param _conflicts
+			 * Vector that have a rules conflicts's list.
+			 * 
+			 * @param _name
+			 * The name of the rule that are checking the conflicts.
+			 */
+			int check_rule_conflicts( const std::vector <Conflict>& _conflicts, const std::string& _name );
 			
+			/**
+			 * Check the rule's dependencies.
+			 *
+			 * @param _rules_deps
+			 * A vector of pointers to the rule dependencies. This is a return parameter.
+			 *
+			 * @param _type
+			 * The rules's type.
+ 			 * 
+			 * @param _dependencies
+			 * Vector with dependencies to check.
+			 * 
+			 * @param _xml_file_name
+			 * The xml file name where the rules are.
+			 */
 			int check_rule_dependencies( std::map <std::string, Rule*>& _rules_deps,
 												const std::string& _type,
 												const std::vector <std::string>& _dependencies,
