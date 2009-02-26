@@ -1,10 +1,19 @@
 #include <string>
 #include <vector>
-#include "truco_paulista_rules.h"
+#include "Truco_Paulista_Rules.h"
+
+using namespace truco_paulista;
+using namespace std;
+using namespace discarga;
 
 Give_Cards::Give_Cards( int _deck_size )
 {
 	deck = new Deck(_deck_size);
+	round = 4;
+	mao_value = 1;
+	asks = 0;
+	truco_accepted = false;
+	truco_rejected = false;
 }
 
 Give_Cards::~Give_Cards()
@@ -12,7 +21,7 @@ Give_Cards::~Give_Cards()
 	delete deck;
 }
 
-void Give_Cards::execute( vector<void*>& _data )
+int Give_Cards::execute( vector<void*>& _data )
 {
 	deck->shuffle();
 	
@@ -23,7 +32,7 @@ void Give_Cards::execute( vector<void*>& _data )
 int Give_Cards::send_my_message( vector<void*>& _data )
 {
 	Dealer* dealer = (Dealer*) _data.back();
-	char[6] cards_sended;
+	char cards_sended[6]; // 6 caracteres, valor e naipe 3x, formando 3 cartas
 	
 	vector<Card*>::iterator card_iter = cards.begin();
 	for( int i = 0; i < 4; i++ )
